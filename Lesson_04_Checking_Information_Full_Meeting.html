@@ -452,6 +452,15 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   border:2px solid var(--lb);
 }
 #notesPanel.open{display:flex;}
+.notes-drag-handle{
+  cursor:move;display:flex;align-items:center;gap:6px;
+  margin:-14px -14px 0;padding:8px 12px;
+  border-radius:12px 12px 0 0;background:var(--lgr);
+  border-bottom:2px solid var(--lb);
+  font-size:11px;font-weight:800;color:var(--gray);letter-spacing:.6px;
+  user-select:none;touch-action:none;
+}
+.notes-drag-handle .grip{font-size:13px;letter-spacing:1px;color:#aaa;}
 .notes-toolbar{display:flex;gap:6px;align-items:center;padding-bottom:8px;border-bottom:2px solid var(--lb);}
 .notes-toolbar-label{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:.5px;margin-right:4px;}
 .notes-tbtn{
@@ -1327,6 +1336,64 @@ const NOTES_KEY='efe2notes:'+(location.pathname.split('/').pop()||'lesson');
 let notesData={};
 try{notesData=JSON.parse(localStorage.getItem(NOTES_KEY))||{};}catch(e){notesData={};}
 function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesData));}catch(e){}}
+
+/* ═══ draggable notes panel ═══ */
+(function(){
+  var panel = document.getElementById('notesPanel');
+  var handle = document.getElementById('notesDragHandle');
+  if(!panel || !handle) return;
+  var POS_KEY = NOTES_KEY + ':pos';
+  var dragging = false, offsetX = 0, offsetY = 0;
+  function clampAndApply(x, y){
+    var maxX = window.innerWidth - panel.offsetWidth - 8;
+    var maxY = window.innerHeight - panel.offsetHeight - 8;
+    x = Math.max(8, Math.min(x, Math.max(8, maxX)));
+    y = Math.max(8, Math.min(y, Math.max(8, maxY)));
+    panel.style.left = x + 'px';
+    panel.style.top = y + 'px';
+    panel.style.right = 'auto';
+    panel.style.bottom = 'auto';
+  }
+  function onDown(e){
+    dragging = true;
+    var rect = panel.getBoundingClientRect();
+    var pt = e.touches ? e.touches[0] : e;
+    offsetX = pt.clientX - rect.left;
+    offsetY = pt.clientY - rect.top;
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchmove', onMove, {passive:false});
+    document.addEventListener('touchend', onUp);
+    e.preventDefault();
+  }
+  function onMove(e){
+    if(!dragging) return;
+    var pt = e.touches ? e.touches[0] : e;
+    clampAndApply(pt.clientX - offsetX, pt.clientY - offsetY);
+    if(e.touches) e.preventDefault();
+  }
+  function onUp(){
+    if(!dragging) return;
+    dragging = false;
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onUp);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('touchend', onUp);
+    try{
+      var rect = panel.getBoundingClientRect();
+      localStorage.setItem(POS_KEY, JSON.stringify({left:rect.left, top:rect.top}));
+    }catch(err){}
+  }
+  handle.addEventListener('mousedown', onDown);
+  handle.addEventListener('touchstart', onDown, {passive:false});
+  window.addEventListener('resize', function(){
+    if(panel.style.left){ var r=panel.getBoundingClientRect(); clampAndApply(r.left, r.top); }
+  });
+  try{
+    var saved = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
+    if(saved) clampAndApply(saved.left, saved.top);
+  }catch(err){}
+})();
 function clearAllNotes(){if(confirm('Clear ALL notes for this whole lesson? This cannot be undone.')){notesData={};persistNotes();var ta=document.getElementById('notesTA');if(ta)ta.innerHTML='';}}
 window.addEventListener('DOMContentLoaded',function(){var ta=document.getElementById('notesTA');if(ta){ta.innerHTML=notesData[currentSlide]||'';ta.addEventListener('input',function(){notesData[currentSlide]=ta.innerHTML;persistNotes();});}});
 function saveCurrentNotes() {
@@ -1407,7 +1474,7 @@ function downloadNotes() {
     + '</style></head><body>'
     + '<div class=\"banner\"><span class=\"banner-title\">' + lessonTitle + '</span><span class=\"banner-sub\">Business English with Teacher Nanda</span></div>'
     + '<div class=\"date\">' + date + '</div>'
-    + '<p class=\"lesson-link\">Click here to access the lesson: <a href=\"'+'https://teacher-nanda.github.io/Business-EFE2/'+window.location.pathname.split('/').pop()+'\">'+'https://teacher-nanda.github.io/Business-EFE2/'+window.location.pathname.split('/').pop()+'</a></p>'
+    + '<p class=\"lesson-link\">Click here to access the lesson: <a href=\"'+'https://teacher-nanda.github.io/Business-HR/'+window.location.pathname.split('/').pop()+'\">'+'https://teacher-nanda.github.io/Business-HR/'+window.location.pathname.split('/').pop()+'</a></p>'
     + cards
     + '</body></html>';
   var win = window.open('','_blank');
@@ -1421,6 +1488,7 @@ function downloadNotes() {
 </script>
 
 <div id="notesPanel">
+  <div class="notes-drag-handle" id="notesDragHandle"><span class="grip">⠿⠿</span> DRAG TO MOVE</div>
   <div class="notes-toolbar">
     <span class="notes-toolbar-label">FORMAT</span>
     <button class="notes-tbtn" onclick="notesFormat('bold')"><b>B</b></button>

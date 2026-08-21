@@ -570,6 +570,15 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   border:2px solid var(--lb);
 }
 #notesPanel.open{display:flex;}
+.notes-drag-handle{
+  cursor:move;display:flex;align-items:center;gap:6px;
+  margin:-14px -14px 0;padding:8px 12px;
+  border-radius:12px 12px 0 0;background:var(--lgr);
+  border-bottom:2px solid var(--lb);
+  font-size:11px;font-weight:800;color:var(--gray);letter-spacing:.6px;
+  user-select:none;touch-action:none;
+}
+.notes-drag-handle .grip{font-size:13px;letter-spacing:1px;color:#aaa;}
 .notes-toolbar{display:flex;gap:6px;align-items:center;padding-bottom:8px;border-bottom:2px solid var(--lb);}
 .notes-toolbar-label{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:.5px;margin-right:4px;}
 .notes-tbtn{
@@ -1428,34 +1437,41 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 
       <div class="divider"></div>
 
-      <!-- EXERCISE C: SORT IT — REPORTING VERB OR TIME/PLACE WORD? -->
+      <!-- EXERCISE C: SORT IT — WHICH KIND OF REPORTING VERB? -->
       <div class="act-head">
         <div class="act-num">C</div>
-        Click a word, then click the box where it belongs
-        <span class="act-type">Click &amp; sort · vocabulary round-up</span>
+        Click a verb, then click the category it belongs to
+        <span class="act-type">Click &amp; sort · reporting verb categories</span>
       </div>
 
       <div class="sort-bank" id="sortBank">
-        <span class="sort-chip" data-cat="verb" onclick="event.stopPropagation();sortChipClick(this)">warn</span>
-        <span class="sort-chip" data-cat="time" onclick="event.stopPropagation();sortChipClick(this)">tomorrow</span>
-        <span class="sort-chip" data-cat="verb" onclick="event.stopPropagation();sortChipClick(this)">suggest</span>
-        <span class="sort-chip" data-cat="time" onclick="event.stopPropagation();sortChipClick(this)">yesterday</span>
-        <span class="sort-chip" data-cat="verb" onclick="event.stopPropagation();sortChipClick(this)">claim</span>
-        <span class="sort-chip" data-cat="time" onclick="event.stopPropagation();sortChipClick(this)">now</span>
-        <span class="sort-chip" data-cat="verb" onclick="event.stopPropagation();sortChipClick(this)">admit</span>
-        <span class="sort-chip" data-cat="time" onclick="event.stopPropagation();sortChipClick(this)">here</span>
-        <span class="sort-chip" data-cat="verb" onclick="event.stopPropagation();sortChipClick(this)">brief</span>
-        <span class="sort-chip" data-cat="time" onclick="event.stopPropagation();sortChipClick(this)">next week</span>
-        <span class="sort-chip" data-cat="verb" onclick="event.stopPropagation();sortChipClick(this)">pass on</span>
-        <span class="sort-chip" data-cat="time" onclick="event.stopPropagation();sortChipClick(this)">today</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">said</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">told</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">mentioned</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">stated</span>
+        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">suggested</span>
+        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">proposed</span>
+        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">recommended</span>
+        <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">admitted</span>
+        <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">acknowledged</span>
+        <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">confessed</span>
+        <span class="sort-chip" data-cat="warn" onclick="event.stopPropagation();sortChipClick(this)">warned</span>
+        <span class="sort-chip" data-cat="warn" onclick="event.stopPropagation();sortChipClick(this)">insisted</span>
+        <span class="sort-chip" data-cat="warn" onclick="event.stopPropagation();sortChipClick(this)">claimed</span>
       </div>
 
-      <div class="sort-zones">
-        <div class="sort-zone" id="sortZoneVerb" onclick="sortToZone('sortZoneVerb')">
-          <div class="sort-zone-label">💬 Reporting Verb</div>
+      <div class="sort-zones" style="grid-template-columns:repeat(2,1fr);">
+        <div class="sort-zone" id="sortZoneNeutral" onclick="sortToZone('sortZoneNeutral')">
+          <div class="sort-zone-label">💬 Neutral</div>
         </div>
-        <div class="sort-zone" id="sortZoneTime" onclick="sortToZone('sortZoneTime')">
-          <div class="sort-zone-label">🕐 Time / Place Word</div>
+        <div class="sort-zone" id="sortZoneSuggest" onclick="sortToZone('sortZoneSuggest')">
+          <div class="sort-zone-label">💡 Suggesting</div>
+        </div>
+        <div class="sort-zone" id="sortZoneAdmit" onclick="sortToZone('sortZoneAdmit')">
+          <div class="sort-zone-label">🙊 Admitting</div>
+        </div>
+        <div class="sort-zone" id="sortZoneWarn" onclick="sortToZone('sortZoneWarn')">
+          <div class="sort-zone-label">⚠️ Warning / Insisting</div>
         </div>
       </div>
 
@@ -2015,10 +2031,16 @@ function sortToZone(zoneId){
   sortSelected = null;
 }
 
+const SORT_ZONE_CATS = {
+  sortZoneVerb:'verb', sortZoneTime:'time',
+  sortZoneNeutral:'neutral', sortZoneSuggest:'suggest', sortZoneAdmit:'admit', sortZoneWarn:'warn'
+};
+
 function checkSort(){
-  ['sortZoneVerb','sortZoneTime'].forEach(function(zoneId){
+  Object.keys(SORT_ZONE_CATS).forEach(function(zoneId){
     const zone=document.getElementById(zoneId);
-    const correctCat = zoneId === 'sortZoneVerb' ? 'verb' : 'time';
+    if(!zone) return;
+    const correctCat = SORT_ZONE_CATS[zoneId];
     Array.from(zone.querySelectorAll('.sort-chip')).forEach(function(chip){
       chip.classList.remove('sort-correct','sort-wrong');
       chip.classList.add(chip.dataset.cat === correctCat ? 'sort-correct' : 'sort-wrong');
@@ -2028,8 +2050,10 @@ function checkSort(){
 
 function resetSort(){
   const bank=document.getElementById('sortBank');
-  ['sortZoneVerb','sortZoneTime'].forEach(function(zoneId){
+  if(!bank) return;
+  Object.keys(SORT_ZONE_CATS).forEach(function(zoneId){
     const zone=document.getElementById(zoneId);
+    if(!zone) return;
     Array.from(zone.querySelectorAll('.sort-chip')).forEach(function(chip){
       chip.classList.remove('selected','sort-correct','sort-wrong');
       bank.appendChild(chip);
@@ -2119,6 +2143,64 @@ const NOTES_KEY='efe2notes:'+(location.pathname.split('/').pop()||'lesson');
 let notesData={};
 try{notesData=JSON.parse(localStorage.getItem(NOTES_KEY))||{};}catch(e){notesData={};}
 function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesData));}catch(e){}}
+
+/* ═══ draggable notes panel ═══ */
+(function(){
+  var panel = document.getElementById('notesPanel');
+  var handle = document.getElementById('notesDragHandle');
+  if(!panel || !handle) return;
+  var POS_KEY = NOTES_KEY + ':pos';
+  var dragging = false, offsetX = 0, offsetY = 0;
+  function clampAndApply(x, y){
+    var maxX = window.innerWidth - panel.offsetWidth - 8;
+    var maxY = window.innerHeight - panel.offsetHeight - 8;
+    x = Math.max(8, Math.min(x, Math.max(8, maxX)));
+    y = Math.max(8, Math.min(y, Math.max(8, maxY)));
+    panel.style.left = x + 'px';
+    panel.style.top = y + 'px';
+    panel.style.right = 'auto';
+    panel.style.bottom = 'auto';
+  }
+  function onDown(e){
+    dragging = true;
+    var rect = panel.getBoundingClientRect();
+    var pt = e.touches ? e.touches[0] : e;
+    offsetX = pt.clientX - rect.left;
+    offsetY = pt.clientY - rect.top;
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchmove', onMove, {passive:false});
+    document.addEventListener('touchend', onUp);
+    e.preventDefault();
+  }
+  function onMove(e){
+    if(!dragging) return;
+    var pt = e.touches ? e.touches[0] : e;
+    clampAndApply(pt.clientX - offsetX, pt.clientY - offsetY);
+    if(e.touches) e.preventDefault();
+  }
+  function onUp(){
+    if(!dragging) return;
+    dragging = false;
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onUp);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('touchend', onUp);
+    try{
+      var rect = panel.getBoundingClientRect();
+      localStorage.setItem(POS_KEY, JSON.stringify({left:rect.left, top:rect.top}));
+    }catch(err){}
+  }
+  handle.addEventListener('mousedown', onDown);
+  handle.addEventListener('touchstart', onDown, {passive:false});
+  window.addEventListener('resize', function(){
+    if(panel.style.left){ var r=panel.getBoundingClientRect(); clampAndApply(r.left, r.top); }
+  });
+  try{
+    var saved = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
+    if(saved) clampAndApply(saved.left, saved.top);
+  }catch(err){}
+})();
 function clearAllNotes(){if(confirm('Clear ALL notes for this whole lesson? This cannot be undone.')){notesData={};persistNotes();var ta=document.getElementById('notesTA');if(ta)ta.innerHTML='';}}
 window.addEventListener('DOMContentLoaded',function(){var ta=document.getElementById('notesTA');if(ta){ta.innerHTML=notesData[currentSlide]||'';ta.addEventListener('input',function(){notesData[currentSlide]=ta.innerHTML;persistNotes();});}});
 function saveCurrentNotes() {
@@ -2199,7 +2281,7 @@ function downloadNotes() {
     + '</style></head><body>'
     + '<div class=\"banner\"><span class=\"banner-title\">' + lessonTitle + '</span><span class=\"banner-sub\">Business English with Teacher Nanda</span></div>'
     + '<div class=\"date\">' + date + '</div>'
-    + '<p class=\"lesson-link\">Click here to access the lesson: <a href=\"'+'https://teacher-nanda.github.io/Business-EFE2/'+window.location.pathname.split('/').pop()+'\">'+'https://teacher-nanda.github.io/Business-EFE2/'+window.location.pathname.split('/').pop()+'</a></p>'
+    + '<p class=\"lesson-link\">Click here to access the lesson: <a href=\"'+'https://teacher-nanda.github.io/Business-HR/'+window.location.pathname.split('/').pop()+'\">'+'https://teacher-nanda.github.io/Business-HR/'+window.location.pathname.split('/').pop()+'</a></p>'
     + cards
     + '</body></html>';
   var win = window.open('','_blank');
@@ -2213,6 +2295,7 @@ function downloadNotes() {
 </script>
 
 <div id="notesPanel">
+  <div class="notes-drag-handle" id="notesDragHandle"><span class="grip">⠿⠿</span> DRAG TO MOVE</div>
   <div class="notes-toolbar">
     <span class="notes-toolbar-label">FORMAT</span>
     <button class="notes-tbtn" onclick="notesFormat('bold')"><b>B</b></button>

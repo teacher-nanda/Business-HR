@@ -51,44 +51,48 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 
 /* ── NOTES PANEL ── */
 #notesPanel{
-  position:fixed;bottom:68px;right:18px;z-index:999;
-  width:340px;background:#fff;border-radius:14px;
-  box-shadow:0 8px 32px rgba(0,0,80,.18);padding:14px;
-  display:none;flex-direction:column;gap:10px;
-  border:2px solid var(--lb);
+  position:fixed;bottom:110px;right:18px;z-index:999;
+  width:340px;max-height:0;overflow:hidden;
+  background:#ffffff;border-radius:14px;
+  box-shadow:0 8px 32px rgba(0,0,0,.22);
+  display:flex;flex-direction:column;gap:0;
+  border:1px solid rgba(0,0,0,.08);
+  opacity:0;transition:opacity .25s ease;
 }
-#notesPanel.open{display:flex;}
+#notesPanel.open{display:flex;max-height:420px;opacity:1;overflow:visible;}
 .notes-drag-handle{
   cursor:move;display:flex;align-items:center;gap:6px;
-  margin:-14px -14px 0;padding:8px 12px;
-  border-radius:12px 12px 0 0;background:var(--lgr);
-  border-bottom:2px solid var(--lb);
-  font-size:11px;font-weight:800;color:var(--gray);letter-spacing:.6px;
+  margin:0;padding:8px 12px;
+  border-radius:13px 13px 0 0;background:rgba(0,0,0,.03);
+  border-bottom:1px solid rgba(0,0,0,.08);
+  font-size:11px;font-weight:800;color:rgba(0,0,0,.4);letter-spacing:.6px;
   user-select:none;touch-action:none;
 }
-.notes-drag-handle .grip{font-size:13px;letter-spacing:1px;color:#aaa;}
-.notes-toolbar{display:flex;gap:6px;align-items:center;padding-bottom:8px;border-bottom:2px solid var(--lb);}
-.notes-toolbar-label{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:.5px;margin-right:4px;}
+.notes-drag-handle .grip{font-size:13px;letter-spacing:1px;color:rgba(0,0,0,.25);}
+.notes-toolbar{display:flex;gap:6px;align-items:center;padding:8px 10px;background:rgba(0,0,0,.015);border-bottom:1px solid rgba(0,0,0,.06);}
+.notes-toolbar-label{font-size:10px;font-weight:700;color:rgba(0,0,0,.35);letter-spacing:.5px;margin-right:2px;}
 .notes-tbtn{
-  background:var(--lgr);border:1.5px solid var(--border);border-radius:6px;
-  padding:4px 11px;cursor:pointer;font-size:.85rem;font-weight:700;
-  transition:all .15s;color:var(--navy);font-family:inherit;
+  background:rgba(0,0,0,.05);border:none;border-radius:5px;
+  padding:3px 9px;cursor:pointer;font-size:.85rem;font-weight:700;
+  transition:background .15s;color:#1a2e4a;font-family:inherit;
 }
-.notes-tbtn:hover{background:var(--lb);border-color:var(--blue);}
+.notes-tbtn:hover{background:rgba(0,0,0,.1);}
 #notesTA{
-  min-height:180px;max-height:220px;overflow-y:auto;
-  border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;
-  font-size:14px;line-height:1.6;outline:none;
-  font-family:'Segoe UI',Arial,sans-serif;color:var(--navy);
+  min-height:220px;max-height:260px;overflow-y:auto;
+  border:none;border-radius:0;padding:14px;
+  font-size:.85rem;line-height:1.5;outline:none;
+  font-family:'Segoe UI',Arial,sans-serif;color:#1a1a1a;
+  background:#ffffff;
 }
-#notesTA:empty:before{content:attr(placeholder);color:#bbb;pointer-events:none;}
-#notesTA:focus{border-color:var(--blue);}
-.notes-actions{display:flex;gap:8px;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid var(--border);}
+#notesTA:empty:before{content:attr(placeholder);color:rgba(0,0,0,.35);pointer-events:none;}
+#notesTA:focus{border-color:transparent;}
+#notesTA [style*="background-color"]{color:#1a1a1a!important;}
+.notes-actions{display:flex;gap:8px;justify-content:space-between;align-items:center;padding:8px 10px;border-top:1px solid rgba(0,0,0,.08);}
 .notes-clear-btn{
-  background:none;border:1.5px solid var(--border);border-radius:8px;
-  padding:6px 12px;font-size:12px;color:var(--gray);cursor:pointer;transition:all .2s;font-family:inherit;
+  background:rgba(220,50,50,.08);border:none;border-radius:8px;
+  padding:5px 11px;font-size:11px;color:#a33;cursor:pointer;transition:background .2s;font-family:inherit;
 }
-.notes-clear-btn:hover{color:var(--rose);border-color:var(--rose);}
+.notes-clear-btn:hover{background:rgba(220,50,50,.18);}
 .slide-notes-print{display:none;}
 
 /* ── PRINT ── */
@@ -1238,9 +1242,14 @@ window.addEventListener('DOMContentLoaded', function(){
   if(!panel || !handle) return;
   var POS_KEY = NOTES_KEY + ':pos';
   var dragging = false, offsetX = 0, offsetY = 0;
+  function getZoomFactor(){
+    var z = parseFloat(getComputedStyle(document.body).zoom);
+    return (z && !isNaN(z)) ? z : 1;
+  }
   function clampAndApply(x, y){
-    var maxX = window.innerWidth - panel.offsetWidth - 8;
-    var maxY = window.innerHeight - panel.offsetHeight - 8;
+    var Z = getZoomFactor();
+    var maxX = (window.innerWidth / Z) - panel.offsetWidth - 8;
+    var maxY = (window.innerHeight / Z) - panel.offsetHeight - 8;
     x = Math.max(8, Math.min(x, Math.max(8, maxX)));
     y = Math.max(8, Math.min(y, Math.max(8, maxY)));
     panel.style.left = x + 'px';
@@ -1248,17 +1257,13 @@ window.addEventListener('DOMContentLoaded', function(){
     panel.style.right = 'auto';
     panel.style.bottom = 'auto';
   }
-  function getZoomFactor(){
-    var z = parseFloat(getComputedStyle(document.body).zoom);
-    return (z && !isNaN(z)) ? z : 1;
-  }
   function onDown(e){
     dragging = true;
     var Z = getZoomFactor();
     var rect = panel.getBoundingClientRect();
     var pt = e.touches ? e.touches[0] : e;
-    offsetX = pt.clientX/Z - rect.left;
-    offsetY = pt.clientY/Z - rect.top;
+    offsetX = (pt.clientX / Z) - (rect.left / Z);
+    offsetY = (pt.clientY / Z) - (rect.top / Z);
     document.addEventListener('mousemove', onMove);
     document.addEventListener('mouseup', onUp);
     document.addEventListener('touchmove', onMove, {passive:false});
@@ -1269,7 +1274,7 @@ window.addEventListener('DOMContentLoaded', function(){
     if(!dragging) return;
     var Z = getZoomFactor();
     var pt = e.touches ? e.touches[0] : e;
-    clampAndApply(pt.clientX/Z - offsetX, pt.clientY/Z - offsetY);
+    clampAndApply((pt.clientX / Z) - offsetX, (pt.clientY / Z) - offsetY);
     if(e.touches) e.preventDefault();
   }
   function onUp(){
@@ -1280,14 +1285,19 @@ window.addEventListener('DOMContentLoaded', function(){
     document.removeEventListener('touchmove', onMove);
     document.removeEventListener('touchend', onUp);
     try{
+      var Z = getZoomFactor();
       var rect = panel.getBoundingClientRect();
-      localStorage.setItem(POS_KEY, JSON.stringify({left:rect.left, top:rect.top}));
+      localStorage.setItem(POS_KEY, JSON.stringify({left:rect.left/Z, top:rect.top/Z}));
     }catch(err){}
   }
   handle.addEventListener('mousedown', onDown);
   handle.addEventListener('touchstart', onDown, {passive:false});
   window.addEventListener('resize', function(){
-    if(panel.classList.contains('open') && panel.style.left){ var r=panel.getBoundingClientRect(); clampAndApply(r.left, r.top); }
+    if(panel.classList.contains('open') && panel.style.left){
+      var Z = getZoomFactor();
+      var r=panel.getBoundingClientRect();
+      clampAndApply(r.left/Z, r.top/Z);
+    }
   });
   window.__notesPosRestore = function(){
     try{
@@ -1312,7 +1322,13 @@ function toggleNotes() {
   if (!p || !b) return;
   p.classList.toggle('open');
   b.classList.toggle('panel-open', p.classList.contains('open'));
-  if (p.classList.contains('open') && typeof window.__notesPosRestore === 'function') window.__notesPosRestore();
+  if (!p.classList.contains('open')) {
+    p.style.left = '';
+    p.style.top = '';
+    p.style.right = '';
+    p.style.bottom = '';
+    try{ if (typeof NOTES_KEY !== 'undefined') localStorage.removeItem(NOTES_KEY + ':pos'); }catch(e){}
+  }
 }
 function notesFormat(cmd) {
   const ta = document.getElementById('notesTA');

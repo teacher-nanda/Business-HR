@@ -1354,12 +1354,17 @@ window.addEventListener('DOMContentLoaded', function(){
     panel.style.right = 'auto';
     panel.style.bottom = 'auto';
   }
+  function getZoomFactor(){
+    var z = parseFloat(getComputedStyle(document.body).zoom);
+    return (z && !isNaN(z)) ? z : 1;
+  }
   function onDown(e){
     dragging = true;
+    var Z = getZoomFactor();
     var rect = panel.getBoundingClientRect();
     var pt = e.touches ? e.touches[0] : e;
-    offsetX = pt.clientX - rect.left;
-    offsetY = pt.clientY - rect.top;
+    offsetX = pt.clientX/Z - rect.left;
+    offsetY = pt.clientY/Z - rect.top;
     document.addEventListener('mousemove', onMove);
     document.addEventListener('mouseup', onUp);
     document.addEventListener('touchmove', onMove, {passive:false});
@@ -1368,8 +1373,9 @@ window.addEventListener('DOMContentLoaded', function(){
   }
   function onMove(e){
     if(!dragging) return;
+    var Z = getZoomFactor();
     var pt = e.touches ? e.touches[0] : e;
-    clampAndApply(pt.clientX - offsetX, pt.clientY - offsetY);
+    clampAndApply(pt.clientX/Z - offsetX, pt.clientY/Z - offsetY);
     if(e.touches) e.preventDefault();
   }
   function onUp(){
@@ -1387,12 +1393,14 @@ window.addEventListener('DOMContentLoaded', function(){
   handle.addEventListener('mousedown', onDown);
   handle.addEventListener('touchstart', onDown, {passive:false});
   window.addEventListener('resize', function(){
-    if(panel.style.left){ var r=panel.getBoundingClientRect(); clampAndApply(r.left, r.top); }
+    if(panel.classList.contains('open') && panel.style.left){ var r=panel.getBoundingClientRect(); clampAndApply(r.left, r.top); }
   });
-  try{
-    var saved = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
-    if(saved) clampAndApply(saved.left, saved.top);
-  }catch(err){}
+  window.__notesPosRestore = function(){
+    try{
+      var saved = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
+      if(saved) clampAndApply(saved.left, saved.top);
+    }catch(err){}
+  };
 });
 function clearAllNotes(){if(confirm('Clear ALL notes for this whole lesson? This cannot be undone.')){notesData={};persistNotes();var ta=document.getElementById('notesTA');if(ta)ta.innerHTML='';}}
 window.addEventListener('DOMContentLoaded',function(){var ta=document.getElementById('notesTA');if(ta){ta.innerHTML=notesData[currentSlide]||'';ta.addEventListener('input',function(){notesData[currentSlide]=ta.innerHTML;persistNotes();});}});
@@ -1410,6 +1418,7 @@ function toggleNotes() {
   if (!p || !b) return;
   p.classList.toggle('open');
   b.classList.toggle('panel-open', p.classList.contains('open'));
+  if (p.classList.contains('open') && typeof window.__notesPosRestore === 'function') window.__notesPosRestore();
 }
 function notesFormat(cmd) {
   const ta = document.getElementById('notesTA');

@@ -278,7 +278,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 /* ── TIME & PLACE DETECTIVE (click chip exercise) ── */
 .twd-card{border:1.5px solid var(--border);border-radius:11px;padding:13px 16px;margin-bottom:10px;background:white;}
 .twd-sentence{font-size:13.5px;color:var(--navy);margin-bottom:10px;line-height:1.5;}
-.twd-sentence .twd-blank{display:inline-block;min-width:70px;border-bottom:2px dotted var(--gray);text-align:center;}
+.twd-sentence .twd-blank{display:inline-block;min-width:70px;min-height:1.3em;border-bottom:2px dotted var(--gray);text-align:center;}
 .twd-opts{display:flex;flex-wrap:wrap;gap:8px;}
 .twd-chip{border:1.5px solid var(--teal);border-radius:20px;padding:5px 14px;font-size:12.5px;font-weight:700;color:#0f766e;background:#f0fdfa;cursor:pointer;transition:all .15s;user-select:none;}
 .twd-chip:hover{background:var(--teal);color:white;transform:translateY(-1px);}
@@ -1071,7 +1071,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
       </div>
 
       <div class="twd-card">
-        <div class="twd-sentence">"I'll see you here tomorrow." → He said he'd see me <span class="twd-blank" id="twd1-blank">?</span> the following day.</div>
+        <div class="twd-sentence">"I'll see you here tomorrow." → He said he'd see me <span class="twd-blank" id="twd1-blank"></span> the following day.</div>
         <div class="twd-opts" id="twd1">
           <span class="twd-chip" data-correct="false" onclick="twdSelect(this,'twd1')">here</span>
           <span class="twd-chip" data-correct="true" onclick="twdSelect(this,'twd1')">there</span>
@@ -1079,7 +1079,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         </div>
       </div>
       <div class="twd-card">
-        <div class="twd-sentence">"We finished the report yesterday." → They said they'd finished the report <span class="twd-blank" id="twd2-blank">?</span>.</div>
+        <div class="twd-sentence">"We finished the report yesterday." → They said they'd finished the report <span class="twd-blank" id="twd2-blank"></span>.</div>
         <div class="twd-opts" id="twd2">
           <span class="twd-chip" data-correct="false" onclick="twdSelect(this,'twd2')">yesterday</span>
           <span class="twd-chip" data-correct="false" onclick="twdSelect(this,'twd2')">last week</span>
@@ -1087,7 +1087,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         </div>
       </div>
       <div class="twd-card">
-        <div class="twd-sentence">"Let's meet next week to review this." → She suggested meeting <span class="twd-blank" id="twd3-blank">?</span> to review that.</div>
+        <div class="twd-sentence">"Let's meet next week to review this." → She suggested meeting <span class="twd-blank" id="twd3-blank"></span> to review that.</div>
         <div class="twd-opts" id="twd3">
           <span class="twd-chip" data-correct="false" onclick="twdSelect(this,'twd3')">next week</span>
           <span class="twd-chip" data-correct="true" onclick="twdSelect(this,'twd3')">the following week</span>
@@ -1095,7 +1095,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         </div>
       </div>
       <div class="twd-card">
-        <div class="twd-sentence">"I need this done by today." → He said he needed it done by <span class="twd-blank" id="twd4-blank">?</span>.</div>
+        <div class="twd-sentence">"I need this done by today." → He said he needed it done by <span class="twd-blank" id="twd4-blank"></span>.</div>
         <div class="twd-opts" id="twd4">
           <span class="twd-chip" data-correct="false" onclick="twdSelect(this,'twd4')">today</span>
           <span class="twd-chip" data-correct="true" onclick="twdSelect(this,'twd4')">that day</span>
@@ -1103,7 +1103,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         </div>
       </div>
       <div class="twd-card">
-        <div class="twd-sentence">"These figures are wrong." → She claimed <span class="twd-blank" id="twd5-blank">?</span> figures were wrong.</div>
+        <div class="twd-sentence">"These figures are wrong." → She claimed <span class="twd-blank" id="twd5-blank"></span> figures were wrong.</div>
         <div class="twd-opts" id="twd5">
           <span class="twd-chip" data-correct="false" onclick="twdSelect(this,'twd5')">these</span>
           <span class="twd-chip" data-correct="true" onclick="twdSelect(this,'twd5')">those</span>
@@ -1111,7 +1111,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         </div>
       </div>
       <div class="twd-card">
-        <div class="twd-sentence">"I'll call you now." → He said he'd call me <span class="twd-blank" id="twd6-blank">?</span>.</div>
+        <div class="twd-sentence">"I'll call you now." → He said he'd call me <span class="twd-blank" id="twd6-blank"></span>.</div>
         <div class="twd-opts" id="twd6">
           <span class="twd-chip" data-correct="false" onclick="twdSelect(this,'twd6')">now</span>
           <span class="twd-chip" data-correct="true" onclick="twdSelect(this,'twd6')">then</span>
@@ -1960,7 +1960,7 @@ function resetTWD(){
     if(!group) return;
     Array.from(group.children).forEach(function(chip){ chip.classList.remove('selected','right','wrong'); });
     const blank=document.getElementById(groupId+'-blank');
-    if(blank) blank.textContent='?';
+    if(blank) blank.textContent='';
   });
 }
 
@@ -2145,7 +2145,7 @@ try{notesData=JSON.parse(localStorage.getItem(NOTES_KEY))||{};}catch(e){notesDat
 function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesData));}catch(e){}}
 
 /* ═══ draggable notes panel ═══ */
-(function(){
+window.addEventListener('DOMContentLoaded', function(){
   var panel = document.getElementById('notesPanel');
   var handle = document.getElementById('notesDragHandle');
   if(!panel || !handle) return;
@@ -2200,7 +2200,7 @@ function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesD
     var saved = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
     if(saved) clampAndApply(saved.left, saved.top);
   }catch(err){}
-})();
+});
 function clearAllNotes(){if(confirm('Clear ALL notes for this whole lesson? This cannot be undone.')){notesData={};persistNotes();var ta=document.getElementById('notesTA');if(ta)ta.innerHTML='';}}
 window.addEventListener('DOMContentLoaded',function(){var ta=document.getElementById('notesTA');if(ta){ta.innerHTML=notesData[currentSlide]||'';ta.addEventListener('input',function(){notesData[currentSlide]=ta.innerHTML;persistNotes();});}});
 function saveCurrentNotes() {

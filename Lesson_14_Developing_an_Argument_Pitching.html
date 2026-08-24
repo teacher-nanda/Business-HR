@@ -1210,7 +1210,7 @@ try{notesData=JSON.parse(localStorage.getItem(NOTES_KEY))||{};}catch(e){notesDat
 function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesData));}catch(e){}}
 
 /* ═══ draggable notes panel ═══ */
-(function(){
+window.addEventListener('DOMContentLoaded', function(){
   var panel = document.getElementById('notesPanel');
   var handle = document.getElementById('notesDragHandle');
   if(!panel || !handle) return;
@@ -1265,7 +1265,7 @@ function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesD
     var saved = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
     if(saved) clampAndApply(saved.left, saved.top);
   }catch(err){}
-})();
+});
 function clearAllNotes(){if(confirm('Clear ALL notes for this whole lesson? This cannot be undone.')){notesData={};persistNotes();var ta=document.getElementById('notesTA');if(ta)ta.innerHTML='';}}
 window.addEventListener('DOMContentLoaded',function(){var ta=document.getElementById('notesTA');if(ta){ta.innerHTML=notesData[currentSlide]||'';ta.addEventListener('input',function(){notesData[currentSlide]=ta.innerHTML;persistNotes();});}});
 function saveCurrentNotes() {

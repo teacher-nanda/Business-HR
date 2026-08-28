@@ -46,8 +46,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .tl-seg .t{font-size:10px;font-weight:400;opacity:.75;margin-top:2px;}
 .s1{background:#0d9488;flex:1;}.s2{background:#2563eb;flex:2;}.s3{background:#7c3aed;flex:2;}.s4{background:#d97706;flex:3;color:#1a1a00;}.s5{background:#1a2e4a;flex:1;}
 .main{max-width:920px;margin:0 auto;padding:28px 18px 64px;}
-.card{background:white;border-radius:16px;border:1px solid var(--border);margin-bottom:26px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
-.card-head{display:flex;align-items:center;gap:14px;padding:15px 22px;border-bottom:1px solid var(--border);}
+.card{background:white;border-radius:16px;border:1px solid var(--border);margin-bottom:26px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.card-head{display:flex;align-items:center;gap:14px;padding:15px 22px;border-bottom:1px solid var(--border);border-radius:16px 16px 0 0;overflow:hidden;}
 .card-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
 .card-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:2px;}
 .card-title{font-size:16px;font-weight:700;}
@@ -129,7 +129,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .rv-example{font-size:12px;color:var(--gray);margin-top:6px;font-style:italic;padding-top:6px;border-top:1px solid var(--border);}
 
 /* GAP FILL */
-.word-bank{display:flex;flex-wrap:wrap;gap:8px;background:var(--lb);border-radius:8px;padding:11px 13px;margin-bottom:14px;}
+.word-bank{display:flex;flex-wrap:wrap;gap:8px;background:var(--lb);border-radius:8px;padding:11px 13px;margin-bottom:14px;position:sticky;top:8px;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
 .wb-word{background:white;border:1.5px solid var(--blue);border-radius:20px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--blue);cursor:pointer;transition:all .15s;user-select:none;}
 .wb-word:hover:not(.used){background:var(--blue);color:white;}
 .wb-word.selected-wb{background:var(--blue);color:white;outline:3px solid var(--amber);}
@@ -1442,19 +1442,18 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
       </div>
 
       <div class="sort-bank" id="sortBank">
-        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">said</span>
-        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">told</span>
-        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">mentioned</span>
-        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">stated</span>
-        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">suggested</span>
-        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">proposed</span>
-        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">recommended</span>
-        <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">admitted</span>
-        <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">acknowledged</span>
         <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">confessed</span>
-        <span class="sort-chip" data-cat="warn" onclick="event.stopPropagation();sortChipClick(this)">warned</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">mentioned</span>
         <span class="sort-chip" data-cat="warn" onclick="event.stopPropagation();sortChipClick(this)">insisted</span>
-        <span class="sort-chip" data-cat="warn" onclick="event.stopPropagation();sortChipClick(this)">claimed</span>
+        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">proposed</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">said</span>
+        <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">admitted</span>
+        <span class="sort-chip" data-cat="warn" onclick="event.stopPropagation();sortChipClick(this)">warned</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">stated</span>
+        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">recommended</span>
+        <span class="sort-chip" data-cat="admit" onclick="event.stopPropagation();sortChipClick(this)">acknowledged</span>
+        <span class="sort-chip" data-cat="suggest" onclick="event.stopPropagation();sortChipClick(this)">suggested</span>
+        <span class="sort-chip" data-cat="neutral" onclick="event.stopPropagation();sortChipClick(this)">told</span>
       </div>
 
       <div class="sort-zones" style="grid-template-columns:repeat(2,1fr);">
@@ -1894,13 +1893,13 @@ function updateSlideUI() {
 }
 
 function checkFV(){
-  const answers={1:'suggested',2:'admitted',3:'brief',4:'warned',5:'claimed',6:'pass on'};
+  const answers={1:['suggested'],2:['admitted'],3:['brief'],4:['warned'],5:['claimed'],6:['pass on','share']};
   Object.keys(answers).forEach(function(k){
     const inp=document.getElementById('fv-'+k);
     if(!inp) return;
     inp.classList.remove('correct','incorrect');
     const val=inp.value.trim().toLowerCase();
-    if(val===answers[k]) inp.classList.add('correct');
+    if(answers[k].indexOf(val)!==-1) inp.classList.add('correct');
     else if(val) inp.classList.add('incorrect');
   });
 }
@@ -1913,13 +1912,13 @@ function resetFV(){
 }
 
 function checkRelay(){
-  const answers={'1':'was reviewing','2':'would finalize','3':'could join','4a':'had','4b':'spoken','5':'had called','6':'needed'};
+  const answers={'1':['was reviewing'],'2':['would finalize'],'3':['could join'],'4a':['had'],'4b':['spoken'],'5':['had called','called'],'6':['needed']};
   Object.keys(answers).forEach(function(k){
     const inp=document.getElementById('rly-'+k);
     if(!inp) return;
     inp.classList.remove('correct','incorrect');
     const val=inp.value.trim().toLowerCase();
-    if(val===answers[k]) inp.classList.add('correct');
+    if(answers[k].indexOf(val)!==-1) inp.classList.add('correct');
     else if(val) inp.classList.add('incorrect');
   });
 }
@@ -1962,13 +1961,13 @@ function resetTWD(){
 }
 
 function checkCF(){
-  const answers={'1':'the following day','2':'warned','3':'claimed','4':'then','5a':'admitted','5b':'the day before','6a':'suggested','6b':'pass on'};
+  const answers={'1':['the following day'],'2':['warned'],'3':['claimed'],'4':['then'],'5a':['admitted'],'5b':['the day before'],'6a':['suggested'],'6b':['pass on','share']};
   Object.keys(answers).forEach(function(k){
     const inp=document.getElementById('cf-'+k);
     if(!inp) return;
     inp.classList.remove('correct','incorrect');
     const val=inp.value.trim().toLowerCase();
-    if(val===answers[k]) inp.classList.add('correct');
+    if(answers[k].indexOf(val)!==-1) inp.classList.add('correct');
     else if(val) inp.classList.add('incorrect');
   });
 }

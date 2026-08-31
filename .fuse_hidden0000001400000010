@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Lesson 11 – Interviewing Others</title>
+<title>Lesson 16 – Negotiating Politely</title>
 <style>
 
 :root {
@@ -126,7 +123,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 /* ── COVER SLIDE ── */
 .cover-slide {
   min-height: calc(100vh - 98px);
-  background: linear-gradient(140deg, var(--navy) 0%, #1e3a5f 60%, #0d5986 100%);
+  background: linear-gradient(140deg, var(--navy) 0%, #7f1d1d 60%, #e11d48 100%);
   display: flex; align-items: center; justify-content: center;
   padding: 40px 20px; position: relative; overflow: hidden;
 }
@@ -153,12 +150,12 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   font-weight: 700; letter-spacing: .5px; margin-bottom: 28px; color: rgba(255,255,255,0.85);
 }
 .cover-title {
-  font-size: 48px; font-weight: 900; line-height: 1.05;
+  font-size: 44px; font-weight: 900; line-height: 1.1;
   margin-bottom: 14px; letter-spacing: -.5px;
 }
-.cover-title .accent { color: #8b5cf6; }
+.cover-title .accent { color: #fb7185; }
 .cover-badge {
-  display: inline-block; background: var(--teal); color: white;
+  display: inline-block; background: var(--rose); color: white;
   border-radius: 20px; padding: 6px 22px; font-size: 13px;
   font-weight: 700; margin-top: 8px;
 }
@@ -180,6 +177,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .c-navy .card-head{background:#eef0f3;} .c-navy .card-icon{background:var(--navy);color:white;} .c-navy .card-title{color:var(--navy);} .c-navy .card-badge{background:var(--navy);}
 .c-green .card-head{background:var(--lg);} .c-green .card-icon{background:var(--green);color:white;} .c-green .card-title{color:var(--green);} .c-green .card-badge{background:var(--green);}
 .c-orange .card-head{background:var(--lo);} .c-orange .card-icon{background:var(--orange);color:white;} .c-orange .card-title{color:var(--orange);} .c-orange .card-badge{background:var(--orange);}
+.c-rose .card-head{background:var(--lr);} .c-rose .card-icon{background:var(--rose);color:white;} .c-rose .card-title{color:var(--rose);} .c-rose .card-badge{background:var(--rose);}
 
 /* ── ACT HEAD ── */
 .act-head{display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--lgr);border-radius:8px;margin-bottom:14px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gray);}
@@ -228,7 +226,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .wb-word.used{opacity:.35;cursor:default;}
 .wb-word.selected-wb{background:var(--blue);color:white;}
 .wb-sentence{font-size:14px;line-height:2.2;margin-bottom:8px;}
-.wb-blank{display:inline-block;min-width:130px;border-bottom:2.5px solid var(--blue);padding:0 8px;text-align:center;font-weight:700;color:var(--blue);cursor:pointer;position:relative;transition:all .15s;}
+.wb-blank{display:inline-block;min-width:130px;border-bottom:2.5px solid var(--blue);padding:0 8px;text-align:center;font-weight:700;color:var(--blue);cursor:pointer;position:relative;transition:all .15px;}
 .wb-blank:hover:not(.has-word){border-bottom-color:var(--navy);}
 .wb-blank.has-word{border-bottom-color:var(--green);}
 .wb-blank.correct{color:var(--green)!important;border-bottom-color:var(--green)!important;}
@@ -273,7 +271,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .sa-btn:hover{background:var(--amber);color:white;}
 
 /* ── PREV BOX ── */
-.prev-box{background:linear-gradient(135deg,#0d9488 0%,#0f766e 100%);border-radius:12px;padding:16px 20px;margin-top:16px;}
+.prev-box{background:linear-gradient(135deg,#e11d48 0%,#9f1239 100%);border-radius:12px;padding:16px 20px;margin-top:16px;}
 .prev-box-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.7);margin-bottom:10px;}
 .prev-box-items{display:flex;flex-direction:column;gap:6px;}
 .prev-box-item{font-size:13px;color:white;line-height:1.5;padding:6px 10px;background:rgba(255,255,255,0.12);border-radius:6px;}
@@ -340,9 +338,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   <div class="cover-slide">
     <div class="cover-inner">
       <div class="cover-label">Business English with Teacher Nanda</div>
-      <div class="cover-module">Module 3 · HR &amp; Career — Lesson 3 of 4</div>
-      <div class="cover-title">Interviewing <span class="accent">Others</span></div>
-      <div class="cover-badge">Lesson 11</div>
+      <div class="cover-module">Module 5 · Advanced Skills — Lesson 1 of 3</div>
+      <div class="cover-title">Negotiating <span class="accent">Politely</span></div>
+      <div class="cover-badge">Lesson 16</div>
     </div>
   </div>
 </div>
@@ -355,62 +353,65 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         <div class="card-icon">☀️</div>
         <div>
           <div class="card-label">Part 1</div>
-          <div class="card-title">Warm-up</div>
+          <div class="card-title">Warm-up — "Negotiation Instincts"</div>
         </div>
         <span class="card-badge">True / False / It depends</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Rate the Interviewer — last lesson you were in the hot seat. Now you're on the other side of the table!</div>
+        <div style="background:var(--lt);border:1px solid #5eead4;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13.5px;color:#134e4a;line-height:1.6;">
+          💡 Last lesson you learned to back up an argument with facts and figures. Now let's put that data to work — in a negotiation.
+        </div>
+        <div class="act-head"><span class="act-num">1</span> What do you think? Choose True, False, or It depends for each statement.</div>
 
         <div class="tfd-item" id="tfd-0">
           <span class="tfd-num">1</span>
           <div style="flex:1;">
-            <div class="tfd-text">A good interviewer should do most of the talking to make the candidate feel comfortable.</div>
+            <div class="tfd-text">The goal of a good negotiation is to get as much as possible for yourself.</div>
             <div class="tfd-btns">
               <button class="tfd-btn" onclick="tfdPick(this,'F','exp-0')">True</button>
               <button class="tfd-btn" onclick="tfdPick(this,'F','exp-0')">False</button>
               <button class="tfd-btn" onclick="tfdPick(this,'F','exp-0')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-0">False — The interviewer should guide and structure the conversation, but the candidate should do roughly 80% of the talking. An interview is not a lecture. The goal is to learn as much as possible about the candidate.</div>
+            <div class="tfd-exp" id="exp-0">False — the best negotiations create value for both sides. Squeezing every last point out of the other party often damages the relationship and makes future deals harder. Skilled negotiators look for outcomes where both sides feel they've won something.</div>
           </div>
         </div>
 
         <div class="tfd-item" id="tfd-1">
           <span class="tfd-num">2</span>
           <div style="flex:1;">
-            <div class="tfd-text">Asking "What salary do you expect?" at the very start of an interview is a bad idea.</div>
+            <div class="tfd-text">Staying silent for a few seconds after an offer can be a powerful negotiating tool.</div>
             <div class="tfd-btns">
               <button class="tfd-btn" onclick="tfdPick(this,'T','exp-1')">True</button>
               <button class="tfd-btn" onclick="tfdPick(this,'T','exp-1')">False</button>
               <button class="tfd-btn" onclick="tfdPick(this,'T','exp-1')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-1">True — Opening with the salary question sends the message that money is the only priority. It is better to first assess whether the candidate is the right fit for the role, and then discuss compensation towards the end or at the offer stage.</div>
+            <div class="tfd-exp" id="exp-1">True — silence creates pressure. Many people feel uncomfortable with pauses and rush to fill them, sometimes by improving their offer. Confident negotiators let silence do the work instead of talking themselves into a worse deal.</div>
           </div>
         </div>
 
         <div class="tfd-item" id="tfd-2">
           <span class="tfd-num">3</span>
           <div style="flex:1;">
-            <div class="tfd-text">It is acceptable to ask a candidate about their plans to start a family.</div>
+            <div class="tfd-text">You should always be the first person to name a number or price.</div>
             <div class="tfd-btns">
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-2')">True</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-2')">False</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-2')">It depends</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-2')">True</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-2')">False</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-2')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-2">False — This is potentially discriminatory and is illegal in many countries. Questions must be strictly job-related. Asking about family plans, marital status, age, or religion opens the company to serious legal risk and damages trust with the candidate.</div>
+            <div class="tfd-exp" id="exp-2">It depends — going first lets you "anchor" the discussion around your number, which can work in your favour. But if you don't know the market well, it can be safer to let the other side speak first so you don't underestimate your position.</div>
           </div>
         </div>
 
         <div class="tfd-item" id="tfd-3">
           <span class="tfd-num">4</span>
           <div style="flex:1;">
-            <div class="tfd-text">Silence after a question can be a useful tool for an interviewer.</div>
+            <div class="tfd-text">A compromise means both sides walk away equally unhappy.</div>
             <div class="tfd-btns">
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-3')">True</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-3')">False</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-3')">It depends</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-3')">True</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-3')">False</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-3')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-3">True — Comfortable silence after a question can encourage candidates to elaborate and add more detail. It can also reveal how well they handle pressure. Skilled interviewers resist the urge to fill every silence — they use pauses strategically.</div>
+            <div class="tfd-exp" id="exp-3">False — a good compromise isn't about splitting the difference and disappointing everyone. It's about finding creative trade-offs so each side gives up something they value less in exchange for something they value more.</div>
           </div>
         </div>
 
@@ -439,52 +440,52 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         <div class="act-head"><span class="act-num">1</span> Read the article, then answer the comprehension questions below.</div>
 
         <div class="reading-passage">
-          <h3>How to Run a Great Interview</h3>
-          <p>A great interview does not happen by accident — it requires careful preparation. Before the interview, skilled interviewers study the job description in detail and prepare a set of structured questions that directly relate to the role's competencies. This ensures that every candidate is assessed on the same criteria, making comparisons fair and meaningful. Walking into an interview without a plan wastes everyone's time and increases the risk of hiring the wrong person.</p>
-          <p>During the interview, the most important skill is active listening. Interviewers should resist the temptation to talk about the company or the role for too long. A good rule of thumb is that the candidate should speak approximately 80% of the time. Rather than thinking about the next question while the candidate is speaking, a strong interviewer listens carefully and asks natural follow-up questions based on what has just been said. This signals genuine interest and often uncovers information that prepared questions alone would miss.</p>
-          <p>One of the biggest challenges in interviewing is avoiding unconscious bias. Research consistently shows that interviewers are susceptible to being influenced by factors unrelated to the job — such as shared interests, the university a candidate attended, or even the sound of their name. To counteract this, many organisations require interviewers to score responses against pre-agreed competency criteria immediately after each answer, before the overall impression fades. Asking the same core questions to all candidates also helps create a level playing field.</p>
-          <p>Finally, documentation matters. Interviewers should take brief notes during the conversation and write up a structured evaluation immediately after each interview. Memory is unreliable — especially when you are interviewing five or six candidates in a single day. Good documentation protects the organisation legally, supports fair decision-making, and makes it far easier to give constructive feedback to unsuccessful candidates who ask for it.</p>
+          <h3>Negotiating Without Burning Bridges</h3>
+          <p>Many people picture negotiation as a battle: one side wins, the other loses. In business, this mindset rarely serves you well, because most negotiations happen between people who will keep working together — a supplier and a buyer, a manager and a team, two departments sharing a budget. The most effective negotiators focus on <strong>interests</strong>, not <strong>positions</strong>. A position is what someone says they want ("We need a 15% discount"); an interest is why they want it ("We're under pressure to reduce costs this quarter"). Understanding the interest behind a position often reveals creative solutions — perhaps a longer contract, faster payment terms, or added services could solve the real problem without touching the price at all.</p>
+          <p>Before entering any negotiation, experienced professionals prepare their <strong>BATNA</strong> — their Best Alternative To a Negotiated Agreement. In plain terms: what will you do if this deal falls through? Knowing your BATNA gives you confidence and a clear walk-away point, so you're never forced to accept a bad deal out of fear or pressure.</p>
+          <p>Throughout the discussion, tone matters as much as content. Rather than making blunt demands, skilled negotiators use polite, indirect language: "Would it be possible to..." instead of "You need to...", or "We'd be in a much stronger position if..." instead of "That's not good enough." This softer language keeps the conversation collaborative rather than confrontational, even when the two sides disagree.</p>
+          <p>Finally, every concession should be a <strong>trade</strong>, not a gift. If you lower your price, ask for something in return — a longer contract, an upfront payment, a public reference. This principle, sometimes summarised as "never give something for nothing," protects your position and signals that every point in the deal has real value.</p>
         </div>
 
         <div class="act-head" style="margin-top:20px;"><span class="act-num">2</span> Choose the best answer for each question.</div>
 
         <div class="mc-item">
-          <div class="mc-q">1. What does the article say interviewers should prepare before the interview?</div>
+          <div class="mc-q">1. What is the difference between a "position" and an "interest"?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. A list of personal questions to help the candidate feel relaxed</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">B. Structured questions that relate directly to the role's competencies</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">C. A company presentation to give to candidates at the start</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">D. A summary of every candidate's CV to read aloud</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">A. A position is stated by the buyer; an interest is stated by the seller</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">B. A position is what someone asks for; an interest is the underlying reason why</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">C. There is no real difference between the two terms</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">D. A position is used in writing; an interest is used in speaking</button>
           </div>
         </div>
 
         <div class="mc-item">
-          <div class="mc-q">2. According to the article, approximately how much of the time should the candidate speak?</div>
+          <div class="mc-q">2. What is a BATNA?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. 50% — a balance between interviewer and candidate</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">B. 60% — enough to assess without taking too much time</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">C. 80% — the interviewer should mostly listen</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">D. 100% — the interviewer should not speak until the end</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">A. A type of formal written contract</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">B. A negotiation tactic based on staying silent</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">C. Your best alternative if the current negotiation fails</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">D. The first offer made in a negotiation</button>
           </div>
         </div>
 
         <div class="mc-item">
-          <div class="mc-q">3. How can interviewers help avoid unconscious bias?</div>
+          <div class="mc-q">3. According to the article, why is polite, indirect language useful in negotiation?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. By only interviewing candidates they have personally recommended</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">B. By choosing candidates from well-known universities</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">C. By scoring responses against competency criteria and asking the same core questions to all candidates</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">D. By relying on first impressions and overall gut feeling</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">A. It makes the speaker sound less confident, which builds sympathy</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">B. It keeps the discussion collaborative instead of confrontational</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">C. It is required by international business law</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">D. It helps the speaker avoid stating their real position</button>
           </div>
         </div>
 
         <div class="mc-item">
-          <div class="mc-q">4. Why does the article recommend taking notes and writing evaluations immediately after each interview?</div>
+          <div class="mc-q">4. What does the article recommend when making a concession?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. To share them with the candidate before the final decision</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">B. To save time when writing the job offer letter</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">C. To comply with government reporting requirements</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">D. Because memory is unreliable, especially after several interviews in a day</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">A. Make it quickly, before the other side asks for it</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">B. Avoid making any concessions at all</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">C. Trade it for something of value in return</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">D. Only make concessions in writing, never verbally</button>
           </div>
         </div>
 
@@ -507,66 +508,66 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Part 3</div>
           <div class="card-title">Vocabulary</div>
         </div>
-        <span class="card-badge">6 Interviewing Terms</span>
+        <span class="card-badge">6 Key Terms</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Study these interviewing terms and their meanings.</div>
+        <div class="act-head"><span class="act-num">1</span> Study these negotiation terms and their meanings.</div>
 
         <div class="vocab-grid">
           <div class="vocab-card">
-            <div class="vc-term">probe</div>
-            <div class="vc-def">to ask deeper follow-up questions to get more information</div>
-            <div class="vc-ex">If the answer is vague, don't hesitate to <em>probe</em> for more detail.</div>
+            <div class="vc-term">leverage</div>
+            <div class="vc-def">an advantage that gives you more power in a negotiation</div>
+            <div class="vc-ex">Our strong sales figures gave us real <em>leverage</em> in the contract talks.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">shortlist</div>
-            <div class="vc-def">a small group of candidates chosen for final consideration</div>
-            <div class="vc-ex">We <em>shortlisted</em> five candidates from forty applications.</div>
+            <div class="vc-term">concession</div>
+            <div class="vc-def">something you give up or agree to in order to reach a deal</div>
+            <div class="vc-ex">We're prepared to make a small <em>concession</em> on the delivery date.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">panel interview</div>
-            <div class="vc-def">an interview conducted by more than one person at the same time</div>
-            <div class="vc-ex">She faced a <em>panel interview</em> with the HR manager and two team leads.</div>
+            <div class="vc-term">trade-off</div>
+            <div class="vc-def">an exchange in which you give up one thing to gain another</div>
+            <div class="vc-ex">A faster deadline for a lower price — it's a fair <em>trade-off</em>.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">open-ended question</div>
-            <div class="vc-def">a question that cannot be answered with just "yes" or "no"</div>
-            <div class="vc-ex"><em>Open-ended questions</em> reveal more about the candidate's thinking and experience.</div>
+            <div class="vc-term">deadlock</div>
+            <div class="vc-def">a situation where neither side will move and no agreement is possible</div>
+            <div class="vc-ex">Talks reached a <em>deadlock</em> after neither side would move on price.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">red flag</div>
-            <div class="vc-def">a warning sign that something may be wrong or concerning</div>
-            <div class="vc-ex">Arriving forty minutes late to the interview was an immediate <em>red flag</em>.</div>
+            <div class="vc-term">common ground</div>
+            <div class="vc-def">points of agreement shared by both sides</div>
+            <div class="vc-ex">Let's start by identifying the <em>common ground</em> between our two proposals.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">body language</div>
-            <div class="vc-def">non-verbal communication through posture, gestures, and facial expressions</div>
-            <div class="vc-ex">Pay attention to the candidate's <em>body language</em>, not just their words.</div>
+            <div class="vc-term">walk-away point</div>
+            <div class="vc-def">the point at which you would rather leave than accept the deal</div>
+            <div class="vc-ex">Anything below that figure is past our <em>walk-away point</em>.</div>
           </div>
         </div>
 
         <div class="divider"></div>
-        <div class="act-head"><span class="act-num">2</span> Complete the sentences using the terms from the box. Click a word, then click a blank.</div>
+        <div class="act-head"><span class="act-num">2</span> Complete the sentences using the terms from the box. Click a term, then click a blank.</div>
 
-        <div class="wb-bank" id="wb-bank-11">
-          <span class="wb-word" onclick="selectWb(this,'probe')">probe</span>
-          <span class="wb-word" onclick="selectWb(this,'shortlist')">shortlist</span>
-          <span class="wb-word" onclick="selectWb(this,'panel interview')">panel interview</span>
-          <span class="wb-word" onclick="selectWb(this,'open-ended question')">open-ended question</span>
-          <span class="wb-word" onclick="selectWb(this,'red flag')">red flag</span>
-          <span class="wb-word" onclick="selectWb(this,'body language')">body language</span>
+        <div class="wb-bank" id="wb-bank-16">
+          <span class="wb-word" onclick="selectWb(this,'leverage')">leverage</span>
+          <span class="wb-word" onclick="selectWb(this,'concession')">concession</span>
+          <span class="wb-word" onclick="selectWb(this,'trade-off')">trade-off</span>
+          <span class="wb-word" onclick="selectWb(this,'deadlock')">deadlock</span>
+          <span class="wb-word" onclick="selectWb(this,'common ground')">common ground</span>
+          <span class="wb-word" onclick="selectWb(this,'walk-away point')">walk-away point</span>
         </div>
 
-        <div class="wb-sentence">1. If the candidate's answer is too vague, <span class="wb-blank" id="b1" data-answer="probe" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> with a follow-up question to get more detail.</div>
-        <div class="wb-sentence">2. After reviewing all sixty applications, we were able to <span class="wb-blank" id="b2" data-answer="shortlist" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> the top six candidates.</div>
-        <div class="wb-sentence">3. He was quite nervous because he had never experienced a <span class="wb-blank" id="b3" data-answer="panel interview" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> before.</div>
-        <div class="wb-sentence">4. Start with an <span class="wb-blank" id="b4" data-answer="open-ended question" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> to encourage the candidate to talk freely.</div>
-        <div class="wb-sentence">5. The fact that she couldn't explain why she left her last three jobs was a clear <span class="wb-blank" id="b5" data-answer="red flag" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.</div>
-        <div class="wb-sentence">6. A candidate's <span class="wb-blank" id="b6" data-answer="body language" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> can reveal as much as their answers — watch for eye contact and posture.</div>
+        <div class="wb-sentence">1. Knowing our supplier had no other buyer this month gave us significant <span class="wb-blank" id="b1" data-answer="leverage" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> at the table.</div>
+        <div class="wb-sentence">2. If you agree to a longer contract, we can offer a small <span class="wb-blank" id="b2" data-answer="concession" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> on price.</div>
+        <div class="wb-sentence">3. Accepting a slower delivery in exchange for a lower cost was a reasonable <span class="wb-blank" id="b3" data-answer="trade-off" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> for both sides.</div>
+        <div class="wb-sentence">4. After three hours with no movement from either side, the talks were at a <span class="wb-blank" id="b4" data-answer="deadlock" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.</div>
+        <div class="wb-sentence">5. Before discussing the difficult points, let's agree on the <span class="wb-blank" id="b5" data-answer="common ground" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> we already share.</div>
+        <div class="wb-sentence">6. I know exactly what my <span class="wb-blank" id="b6" data-answer="walk-away point" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> is, so I won't be pressured into a bad deal.</div>
 
         <div class="btn-center">
-          <button class="btn btn-green btn-sm" onclick="checkBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-11')">✔ Check Answers</button>
-          <button class="btn btn-outline btn-sm" onclick="resetBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-11')">↺ Reset</button>
+          <button class="btn btn-green btn-sm" onclick="checkBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-16')">✔ Check Answers</button>
+          <button class="btn btn-outline btn-sm" onclick="resetBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-16')">↺ Reset</button>
         </div>
 
       </div>
@@ -588,73 +589,80 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Part 4</div>
           <div class="card-title">Grammar</div>
         </div>
-        <span class="card-badge">Indirect Questions</span>
+        <span class="card-badge">Softening & Polite Negotiation Language</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Study the key language, then complete the practice exercise below.</div>
+        <div class="act-head"><span class="act-num">1</span> Study the key polite negotiation structures, then do the practice exercise below.</div>
 
         <div class="kl-panel" style="background:var(--lp);border:1.5px solid #c4b5fd;">
-          <div class="kl-title" style="color:var(--purple);">🔷 Direct → Indirect (Word Order Changes)</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--purple);color:white;">direct</span> "Where did you work before?"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">indirect</span> "Could you tell me <strong>where you worked</strong> before?"</div>
-          <div class="kl-example">➜ In indirect questions, the word order is the same as a normal statement (subject + verb). There is NO inversion and NO auxiliary (did/does/is).</div>
+          <div class="kl-title" style="color:var(--purple);">🔷 Softening a request (modals)</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--purple);color:white;">would</span> "Would it be possible to extend the deadline by a week?"</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--purple);color:white;">could</span> "Could we perhaps look at a slightly lower minimum order?"</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--purple);color:white;">might</span> "We might be able to work with that, if..."</div>
         </div>
 
-        <div class="kl-panel" style="background:#f0f4ff;border:1.5px solid #a5b4fc;">
-          <div class="kl-title" style="color:var(--indigo);">🔶 Yes/No Questions — Use "if" or "whether"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--indigo);color:white;">direct</span> "Did you manage a team?"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">indirect</span> "I'd like to know <strong>whether you managed</strong> a team."</div>
-          <div class="kl-example">➜ Use <em>if</em> or <em>whether</em> to introduce yes/no questions in indirect form. Do NOT use "that".</div>
+        <div class="kl-panel" style="background:#f0fdf4;border:1.5px solid #86efac;">
+          <div class="kl-title" style="color:var(--green);">🔶 Conditionals for hypothetical offers</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">1st cond.</span> "If you can commit to a 12-month contract, we'll reduce the price by 5%."</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">2nd cond.</span> "If we lowered the price, would you be able to pay upfront?"</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">mixed</span> "We'd be in a stronger position if we'd known about this earlier."</div>
         </div>
 
-        <div class="kl-panel" style="background:#fdf4ff;border:1.5px solid #d8b4fe;">
-          <div class="kl-title" style="color:#6d28d9;">🔸 Softening Starters — Sound More Polite</div>
-          <div class="kl-row"><span class="kl-tag" style="background:#6d28d9;color:white;">polite</span> "Could you explain why you left your last role?"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:#6d28d9;color:white;">polite</span> "I was wondering if you could tell me a little more about that."</div>
-          <div class="kl-row"><span class="kl-tag" style="background:#6d28d9;color:white;">polite</span> "Would you mind telling me what your greatest achievement has been?"</div>
+        <div class="kl-panel" style="background:#fff7ed;border:1.5px solid #fed7aa;">
+          <div class="kl-title" style="color:var(--orange);">🔸 Making & requesting concessions</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--orange);color:white;">offering</span> "We'd be willing to..., provided that..."</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--orange);color:white;">requesting</span> "In return, we'd need you to..."</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--orange);color:white;">testing</span> "What if we met in the middle on...?"</div>
+        </div>
+
+        <div class="kl-panel" style="background:var(--li);border:1.5px solid #a5b4fc;">
+          <div class="kl-title" style="color:var(--indigo);">🔹 Disagreeing politely</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--indigo);color:white;">pushback</span> "I understand your position, but that would be difficult for us."</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--indigo);color:white;">reframing</span> "We'd be in a much stronger position if we approached this differently."</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--indigo);color:white;">closing</span> "I think we're very close — let's find a way to bridge that gap."</div>
         </div>
 
         <div class="divider"></div>
-        <div class="act-head"><span class="act-num">2</span> Choose the correct indirect form for each direct question.</div>
+        <div class="act-head"><span class="act-num">2</span> Choose the most appropriately polite way to say each thing.</div>
 
         <div class="fp-item">
-          <div class="fp-q">1. Direct: "Why did you leave your last job?" — Which is the correct indirect form?</div>
+          <div class="fp-q">1. You want to ask for a lower minimum order quantity.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-1')">A. "Could you tell me why you left your last job?"</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">B. "Could you tell me why did you leave your last job?"</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">C. "Could you tell me that why you left your last job?"</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">A. "Your minimum order is too high — lower it."</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-1')">B. "Would it be possible to look at a lower minimum order?"</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">C. "We won't accept that minimum order."</button>
           </div>
-          <div class="fp-hint" id="hint-1">✅ <strong>Option A</strong> — In indirect questions, there is no inversion. The word order follows a normal statement: subject + verb (<em>you left</em>). Options B and C both have errors in word order or connector word.</div>
+          <div class="fp-hint" id="hint-1">✅ <strong>"Would it be possible to..."</strong> — this modal structure softens the request without weakening your position. Option A is a direct demand; Option C is a flat refusal — both risk sounding confrontational.</div>
         </div>
 
         <div class="fp-item">
-          <div class="fp-q">2. Direct: "Do you have any experience managing a budget?" — Which is the correct indirect form?</div>
+          <div class="fp-q">2. You want to offer a discount, but only if the client commits to a longer contract.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">A. "I'd like to know do you have any experience managing a budget?"</button>
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-2')">B. "I'd like to know whether you have any experience managing a budget."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">C. "I'd like to know that you have any experience managing a budget."</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">A. "You get a discount. That's final."</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-2')">B. "If you can commit to a 12-month contract, we'll reduce the price by 5%."</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">C. "We never give discounts, but maybe this time."</button>
           </div>
-          <div class="fp-hint" id="hint-2">✅ <strong>Option B</strong> — For yes/no questions, use <em>if</em> or <em>whether</em> in the indirect form. Option A keeps the direct word order (wrong). Option C uses "that" — which is never correct here.</div>
+          <div class="fp-hint" id="hint-2">✅ <strong>The first conditional</strong> clearly links the condition (12-month contract) to the reward (5% reduction) — this is a classic trade-off structure. Options A and C sound careless or unprofessional.</div>
         </div>
 
         <div class="fp-item">
-          <div class="fp-q">3. Direct: "What motivates you?" — Which is the correct indirect form?</div>
+          <div class="fp-q">3. You disagree with a proposal but want to keep the discussion friendly.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-3')">A. "I was wondering what motivates you."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">B. "I was wondering what does motivate you."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">C. "I was wondering that what motivates you."</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">A. "That's a bad idea and won't work."</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-3')">B. "I understand your position, but that would be difficult for us."</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">C. "No. We disagree completely."</button>
           </div>
-          <div class="fp-hint" id="hint-3">✅ <strong>Option A</strong> — The verb "motivates" stays in normal statement form (no auxiliary <em>does</em>). Option B incorrectly adds <em>does</em>. Option C incorrectly uses <em>that</em> before the question word.</div>
+          <div class="fp-hint" id="hint-3">✅ <strong>"I understand your position, but..."</strong> — acknowledging the other side's view before disagreeing keeps the tone collaborative. Options A and C are blunt and can escalate tension unnecessarily.</div>
         </div>
 
         <div class="fp-item">
-          <div class="fp-q">4. Which opening phrase best softens a direct question to make it sound polite and professional?</div>
+          <div class="fp-q">4. You want to suggest a compromise between two positions.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">A. "Just tell me..."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">B. "I need you to explain..."</button>
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-4')">C. "Would you mind telling me..."</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-4')">A. "What if we met in the middle on the delivery date?"</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">B. "Take it or leave it."</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">C. "You have to accept our original date."</button>
           </div>
-          <div class="fp-hint" id="hint-4">✅ <strong>Option C</strong> — "Would you mind telling me..." is a classic polite softener. "Just tell me" sounds abrupt and informal. "I need you to explain" sounds demanding rather than collaborative.</div>
+          <div class="fp-hint" id="hint-4">✅ <strong>"What if we met in the middle on...?"</strong> — this phrase gently tests a compromise without committing either side. Options B and C shut down the conversation instead of moving it forward.</div>
         </div>
 
       </div>
@@ -676,72 +684,68 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Part 5</div>
           <div class="card-title">Speaking</div>
         </div>
-        <span class="card-badge">3 Interviewer Role-plays</span>
+        <span class="card-badge">3 Challenges</span>
       </div>
       <div class="card-body">
 
         <div class="scene-nav-bar">
-          <div class="scene-dot-row" id="scene-dots-11">
-            <div class="scene-dot active" onclick="goToScene11(1)"></div>
-            <div class="scene-dot" onclick="goToScene11(2)"></div>
-            <div class="scene-dot" onclick="goToScene11(3)"></div>
+          <div class="scene-dot-row" id="scene-dots-16">
+            <div class="scene-dot active" onclick="goToScene16(1)"></div>
+            <div class="scene-dot" onclick="goToScene16(2)"></div>
+            <div class="scene-dot" onclick="goToScene16(3)"></div>
           </div>
-          <span id="scene-counter-11" style="font-size:12px;font-weight:700;color:var(--gray);">Situation 1 of 3</span>
-          <button class="sc-nav-btn" id="scene-next-btn-11" onclick="nextScene11()">Next situation →</button>
+          <span id="scene-counter-16" style="font-size:12px;font-weight:700;color:var(--gray);">Situation 1 of 3</span>
+          <button class="sc-nav-btn" id="scene-next-btn-16" onclick="nextScene16()">Next situation →</button>
         </div>
 
         <!-- SCENE 1 -->
-        <div class="scene-block active" id="sc11-1">
+        <div class="scene-block active" id="sc16-1">
           <div class="scene-card">
-            <div class="scene-title">Situation 1 · Probing for More Detail</div>
-            <div class="scene-prompt">A candidate has just answered the question "Tell me about a time you led a project" with a very short, vague response: "Yes, I led a project last year. It went well." As the interviewer, ask two probing follow-up questions using indirect or polite question forms to draw out a full, specific answer.</div>
-            <div class="scene-hint">💡 Avoid yes/no follow-ups. Use open-ended indirect questions: "Could you tell me more about..." / "I was wondering if you could describe..."</div>
-            <button class="sa-btn" onclick="toggleSa11(this,'sa11-1')">👁 Sample answer</button>
-            <div class="sa-box" id="sa11-1">
-              <strong>Follow-up 1:</strong> "That's great to hear — could you tell me a little more about what the project actually involved? For example, what was the scale of it, and what was your specific role?"<br><br>
-              <strong>Follow-up 2:</strong> "I was wondering if you could explain what the main challenges were and how you dealt with them — I'd love to understand what you personally did to make it a success."<br><br>
-              <em style="color:var(--gray);">Notice: both questions are open-ended, politely framed, and push for the specific Action and Result details that were missing from the original answer.</em>
+            <div class="scene-title">Challenge 1 · Opening a Negotiation with Data</div>
+            <div class="scene-prompt">A supplier wants to raise their prices by 10%. Using the trend language from last lesson, open the negotiation by presenting evidence and stating your position politely — without immediately rejecting the offer.</div>
+            <div class="scene-hint">💡 Use: <em>"The data suggests..."</em> / <em>"Given that our order volume has increased by..."</em> / <em>"We'd be in a stronger position if..."</em></div>
+            <button class="sa-btn" onclick="toggleSa16(this,'sa16-1')">👁 Sample answer</button>
+            <div class="sa-box" id="sa16-1">
+              "Thanks for sending this over. Before we agree to anything, I'd like to share some context. Our order volume with you has risen steadily by around 18% over the past year, and it's projected to keep growing. Given that, a 10% price increase feels like it's moving in the opposite direction to where our relationship is heading. Would it be possible to look at a smaller increase, perhaps in exchange for a longer-term commitment on our side?"
             </div>
           </div>
         </div>
 
         <!-- SCENE 2 -->
-        <div class="scene-block" id="sc11-2">
+        <div class="scene-block" id="sc16-2">
           <div class="scene-card">
-            <div class="scene-title">Situation 2 · Handling a Concerning Response</div>
-            <div class="scene-prompt">A candidate, when asked why they left their last company, says: "Honestly, my manager was completely incompetent and I couldn't stand working there anymore." As the interviewer, how do you respond professionally? You want to gather more information without encouraging negativity or ignoring what was said.</div>
-            <div class="scene-hint">💡 Stay neutral, don't take sides, and redirect towards the candidate's professional reasoning. Keep the conversation constructive.</div>
-            <button class="sa-btn" onclick="toggleSa11(this,'sa11-2')">👁 Sample answer</button>
-            <div class="sa-box" id="sa11-2">
-              "I see — it sounds like it was a challenging environment. Sometimes a change is exactly the right move. Could you tell me a bit more about what you were looking for in terms of management style or team culture? And what would the ideal working relationship with your manager look like for you in your next role?"<br><br>
-              <em style="color:var(--gray);">Notice: you acknowledge without agreeing, you don't encourage further negativity, and you redirect towards what the candidate is looking FOR — which gives you useful information without creating an awkward moment.</em>
+            <div class="scene-title">Challenge 2 · Making a Concession</div>
+            <div class="scene-prompt">You are willing to accept a 6% increase, but only if the supplier agrees to guarantee delivery within 48 hours. Make this trade-off offer clearly and politely, using conditional language.</div>
+            <div class="scene-hint">💡 Use: <em>"We'd be willing to..., provided that..."</em> / <em>"In return, we'd need..."</em> / <em>"If you could..., we would..."</em></div>
+            <button class="sa-btn" onclick="toggleSa16(this,'sa16-2')">👁 Sample answer</button>
+            <div class="sa-box" id="sa16-2">
+              "Okay — let me propose something. We'd be willing to accept a 6% increase, provided that you could guarantee delivery within 48 hours on every order, not just priority ones. If you could commit to that in writing, we would be happy to sign a renewed 12-month agreement today. Does that work from your side?"
             </div>
           </div>
         </div>
 
         <!-- SCENE 3 -->
-        <div class="scene-block" id="sc11-3">
+        <div class="scene-block" id="sc16-3">
           <div class="scene-card">
-            <div class="scene-title">Situation 3 · Closing the Interview</div>
-            <div class="scene-prompt">The interview is coming to an end. Wrap up professionally: thank the candidate for their time, briefly explain the next steps in the hiring process, invite them to ask any final questions, and close the conversation warmly.</div>
-            <div class="scene-hint">💡 Be specific about timelines if possible. End on a warm, professional note — the candidate may also be evaluating whether they want to work for you.</div>
-            <button class="sa-btn" onclick="toggleSa11(this,'sa11-3')">👁 Sample answer</button>
-            <div class="sa-box" id="sa11-3">
-              "Well, that brings us to the end of the interview — thank you so much for coming in today. It was a real pleasure learning more about your background. In terms of next steps: we're interviewing a few more candidates this week, and we expect to make a decision by the end of next week. You should hear from us either way by Friday the 8th at the latest. Before we wrap up, do you have any questions for us — about the role, the team, or the company in general?"<br><br>
-              <em style="color:var(--gray);">[After their questions:] "Those are great questions. We'll make sure to include those details when we get back to you. Thanks again — it was a real pleasure. We'll be in touch very soon."</em>
+            <div class="scene-title">Challenge 3 · Breaking a Deadlock</div>
+            <div class="scene-prompt">The two sides have reached a deadlock: you won't go above 4%, they won't go below 8%. Suggest a creative compromise that moves the conversation forward.</div>
+            <div class="scene-hint">💡 Use: <em>"I think we're very close..."</em> / <em>"What if we met in the middle on...?"</em> / <em>"Could we perhaps..."</em></div>
+            <button class="sa-btn" onclick="toggleSa16(this,'sa16-3')">👁 Sample answer</button>
+            <div class="sa-box" id="sa16-3">
+              "I think we're very close here, and I don't want a couple of percentage points to get in the way of a good partnership. What if we met in the middle at 6%, but locked that rate in for two years instead of one? That gives you price certainty over a longer period, and it protects us from further increases in the meantime. Could we perhaps agree on that basis?"
             </div>
           </div>
         </div>
 
         <!-- PREV BOX -->
         <div class="prev-box">
-          <div class="prev-box-title">💡 Useful interviewer phrases</div>
+          <div class="prev-box-title">💡 Useful negotiation phrases</div>
           <div class="prev-box-items">
-            <div class="prev-box-item"><em>"Could you elaborate on that a little more?"</em> — asking for detail</div>
-            <div class="prev-box-item"><em>"Can you give me a specific example?"</em> — prompting a concrete STAR answer</div>
-            <div class="prev-box-item"><em>"I'd like to understand better..."</em> — polite probing</div>
-            <div class="prev-box-item"><em>"What would you say was the main lesson from that experience?"</em> — deeper reflection</div>
-            <div class="prev-box-item"><em>"We'll be in touch within the next two weeks."</em> — closing the interview</div>
+            <div class="prev-box-item"><em>"Would it be possible to...?"</em> — softening a request</div>
+            <div class="prev-box-item"><em>"We'd be willing to..., provided that..."</em> — offering a conditional concession</div>
+            <div class="prev-box-item"><em>"What if we met in the middle on...?"</em> — proposing a compromise</div>
+            <div class="prev-box-item"><em>"I understand your position, but..."</em> — disagreeing politely</div>
+            <div class="prev-box-item"><em>"I think we're very close — let's bridge that gap."</em> — closing a deal</div>
           </div>
         </div>
 
@@ -767,55 +771,55 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         <span class="card-badge">5 Pairs</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Match each interview situation (1–5) to the best interviewer response (A–E). Click a number, then click a letter.</div>
+        <div class="act-head"><span class="act-num">1</span> Match each negotiation stage (1–5) to the correct phrase (A–E). Click a number, then click a letter.</div>
 
         <div class="match-grid">
           <div>
-            <div class="match-col-label">Situation</div>
-            <div class="match-left-item" id="mL1" onclick="matchClick11(this,'L',1)">
-              <span class="match-badge">1</span> Candidate gives a very short answer
+            <div class="match-col-label">Negotiation Stage</div>
+            <div class="match-left-item" id="mL1" onclick="matchClick(this,'L',1)">
+              <span class="match-badge">1</span> Softening a request
             </div>
-            <div class="match-left-item" id="mL2" onclick="matchClick11(this,'L',2)">
-              <span class="match-badge">2</span> Candidate seems very nervous
+            <div class="match-left-item" id="mL2" onclick="matchClick(this,'L',2)">
+              <span class="match-badge">2</span> Offering a conditional concession
             </div>
-            <div class="match-left-item" id="mL3" onclick="matchClick11(this,'L',3)">
-              <span class="match-badge">3</span> Candidate asks about salary immediately
+            <div class="match-left-item" id="mL3" onclick="matchClick(this,'L',3)">
+              <span class="match-badge">3</span> Proposing a compromise
             </div>
-            <div class="match-left-item" id="mL4" onclick="matchClick11(this,'L',4)">
-              <span class="match-badge">4</span> Candidate gives a very impressive answer
+            <div class="match-left-item" id="mL4" onclick="matchClick(this,'L',4)">
+              <span class="match-badge">4</span> Disagreeing politely
             </div>
-            <div class="match-left-item" id="mL5" onclick="matchClick11(this,'L',5)">
-              <span class="match-badge">5</span> The interview is running over time
+            <div class="match-left-item" id="mL5" onclick="matchClick(this,'L',5)">
+              <span class="match-badge">5</span> Closing the deal
             </div>
           </div>
           <div>
-            <div class="match-col-label">Best Interviewer Response</div>
-            <div class="match-right-item" id="mR-A" onclick="matchClick11(this,'R','A')">
-              <span class="match-badge">A</span> "We typically discuss compensation at the offer stage — let's focus on the role for now."
+            <div class="match-col-label">Phrase</div>
+            <div class="match-right-item" id="mR-A" onclick="matchClick(this,'R','A')">
+              <span class="match-badge">A</span> "I think we're very close — let's bridge that gap."
             </div>
-            <div class="match-right-item" id="mR-B" onclick="matchClick11(this,'R','B')">
-              <span class="match-badge">B</span> "That's a really strong example — thank you."
+            <div class="match-right-item" id="mR-B" onclick="matchClick(this,'R','B')">
+              <span class="match-badge">B</span> "Would it be possible to extend the deadline?"
             </div>
-            <div class="match-right-item" id="mR-C" onclick="matchClick11(this,'R','C')">
-              <span class="match-badge">C</span> "Take your time — there's no rush."
+            <div class="match-right-item" id="mR-C" onclick="matchClick(this,'R','C')">
+              <span class="match-badge">C</span> "We'd be willing to lower the price, provided you sign a 12-month deal."
             </div>
-            <div class="match-right-item" id="mR-D" onclick="matchClick11(this,'R','D')">
-              <span class="match-badge">D</span> "Could you tell me a little more about that?"
+            <div class="match-right-item" id="mR-D" onclick="matchClick(this,'R','D')">
+              <span class="match-badge">D</span> "I understand your position, but that would be difficult for us."
             </div>
-            <div class="match-right-item" id="mR-E" onclick="matchClick11(this,'R','E')">
-              <span class="match-badge">E</span> "I want to make sure we cover everything — let's wrap up the last question."
+            <div class="match-right-item" id="mR-E" onclick="matchClick(this,'R','E')">
+              <span class="match-badge">E</span> "What if we met in the middle on the delivery date?"
             </div>
           </div>
         </div>
 
-        <div id="match-score-11" style="margin-top:14px;font-size:14px;font-weight:700;color:var(--navy);min-height:24px;"></div>
+        <div id="match-score" style="margin-top:14px;font-size:14px;font-weight:700;color:var(--navy);min-height:24px;"></div>
         <div class="btn-center">
-          <button class="btn btn-green btn-sm" onclick="checkMatch11()">✔ Check Answers</button>
-          <button class="btn btn-outline btn-sm" id="ans-key-btn-11" style="display:none;" onclick="showAnsKey11()">🔑 Answer Key</button>
-          <button class="btn btn-outline btn-sm" onclick="resetMatch11()">↺ Reset</button>
+          <button class="btn btn-green btn-sm" onclick="checkMatch16()">✔ Check Answers</button>
+          <button class="btn btn-outline btn-sm" id="ans-key-btn-16" style="display:none;" onclick="showAnsKey16()">🔑 Answer Key</button>
+          <button class="btn btn-outline btn-sm" onclick="resetMatch16()">↺ Reset</button>
         </div>
-        <div id="ans-key-11" style="display:none;margin-top:12px;padding:12px 16px;background:var(--lgr);border-radius:10px;font-size:13.5px;line-height:1.9;">
-          <strong>Answer Key:</strong> 1 → D &nbsp;|&nbsp; 2 → C &nbsp;|&nbsp; 3 → A &nbsp;|&nbsp; 4 → B &nbsp;|&nbsp; 5 → E
+        <div id="ans-key-16" style="display:none;margin-top:12px;padding:12px 16px;background:var(--lgr);border-radius:10px;font-size:13.5px;line-height:1.9;">
+          <strong>Answer Key:</strong> 1 → B &nbsp;|&nbsp; 2 → C &nbsp;|&nbsp; 3 → E &nbsp;|&nbsp; 4 → D &nbsp;|&nbsp; 5 → A
         </div>
 
       </div>
@@ -837,30 +841,28 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Extra Activity</div>
           <div class="card-title">If there's time</div>
         </div>
-        <span class="card-badge">Bias Check</span>
+        <span class="card-badge">Speed Negotiation</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Discuss the following scenarios with your partner.</div>
+        <div class="act-head"><span class="act-num">1</span> Speed Negotiation — 3 minutes to prepare, 4 minutes to negotiate.</div>
 
         <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:12px;padding:18px;margin-bottom:16px;">
-          <div style="font-size:14.5px;font-weight:700;color:var(--green);margin-bottom:10px;">🧠 Unconscious Bias in Interviews</div>
-          <p style="font-size:14px;line-height:1.6;margin-bottom:12px;">Unconscious bias can affect hiring decisions without us even realising it. Look at the five scenarios below. Which ones might introduce bias into an interview? How could an interviewer counteract each one?</p>
-          <ol style="font-size:14px;line-height:2;padding-left:20px;">
-            <li>The candidate attended the same university as you and you immediately feel a connection.</li>
-            <li>The candidate has a strong accent that is unfamiliar to you and you have to concentrate harder to understand them.</li>
-            <li>The candidate's CV has a two-year gap that they explained was for family caregiving reasons.</li>
-            <li>The candidate is much younger than you expected for a senior role.</li>
-            <li>The candidate is dressed very casually for the interview.</li>
-          </ol>
+          <div style="font-size:14.5px;font-weight:700;color:var(--green);margin-bottom:12px;">🤝 Your Challenge</div>
+          <p style="font-size:14px;line-height:1.6;margin-bottom:12px;">Work in pairs. One person is the <strong>buyer</strong>, one is the <strong>seller</strong>, negotiating the price and terms for office furniture for a new branch. You each have secret instructions — don't show them to your partner!</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
+            <div style="padding:12px;background:white;border-radius:8px;border:1.5px solid #86efac;font-size:13px;"><strong style="color:var(--green);">Buyer's brief:</strong> Budget of €18,000. Ideally want 60-day payment terms. Walk-away point: €22,000.</div>
+            <div style="padding:12px;background:white;border-radius:8px;border:1.5px solid #86efac;font-size:13px;"><strong style="color:var(--green);">Seller's brief:</strong> List price €25,000. Can go as low as €19,000 if paid within 15 days. Walk-away point: €19,000.</div>
+          </div>
         </div>
 
-        <button class="sa-btn" style="border-color:var(--green);color:var(--green);" onclick="toggleSa(this,'sa-extra-11')">👁 Discussion guide</button>
-        <div class="sa-box" id="sa-extra-11" style="border-color:var(--green);">
-          <strong>1. Shared university:</strong> "Affinity bias" — feeling warmer towards someone similar to you. Counteract by scoring responses against objective competency criteria, not gut feeling.<br><br>
-          <strong>2. Unfamiliar accent:</strong> Can trigger unconscious negative assumptions about capability. Counteract by separating communication clarity from language origin — ask yourself: did I understand the content of the answer?<br><br>
-          <strong>3. CV gap for caregiving:</strong> Caregiving gaps are legitimate and common. Ask only job-relevant questions: "What skills or experiences did you gain during this period?"<br><br>
-          <strong>4. Younger than expected:</strong> Age bias (positive or negative) is real. Focus on evidence of competence: "Can they demonstrate the experience the role requires?"<br><br>
-          <strong>5. Casual dress:</strong> Dress codes vary across industries and cultures. Ask yourself: is this relevant to job performance? If the role has a dress code, address it factually in the offer stage — don't let it colour your assessment of their skills.
+        <div style="background:var(--lgr);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13.5px;line-height:1.6;">
+          <strong style="color:var(--navy);">Feedback focus:</strong> Did both sides use polite, indirect language? Was every concession traded for something in return? Did they find a deal, or reach deadlock? Report back to the group on what you agreed.
+        </div>
+
+        <button class="sa-btn" style="border-color:var(--green);color:var(--green);" onclick="toggleSa(this,'sa-extra-16')">👁 Possible outcome</button>
+        <div class="sa-box" id="sa-extra-16" style="border-color:var(--green);">
+          <strong>One possible deal:</strong> €20,500, paid within 30 days, with the seller including free delivery and setup. Neither side reached their walk-away point, and both gained something they valued: the buyer got acceptable payment terms, and the seller secured a faster payment than their original 60-day fear.<br><br>
+          <strong>Tip:</strong> The best outcomes usually involve trading something beyond price alone — payment terms, delivery, contract length, or added services.
         </div>
 
       </div>
@@ -886,68 +888,65 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
       </div>
       <div class="card-body">
 
-        <div class="act-head"><span class="act-num">Task 1</span> Fill in the missing word to complete each indirect question correctly.</div>
+        <div class="act-head"><span class="act-num">Task 1</span> Fill in each gap with the correct expression from the box below. Type your answers.</div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:12px;background:var(--lo);border-radius:10px;">
+          <span style="font-size:12.5px;font-weight:700;color:var(--orange);padding:4px 12px;background:white;border-radius:16px;border:1.5px solid var(--orange);">Would it be possible</span>
+          <span style="font-size:12.5px;font-weight:700;color:var(--orange);padding:4px 12px;background:white;border-radius:16px;border:1.5px solid var(--orange);">provided that</span>
+          <span style="font-size:12.5px;font-weight:700;color:var(--orange);padding:4px 12px;background:white;border-radius:16px;border:1.5px solid var(--orange);">In return</span>
+          <span style="font-size:12.5px;font-weight:700;color:var(--orange);padding:4px 12px;background:white;border-radius:16px;border:1.5px solid var(--orange);">met in the middle</span>
+          <span style="font-size:12.5px;font-weight:700;color:var(--orange);padding:4px 12px;background:white;border-radius:16px;border:1.5px solid var(--orange);">I understand your position</span>
+        </div>
 
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
-
           <div style="font-size:14px;line-height:2;">
-            1. Direct: "Why do you want this role?" → Indirect: "Could you tell me why you
-            <input type="text" class="hw-input" id="hw1" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:140px;outline:none;text-align:center;color:var(--navy);">
-            this role?"
+            1. <input type="text" class="hw-input" id="hw1" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:220px;outline:none;text-align:center;color:var(--navy);">
+            to move the meeting to Thursday instead?
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            2. Direct: "Did you manage a budget?" → Indirect: "I'd like to know whether you
-            <input type="text" class="hw-input" id="hw2" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:160px;outline:none;text-align:center;color:var(--navy);">
-            a budget."
+            2. We'll agree to the discount, <input type="text" class="hw-input" id="hw2" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:160px;outline:none;text-align:center;color:var(--navy);"> you sign a two-year contract.
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            3. Direct: "What are your long-term goals?" → Indirect: "Could you explain what your long-term goals
-            <input type="text" class="hw-input" id="hw3" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:100px;outline:none;text-align:center;color:var(--navy);">
-            ?"
+            3. <input type="text" class="hw-input" id="hw3" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:110px;outline:none;text-align:center;color:var(--navy);">, we'd need faster payment terms.
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            4. Direct: "Do you prefer working alone or in a team?" → Indirect: "I was wondering whether you prefer
-            <input type="text" class="hw-input" id="hw4" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:180px;outline:none;text-align:center;color:var(--navy);">
-            or in a team."
+            4. Why don't we try to find a price we've <input type="text" class="hw-input" id="hw4" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:180px;outline:none;text-align:center;color:var(--navy);">?
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            5. Direct: "How did you handle the pressure?" → Indirect: "Would you mind telling me how you
-            <input type="text" class="hw-input" id="hw5" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:160px;outline:none;text-align:center;color:var(--navy);">
-            the pressure?"
+            5. <input type="text" class="hw-input" id="hw5" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:220px;outline:none;text-align:center;color:var(--navy);">, but we can't approve that budget increase.
           </div>
         </div>
 
         <div class="btn-center">
-          <button class="btn btn-green btn-sm" onclick="checkHW11()">✔ Check Answers</button>
-          <button class="btn btn-outline btn-sm" onclick="resetHW11()">↺ Reset</button>
+          <button class="btn btn-green btn-sm" onclick="checkHW16()">✔ Check Answers</button>
+          <button class="btn btn-outline btn-sm" onclick="resetHW16()">↺ Reset</button>
         </div>
-        <div id="hw-feedback-11" style="margin-top:10px;font-size:13px;min-height:20px;"></div>
+        <div id="hw-feedback-16" style="margin-top:10px;font-size:13px;min-height:20px;"></div>
 
         <div class="divider"></div>
 
-        <div class="act-head"><span class="act-num">Task 2</span> Write 6 interview questions you would ask for a Business Development Manager role. Include at least 2 behavioral questions and 2 indirect questions.</div>
+        <div class="act-head"><span class="act-num">Task 2</span> Write a short negotiation email replying to a client who has requested a 20% discount on a €40,000 project.</div>
 
-        <textarea rows="9" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px;font-size:13.5px;font-family:'Segoe UI',Arial,sans-serif;resize:vertical;color:var(--text);line-height:1.7;" placeholder="Write your 6 interview questions here...&#10;&#10;Remember: at least 2 must be behavioral ('Tell me about a time when...') and at least 2 must be indirect polite questions ('Could you tell me...' / 'I was wondering if...')."></textarea>
+        <div style="background:var(--lo);border-radius:10px;padding:12px;margin-bottom:12px;font-size:13px;color:var(--orange);font-weight:600;">
+          Include: a polite opening, one clear condition attached to any concession, and a proposed compromise. Use at least three phrases from this lesson.
+        </div>
 
-        <button class="sa-btn" style="border-color:var(--orange);color:var(--orange);margin-top:10px;" onclick="toggleSa(this,'sa-hw2-11')">👁 Sample answer</button>
-        <div class="sa-box" id="sa-hw2-11" style="border-color:var(--orange);">
-          <strong>1.</strong> "Could you tell me what attracted you to a Business Development role, and why this particular industry?" <em>(indirect)</em><br><br>
-          <strong>2.</strong> "Tell me about a time when you identified and closed a significant new business opportunity. What was your approach?" <em>(behavioral)</em><br><br>
-          <strong>3.</strong> "I was wondering if you could describe your typical process for building a relationship with a new prospect from first contact to signed contract." <em>(indirect)</em><br><br>
-          <strong>4.</strong> "Tell me about a time when a deal you were confident about fell through. What happened, and what did you learn from it?" <em>(behavioral)</em><br><br>
-          <strong>5.</strong> "How do you currently track and manage your pipeline, and how do you prioritise your accounts?"<br><br>
-          <strong>6.</strong> "Where do you see yourself in this industry in three to five years, and how does this role fit into that picture?"
+        <textarea rows="8" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px;font-size:13.5px;font-family:'Segoe UI',Arial,sans-serif;resize:vertical;color:var(--text);line-height:1.7;" placeholder="Write your negotiation email here...&#10;&#10;Dear...&#10;Thank you for...&#10;Would it be possible to...&#10;We'd be willing to..., provided that...&#10;What if we met in the middle...&#10;Best regards,"></textarea>
+
+        <button class="sa-btn" style="border-color:var(--orange);color:var(--orange);margin-top:10px;" onclick="toggleSa(this,'sa-hw2-16')">👁 Sample answer</button>
+        <div class="sa-box" id="sa-hw2-16" style="border-color:var(--orange);">
+          Dear Elena,<br><br>
+          Thank you for your message and for your continued interest in working with us on this project. I understand your position — a 20% reduction would obviously help with your budget this quarter.<br><br>
+          Unfortunately, a discount of that size isn't something we'd be able to offer on this scope of work. That said, we'd be willing to reduce the price by 8%, provided that we could agree on payment upfront rather than in three instalments. In return, we could also include an additional round of revisions at no extra cost.<br><br>
+          What if we met in the middle at a 10% reduction, with payment split into two instalments instead of three? I think that could work well for both sides — let me know your thoughts.<br><br>
+          Best regards,<br>Teacher Nanda
         </div>
 
       </div>
     </div>
     <div class="slide-bottom-nav">
       <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
-      <a href="Lesson_12_Giving_Feedback_Performance_Reviews.html" class="btn btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;">Next Lesson →</a>
+      <button class="btn btn-primary" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">🏠 Course Home</button>
     </div>
   </div>
 </div>
@@ -1016,6 +1015,7 @@ function updateSlideUI() {
     else if (i === currentSlide) d.classList.add('active');
   });
 }
+document.querySelector('#slide-8 .slide-bottom-nav button:last-child').onclick = () => { window.location.href='index.html'; };
 
 /* ── TFD ── */
 function tfdPick(btn, correct, expId) {
@@ -1023,7 +1023,6 @@ function tfdPick(btn, correct, expId) {
   const btns = item.querySelectorAll('.tfd-btn');
   if ([...btns].some(b => b.classList.contains('sel-t') || b.classList.contains('sel-f') || b.classList.contains('sel-d'))) return;
   btns.forEach(b => b.classList.add('locked'));
-  const labels = ['T','F','D'];
   const classes = ['sel-t','sel-f','sel-d'];
   const idx = [...btns].indexOf(btn);
   btn.classList.add(classes[idx]);
@@ -1058,7 +1057,7 @@ function dropOnBlank(blank) {
     blank.classList.remove('has-word','correct','incorrect');
     blank.style.borderBottomColor = '';
     document.querySelectorAll('.wb-word').forEach(w => {
-      if (w.textContent === old) { w.classList.remove('used'); }
+      if (w.textContent === old || w.textContent === old.replace('&amp;','&')) { w.classList.remove('used'); }
     });
   }
   if (wbSelected) {
@@ -1103,28 +1102,28 @@ function fpPick(el, correct, hintId) {
 }
 
 /* ── SPEAKING SCENES ── */
-let curScene11 = 1; const totalScenes11 = 3;
-function goToScene11(n) {
-  document.getElementById('sc11-' + curScene11).classList.remove('active');
-  curScene11 = n;
-  document.getElementById('sc11-' + curScene11).classList.add('active');
-  document.getElementById('scene-counter-11').textContent = 'Situation ' + curScene11 + ' of ' + totalScenes11;
-  updateSceneDots11();
-  const btn = document.getElementById('scene-next-btn-11');
-  btn.textContent = curScene11 === totalScenes11 ? '✅ Done' : 'Next situation →';
-  btn.onclick = curScene11 === totalScenes11 ? null : nextScene11;
+let curScene16 = 1; const totalScenes16 = 3;
+function goToScene16(n) {
+  document.getElementById('sc16-' + curScene16).classList.remove('active');
+  curScene16 = n;
+  document.getElementById('sc16-' + curScene16).classList.add('active');
+  document.getElementById('scene-counter-16').textContent = 'Situation ' + curScene16 + ' of ' + totalScenes16;
+  updateSceneDots16();
+  const btn = document.getElementById('scene-next-btn-16');
+  btn.textContent = curScene16 === totalScenes16 ? '✅ Done' : 'Next situation →';
+  btn.onclick = curScene16 === totalScenes16 ? null : nextScene16;
 }
-function nextScene11() {
-  if (curScene11 < totalScenes11) goToScene11(curScene11 + 1);
+function nextScene16() {
+  if (curScene16 < totalScenes16) goToScene16(curScene16 + 1);
 }
-function updateSceneDots11() {
-  document.querySelectorAll('#scene-dots-11 .scene-dot').forEach((d,i) => {
+function updateSceneDots16() {
+  document.querySelectorAll('#scene-dots-16 .scene-dot').forEach((d,i) => {
     d.classList.remove('active','done');
-    if (i < curScene11-1) d.classList.add('done');
-    else if (i === curScene11-1) d.classList.add('active');
+    if (i < curScene16-1) d.classList.add('done');
+    else if (i === curScene16-1) d.classList.add('active');
   });
 }
-function toggleSa11(btn, id) {
+function toggleSa16(btn, id) {
   const box = document.getElementById(id);
   const showing = box.classList.contains('show');
   box.classList.toggle('show');
@@ -1138,21 +1137,21 @@ function toggleSa(btn, id) {
 }
 
 /* ── MATCHING ── */
-const matchAnswers11 = {1:'D', 2:'C', 3:'A', 4:'B', 5:'E'};
-let mSel11 = null;
-function matchClick11(el, side, id) {
+const matchAnswers16 = {1:'B', 2:'C', 3:'E', 4:'D', 5:'A'};
+let mSel16 = null;
+function matchClick(el, side, id) {
   if (el.classList.contains('matched')) return;
-  if (mSel11 && mSel11.side === side) {
-    document.getElementById(mSel11.elId).classList.remove('selected');
-    if (mSel11.elId === el.id) { mSel11=null; return; }
+  if (mSel16 && mSel16.side === side) {
+    document.getElementById(mSel16.elId).classList.remove('selected');
+    if (mSel16.elId === el.id) { mSel16=null; return; }
   }
   el.classList.add('selected');
-  if (!mSel11) { mSel11 = {side, id, elId: el.id}; return; }
-  const lNum = side==='L' ? id : mSel11.id;
-  const rLet = side==='R' ? id : mSel11.id;
+  if (!mSel16) { mSel16 = {side, id, elId: el.id}; return; }
+  const lNum = side==='L' ? id : mSel16.id;
+  const rLet = side==='R' ? id : mSel16.id;
   const lEl = document.getElementById('mL' + lNum);
   const rEl = document.getElementById('mR-' + rLet);
-  if (matchAnswers11[lNum] === rLet) {
+  if (matchAnswers16[lNum] === rLet) {
     lEl.classList.add('matched'); rEl.classList.add('matched');
     lEl.classList.remove('selected'); rEl.classList.remove('selected');
     const col = ['#dcfce7','#dbeafe','#ede9fe','#fef3c7','#ffe4e6'][lNum-1];
@@ -1161,21 +1160,21 @@ function matchClick11(el, side, id) {
     lEl.classList.add('match-wrong-flash'); rEl.classList.add('match-wrong-flash');
     setTimeout(()=>{lEl.classList.remove('match-wrong-flash','selected');rEl.classList.remove('match-wrong-flash','selected');},400);
   }
-  mSel11 = null;
+  mSel16 = null;
 }
-function checkMatch11() {
-  const total = Object.keys(matchAnswers11).length;
+function checkMatch16() {
+  const total = Object.keys(matchAnswers16).length;
   const matched = document.querySelectorAll('.match-left-item.matched').length;
-  document.getElementById('match-score-11').textContent = matched === total
+  document.getElementById('match-score').textContent = matched === total
     ? '🎉 All correct!' : matched + ' of ' + total + ' matched correctly.';
-  if (matched === total) { document.getElementById('ans-key-btn-11').style.display='none'; }
-  else { document.getElementById('ans-key-btn-11').style.display='inline-block'; }
+  if (matched === total) { document.getElementById('ans-key-btn-16').style.display='none'; }
+  else { document.getElementById('ans-key-btn-16').style.display='inline-block'; }
 }
-function showAnsKey11() {
-  document.getElementById('ans-key-11').style.display='block';
-  document.getElementById('ans-key-btn-11').style.display='none';
+function showAnsKey16() {
+  document.getElementById('ans-key-16').style.display='block';
+  document.getElementById('ans-key-btn-16').style.display='none';
 }
-function resetMatch11() {
+function resetMatch16() {
   ['mL1','mL2','mL3','mL4','mL5'].forEach(id => {
     const el=document.getElementById(id);
     el.classList.remove('matched','selected');el.style.background='';
@@ -1184,23 +1183,23 @@ function resetMatch11() {
     const el=document.getElementById(id);
     el.classList.remove('matched','selected');el.style.background='';
   });
-  document.getElementById('match-score-11').textContent='';
-  document.getElementById('ans-key-btn-11').style.display='none';
-  document.getElementById('ans-key-11').style.display='none';
-  mSel11=null;
+  document.getElementById('match-score').textContent='';
+  document.getElementById('ans-key-btn-16').style.display='none';
+  document.getElementById('ans-key-16').style.display='none';
+  mSel16=null;
 }
 
 /* ── HOMEWORK CHECK ── */
-const hwAnswers11 = {
-  hw1: ['want'],
-  hw2: ['managed', 'had managed'],
-  hw3: ['are'],
-  hw4: ['working alone', 'to work alone'],
-  hw5: ['handled', 'dealt with', 'managed']
+const hwAnswers16 = {
+  hw1: ['would it be possible'],
+  hw2: ['provided that'],
+  hw3: ['in return'],
+  hw4: ['met in the middle'],
+  hw5: ['i understand your position']
 };
-function checkHW11() {
+function checkHW16() {
   let correct = 0, total = 5;
-  Object.entries(hwAnswers11).forEach(([id, accepted]) => {
+  Object.entries(hwAnswers16).forEach(([id, accepted]) => {
     const inp = document.getElementById(id);
     const val = inp.value.trim().toLowerCase();
     const ok = accepted.some(a => val === a.toLowerCase());
@@ -1208,16 +1207,16 @@ function checkHW11() {
     inp.style.color = ok ? 'var(--green)' : 'var(--rose)';
     if (ok) correct++;
   });
-  document.getElementById('hw-feedback-11').innerHTML =
+  document.getElementById('hw-feedback-16').innerHTML =
     correct === total ? '<span style="color:var(--green);font-weight:700;">✅ All correct! Well done.</span>'
     : '<span style="color:var(--rose);font-weight:700;">' + correct + '/' + total + ' correct. Check the ones in red and try again.</span>';
 }
-function resetHW11() {
+function resetHW16() {
   ['hw1','hw2','hw3','hw4','hw5'].forEach(id => {
     const inp = document.getElementById(id);
     inp.value=''; inp.style.borderBottomColor=''; inp.style.color='';
   });
-  document.getElementById('hw-feedback-11').innerHTML='';
+  document.getElementById('hw-feedback-16').innerHTML='';
 }
 
 /* ── NOTES ── */

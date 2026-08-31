@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Lesson 11 – Interviewing Others</title>
+<title>Lesson 15 – Facts, Figures &amp; Trends</title>
 <style>
 
 :root {
@@ -126,7 +123,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 /* ── COVER SLIDE ── */
 .cover-slide {
   min-height: calc(100vh - 98px);
-  background: linear-gradient(140deg, var(--navy) 0%, #1e3a5f 60%, #0d5986 100%);
+  background: linear-gradient(140deg, var(--navy) 0%, #0c4a6e 60%, #0891b2 100%);
   display: flex; align-items: center; justify-content: center;
   padding: 40px 20px; position: relative; overflow: hidden;
 }
@@ -156,7 +153,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   font-size: 48px; font-weight: 900; line-height: 1.05;
   margin-bottom: 14px; letter-spacing: -.5px;
 }
-.cover-title .accent { color: #8b5cf6; }
+.cover-title .accent { color: #67e8f9; }
 .cover-badge {
   display: inline-block; background: var(--teal); color: white;
   border-radius: 20px; padding: 6px 22px; font-size: 13px;
@@ -207,7 +204,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .mc-item{margin-bottom:16px;}
 .mc-q{font-size:14px;font-weight:600;margin-bottom:8px;color:var(--text);}
 .mc-opts{display:flex;flex-direction:column;gap:6px;}
-.mc-opt{padding:9px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:13.5px;cursor:pointer;background:white;transition:all .15s;font-family:inherit;text-align:left;}
+.mc-opt{padding:9px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:13.5px;cursor:pointer;background:white;transition:all .15px;font-family:inherit;text-align:left;}
 .mc-opt:hover:not(.locked){border-color:var(--indigo);background:var(--li);}
 .mc-opt.correct{background:#dcfce7!important;border-color:var(--green)!important;color:#14532d!important;}
 .mc-opt.wrong{background:#ffe4e6!important;border-color:var(--rose)!important;color:#9f1239!important;}
@@ -340,9 +337,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   <div class="cover-slide">
     <div class="cover-inner">
       <div class="cover-label">Business English with Teacher Nanda</div>
-      <div class="cover-module">Module 3 · HR &amp; Career — Lesson 3 of 4</div>
-      <div class="cover-title">Interviewing <span class="accent">Others</span></div>
-      <div class="cover-badge">Lesson 11</div>
+      <div class="cover-module">Module 4 · Presentations — Lesson 3 of 3</div>
+      <div class="cover-title">Facts, <span class="accent">Figures</span> &amp; Trends</div>
+      <div class="cover-badge">Lesson 15</div>
     </div>
   </div>
 </div>
@@ -355,62 +352,65 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         <div class="card-icon">☀️</div>
         <div>
           <div class="card-label">Part 1</div>
-          <div class="card-title">Warm-up</div>
+          <div class="card-title">Warm-up — "Data Detectives"</div>
         </div>
         <span class="card-badge">True / False / It depends</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Rate the Interviewer — last lesson you were in the hot seat. Now you're on the other side of the table!</div>
+        <div style="background:var(--lt);border:1px solid #5eead4;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13.5px;color:#134e4a;line-height:1.6;">
+          💡 In your last pitch you backed up your claims with data. Now let's get comfortable reading and talking about numbers.
+        </div>
+        <div class="act-head"><span class="act-num">1</span> What do you think? Choose True, False, or It depends for each statement.</div>
 
         <div class="tfd-item" id="tfd-0">
           <span class="tfd-num">1</span>
           <div style="flex:1;">
-            <div class="tfd-text">A good interviewer should do most of the talking to make the candidate feel comfortable.</div>
+            <div class="tfd-text">In business, using percentages is always more convincing than using raw numbers.</div>
             <div class="tfd-btns">
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-0')">True</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-0')">False</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-0')">It depends</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-0')">True</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-0')">False</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-0')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-0">False — The interviewer should guide and structure the conversation, but the candidate should do roughly 80% of the talking. An interview is not a lecture. The goal is to learn as much as possible about the candidate.</div>
+            <div class="tfd-exp" id="exp-0">It depends — Both can be powerful. "80% of customers" is memorable and relatable; "1.2 million users" can be more impressive when you want to show scale. Choose based on your audience and context.</div>
           </div>
         </div>
 
         <div class="tfd-item" id="tfd-1">
           <span class="tfd-num">2</span>
           <div style="flex:1;">
-            <div class="tfd-text">Asking "What salary do you expect?" at the very start of an interview is a bad idea.</div>
+            <div class="tfd-text">If a trend has been going up for three months, it will definitely continue to go up.</div>
             <div class="tfd-btns">
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-1')">True</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-1')">False</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-1')">It depends</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-1')">True</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-1')">False</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-1')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-1">True — Opening with the salary question sends the message that money is the only priority. It is better to first assess whether the candidate is the right fit for the role, and then discuss compensation towards the end or at the offer stage.</div>
+            <div class="tfd-exp" id="exp-1">False — Trends can reverse at any time. Business context and market forces matter. Never assume a trend will continue without analysis and supporting evidence.</div>
           </div>
         </div>
 
         <div class="tfd-item" id="tfd-2">
           <span class="tfd-num">3</span>
           <div style="flex:1;">
-            <div class="tfd-text">It is acceptable to ask a candidate about their plans to start a family.</div>
+            <div class="tfd-text">It's always better to present exact figures rather than approximate ones.</div>
             <div class="tfd-btns">
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-2')">True</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-2')">False</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-2')">It depends</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-2')">True</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-2')">False</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'D','exp-2')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-2">False — This is potentially discriminatory and is illegal in many countries. Questions must be strictly job-related. Asking about family plans, marital status, age, or religion opens the company to serious legal risk and damages trust with the candidate.</div>
+            <div class="tfd-exp" id="exp-2">It depends — Exact numbers add credibility for key statistics. But approximate figures ("roughly a third", "approximately 500") are often better for general points — they're easier to absorb and sound less like you're over-claiming.</div>
           </div>
         </div>
 
         <div class="tfd-item" id="tfd-3">
           <span class="tfd-num">4</span>
           <div style="flex:1;">
-            <div class="tfd-text">Silence after a question can be a useful tool for an interviewer.</div>
+            <div class="tfd-text">A sharp rise in sales is always good news for a company.</div>
             <div class="tfd-btns">
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-3')">True</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-3')">False</button>
-              <button class="tfd-btn" onclick="tfdPick(this,'T','exp-3')">It depends</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-3')">True</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-3')">False</button>
+              <button class="tfd-btn" onclick="tfdPick(this,'F','exp-3')">It depends</button>
             </div>
-            <div class="tfd-exp" id="exp-3">True — Comfortable silence after a question can encourage candidates to elaborate and add more detail. It can also reveal how well they handle pressure. Skilled interviewers resist the urge to fill every silence — they use pauses strategically.</div>
+            <div class="tfd-exp" id="exp-3">False — Not necessarily. A sudden spike could indicate a one-off event, seasonal effect, or accounting change. It could also mask other problems. Context is everything when interpreting data.</div>
           </div>
         </div>
 
@@ -439,52 +439,52 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         <div class="act-head"><span class="act-num">1</span> Read the article, then answer the comprehension questions below.</div>
 
         <div class="reading-passage">
-          <h3>How to Run a Great Interview</h3>
-          <p>A great interview does not happen by accident — it requires careful preparation. Before the interview, skilled interviewers study the job description in detail and prepare a set of structured questions that directly relate to the role's competencies. This ensures that every candidate is assessed on the same criteria, making comparisons fair and meaningful. Walking into an interview without a plan wastes everyone's time and increases the risk of hiring the wrong person.</p>
-          <p>During the interview, the most important skill is active listening. Interviewers should resist the temptation to talk about the company or the role for too long. A good rule of thumb is that the candidate should speak approximately 80% of the time. Rather than thinking about the next question while the candidate is speaking, a strong interviewer listens carefully and asks natural follow-up questions based on what has just been said. This signals genuine interest and often uncovers information that prepared questions alone would miss.</p>
-          <p>One of the biggest challenges in interviewing is avoiding unconscious bias. Research consistently shows that interviewers are susceptible to being influenced by factors unrelated to the job — such as shared interests, the university a candidate attended, or even the sound of their name. To counteract this, many organisations require interviewers to score responses against pre-agreed competency criteria immediately after each answer, before the overall impression fades. Asking the same core questions to all candidates also helps create a level playing field.</p>
-          <p>Finally, documentation matters. Interviewers should take brief notes during the conversation and write up a structured evaluation immediately after each interview. Memory is unreliable — especially when you are interviewing five or six candidates in a single day. Good documentation protects the organisation legally, supports fair decision-making, and makes it far easier to give constructive feedback to unsuccessful candidates who ask for it.</p>
+          <h3>Talking Numbers: The Language of Business Trends</h3>
+          <p>In business presentations, numbers rarely speak for themselves. The language you use to describe them is just as important as the figures. A rise can be described as a "surge," an "increase," or an "uptick" — each word creates a different impression of scale and speed. Similarly, a fall can "plummet," "decline," or "level off." Choosing the right verb, combined with an adverb such as "sharply," "steadily," or "gradually," gives your audience a clear and vivid picture of what the data shows.</p>
+          <p>When presenting data, the passive voice is often the professional's choice. Rather than saying "we increased sales," the formal report style prefers "sales were reported to have increased" or "it has been found that." This impersonal style removes personal responsibility and sounds more objective — which is especially important when the news is mixed or the source of the data needs to be acknowledged.</p>
+          <p>Good communicators also know how to hedge — that is, to express appropriate caution about a claim. Phrases such as "it appears that," "the data suggests," and "this should be interpreted with caution" signal to the audience that you are being careful, not over-claiming. Hedging is not a sign of weakness; it is a sign of credibility.</p>
+          <p>Finally, the most important skill when presenting trends is contextualisation. A figure on its own — "revenue rose by 12%" — tells only half the story. The skilled presenter goes further: "Revenue rose by 12%, which is particularly significant given that the overall market contracted by 3% over the same period." This is what turns raw data into a compelling business argument.</p>
         </div>
 
         <div class="act-head" style="margin-top:20px;"><span class="act-num">2</span> Choose the best answer for each question.</div>
 
         <div class="mc-item">
-          <div class="mc-q">1. What does the article say interviewers should prepare before the interview?</div>
+          <div class="mc-q">1. Which verb describes a small, gradual rise?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. A list of personal questions to help the candidate feel relaxed</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">B. Structured questions that relate directly to the role's competencies</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">C. A company presentation to give to candidates at the start</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">D. A summary of every candidate's CV to read aloud</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">A. surged</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">B. edged up</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">C. plummeted</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">D. fluctuated</button>
           </div>
         </div>
 
         <div class="mc-item">
-          <div class="mc-q">2. According to the article, approximately how much of the time should the candidate speak?</div>
+          <div class="mc-q">2. What is hedging language used for?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. 50% — a balance between interviewer and candidate</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">B. 60% — enough to assess without taking too much time</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">C. 80% — the interviewer should mostly listen</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">D. 100% — the interviewer should not speak until the end</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">A. To make your data sound more dramatic and impressive</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">B. To avoid giving any specific information in a presentation</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">C. To express appropriate caution or uncertainty about a claim</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">D. To make the audience feel that you are not confident</button>
           </div>
         </div>
 
         <div class="mc-item">
-          <div class="mc-q">3. How can interviewers help avoid unconscious bias?</div>
+          <div class="mc-q">3. Which sentence uses the passive voice correctly to report data?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. By only interviewing candidates they have personally recommended</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">B. By choosing candidates from well-known universities</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">C. By scoring responses against competency criteria and asking the same core questions to all candidates</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">D. By relying on first impressions and overall gut feeling</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">A. "Sales were reported to have increased by 12%."</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">B. "We have reported that sales are increasing by 12%."</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">C. "Sales are increasing and we reported this figure."</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">D. "It was us who reported the 12% increase in sales."</button>
           </div>
         </div>
 
         <div class="mc-item">
-          <div class="mc-q">4. Why does the article recommend taking notes and writing evaluations immediately after each interview?</div>
+          <div class="mc-q">4. What should you do before drawing conclusions from a trend?</div>
           <div class="mc-opts">
-            <button class="mc-opt" onclick="mcPick(this,false)">A. To share them with the candidate before the final decision</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">B. To save time when writing the job offer letter</button>
-            <button class="mc-opt" onclick="mcPick(this,false)">C. To comply with government reporting requirements</button>
-            <button class="mc-opt" onclick="mcPick(this,true)">D. Because memory is unreliable, especially after several interviews in a day</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">A. Always compare with the previous month's figures first</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">B. Present only the positive data and omit anything negative</button>
+            <button class="mc-opt" onclick="mcPick(this,false)">C. Check whether the passive voice has been used correctly</button>
+            <button class="mc-opt" onclick="mcPick(this,true)">D. Consider the wider context and possible explanations</button>
           </div>
         </div>
 
@@ -507,66 +507,66 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Part 3</div>
           <div class="card-title">Vocabulary</div>
         </div>
-        <span class="card-badge">6 Interviewing Terms</span>
+        <span class="card-badge">6 Trend Words</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Study these interviewing terms and their meanings.</div>
+        <div class="act-head"><span class="act-num">1</span> Study these trend words and phrases and their meanings.</div>
 
         <div class="vocab-grid">
           <div class="vocab-card">
-            <div class="vc-term">probe</div>
-            <div class="vc-def">to ask deeper follow-up questions to get more information</div>
-            <div class="vc-ex">If the answer is vague, don't hesitate to <em>probe</em> for more detail.</div>
+            <div class="vc-term">surge</div>
+            <div class="vc-def">a sudden sharp increase</div>
+            <div class="vc-ex">There was a <em>surge</em> in demand after the product launch.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">shortlist</div>
-            <div class="vc-def">a small group of candidates chosen for final consideration</div>
-            <div class="vc-ex">We <em>shortlisted</em> five candidates from forty applications.</div>
+            <div class="vc-term">decline</div>
+            <div class="vc-def">a gradual decrease over time</div>
+            <div class="vc-ex">The company saw a steady <em>decline</em> in profit margins.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">panel interview</div>
-            <div class="vc-def">an interview conducted by more than one person at the same time</div>
-            <div class="vc-ex">She faced a <em>panel interview</em> with the HR manager and two team leads.</div>
+            <div class="vc-term">level off</div>
+            <div class="vc-def">to stop rising or falling and become stable</div>
+            <div class="vc-ex">After strong growth, sales began to <em>level off</em>.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">open-ended question</div>
-            <div class="vc-def">a question that cannot be answered with just "yes" or "no"</div>
-            <div class="vc-ex"><em>Open-ended questions</em> reveal more about the candidate's thinking and experience.</div>
+            <div class="vc-term">fluctuate</div>
+            <div class="vc-def">to rise and fall irregularly</div>
+            <div class="vc-ex">Exchange rates <em>fluctuate</em> constantly in uncertain markets.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">red flag</div>
-            <div class="vc-def">a warning sign that something may be wrong or concerning</div>
-            <div class="vc-ex">Arriving forty minutes late to the interview was an immediate <em>red flag</em>.</div>
+            <div class="vc-term">on average</div>
+            <div class="vc-def">calculated as a typical or mean amount</div>
+            <div class="vc-ex">Employees work, <em>on average</em>, 42 hours per week.</div>
           </div>
           <div class="vocab-card">
-            <div class="vc-term">body language</div>
-            <div class="vc-def">non-verbal communication through posture, gestures, and facial expressions</div>
-            <div class="vc-ex">Pay attention to the candidate's <em>body language</em>, not just their words.</div>
+            <div class="vc-term">year-on-year</div>
+            <div class="vc-def">compared to the same period last year</div>
+            <div class="vc-ex">Revenue grew by 8% <em>year-on-year</em> during Q3.</div>
           </div>
         </div>
 
         <div class="divider"></div>
-        <div class="act-head"><span class="act-num">2</span> Complete the sentences using the terms from the box. Click a word, then click a blank.</div>
+        <div class="act-head"><span class="act-num">2</span> Complete the sentences using the words from the box. Click a word, then click a blank.</div>
 
-        <div class="wb-bank" id="wb-bank-11">
-          <span class="wb-word" onclick="selectWb(this,'probe')">probe</span>
-          <span class="wb-word" onclick="selectWb(this,'shortlist')">shortlist</span>
-          <span class="wb-word" onclick="selectWb(this,'panel interview')">panel interview</span>
-          <span class="wb-word" onclick="selectWb(this,'open-ended question')">open-ended question</span>
-          <span class="wb-word" onclick="selectWb(this,'red flag')">red flag</span>
-          <span class="wb-word" onclick="selectWb(this,'body language')">body language</span>
+        <div class="wb-bank" id="wb-bank-15">
+          <span class="wb-word" onclick="selectWb(this,'surge')">surge</span>
+          <span class="wb-word" onclick="selectWb(this,'decline')">decline</span>
+          <span class="wb-word" onclick="selectWb(this,'level off')">level off</span>
+          <span class="wb-word" onclick="selectWb(this,'fluctuate')">fluctuate</span>
+          <span class="wb-word" onclick="selectWb(this,'on average')">on average</span>
+          <span class="wb-word" onclick="selectWb(this,'year-on-year')">year-on-year</span>
         </div>
 
-        <div class="wb-sentence">1. If the candidate's answer is too vague, <span class="wb-blank" id="b1" data-answer="probe" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> with a follow-up question to get more detail.</div>
-        <div class="wb-sentence">2. After reviewing all sixty applications, we were able to <span class="wb-blank" id="b2" data-answer="shortlist" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> the top six candidates.</div>
-        <div class="wb-sentence">3. He was quite nervous because he had never experienced a <span class="wb-blank" id="b3" data-answer="panel interview" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> before.</div>
-        <div class="wb-sentence">4. Start with an <span class="wb-blank" id="b4" data-answer="open-ended question" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> to encourage the candidate to talk freely.</div>
-        <div class="wb-sentence">5. The fact that she couldn't explain why she left her last three jobs was a clear <span class="wb-blank" id="b5" data-answer="red flag" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.</div>
-        <div class="wb-sentence">6. A candidate's <span class="wb-blank" id="b6" data-answer="body language" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> can reveal as much as their answers — watch for eye contact and posture.</div>
+        <div class="wb-sentence">1. After the product launch, there was a dramatic <span class="wb-blank" id="b1" data-answer="surge" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> in website traffic.</div>
+        <div class="wb-sentence">2. The company reported a steady <span class="wb-blank" id="b2" data-answer="decline" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> in profits over the past three years.</div>
+        <div class="wb-sentence">3. After two years of strong growth, sales began to <span class="wb-blank" id="b3" data-answer="level off" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.</div>
+        <div class="wb-sentence">4. The exchange rate tends to <span class="wb-blank" id="b4" data-answer="fluctuate" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> during periods of political uncertainty.</div>
+        <div class="wb-sentence">5. Employees work, <span class="wb-blank" id="b5" data-answer="on average" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>, 44 hours per week in this sector.</div>
+        <div class="wb-sentence">6. Revenue grew by 12% <span class="wb-blank" id="b6" data-answer="year-on-year" onclick="dropOnBlank(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> despite the challenging market conditions.</div>
 
         <div class="btn-center">
-          <button class="btn btn-green btn-sm" onclick="checkBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-11')">✔ Check Answers</button>
-          <button class="btn btn-outline btn-sm" onclick="resetBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-11')">↺ Reset</button>
+          <button class="btn btn-green btn-sm" onclick="checkBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-15')">✔ Check Answers</button>
+          <button class="btn btn-outline btn-sm" onclick="resetBlanks(['b1','b2','b3','b4','b5','b6'],'wb-bank-15')">↺ Reset</button>
         </div>
 
       </div>
@@ -588,73 +588,74 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Part 4</div>
           <div class="card-title">Grammar</div>
         </div>
-        <span class="card-badge">Indirect Questions</span>
+        <span class="card-badge">Passive Voice for Reporting Data</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Study the key language, then complete the practice exercise below.</div>
+        <div class="act-head"><span class="act-num">1</span> Study the key language, then do the practice exercise below.</div>
 
         <div class="kl-panel" style="background:var(--lp);border:1.5px solid #c4b5fd;">
-          <div class="kl-title" style="color:var(--purple);">🔷 Direct → Indirect (Word Order Changes)</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--purple);color:white;">direct</span> "Where did you work before?"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">indirect</span> "Could you tell me <strong>where you worked</strong> before?"</div>
-          <div class="kl-example">➜ In indirect questions, the word order is the same as a normal statement (subject + verb). There is NO inversion and NO auxiliary (did/does/is).</div>
+          <div class="kl-title" style="color:var(--purple);">🔷 Active → Passive for impersonal reporting</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--purple);color:white;">active</span> The team increased sales by 20%.</div>
+          <div class="kl-example">➜ Passive: <strong>Sales were increased by 20%.</strong> (impersonal, formal)</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--purple);color:white;">active</span> Researchers found that demand was rising.</div>
+          <div class="kl-example">➜ Passive: <strong>It was found that</strong> demand was rising.</div>
         </div>
 
-        <div class="kl-panel" style="background:#f0f4ff;border:1.5px solid #a5b4fc;">
-          <div class="kl-title" style="color:var(--indigo);">🔶 Yes/No Questions — Use "if" or "whether"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--indigo);color:white;">direct</span> "Did you manage a team?"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">indirect</span> "I'd like to know <strong>whether you managed</strong> a team."</div>
-          <div class="kl-example">➜ Use <em>if</em> or <em>whether</em> to introduce yes/no questions in indirect form. Do NOT use "that".</div>
+        <div class="kl-panel" style="background:#f0fdf4;border:1.5px solid #86efac;">
+          <div class="kl-title" style="color:var(--green);">🔶 Common passive reporting structures</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">present</span> <strong>It is estimated that</strong> the market will grow by 10%.</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">present</span> Revenue <strong>is expected to</strong> reach €2M by year end.</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--green);color:white;">past</span> <strong>It has been reported that</strong> sales rose sharply in Q3.</div>
+          <div class="kl-example">➜ These structures sound objective and formal — ideal for business presentations and reports.</div>
         </div>
 
-        <div class="kl-panel" style="background:#fdf4ff;border:1.5px solid #d8b4fe;">
-          <div class="kl-title" style="color:#6d28d9;">🔸 Softening Starters — Sound More Polite</div>
-          <div class="kl-row"><span class="kl-tag" style="background:#6d28d9;color:white;">polite</span> "Could you explain why you left your last role?"</div>
-          <div class="kl-row"><span class="kl-tag" style="background:#6d28d9;color:white;">polite</span> "I was wondering if you could tell me a little more about that."</div>
-          <div class="kl-row"><span class="kl-tag" style="background:#6d28d9;color:white;">polite</span> "Would you mind telling me what your greatest achievement has been?"</div>
+        <div class="kl-panel" style="background:#fff7ed;border:1.5px solid #fed7aa;">
+          <div class="kl-title" style="color:var(--orange);">🔸 Verbs + adverbs for describing trends</div>
+          <div class="kl-row"><span class="kl-tag" style="background:var(--orange);color:white;">rise / fall</span> + <strong>sharply · steadily · gradually · significantly · slightly · dramatically</strong></div>
+          <div class="kl-example">➜ <em>Sales rose sharply. · Costs have fallen steadily. · Profits declined slightly.</em></div>
         </div>
 
         <div class="divider"></div>
-        <div class="act-head"><span class="act-num">2</span> Choose the correct indirect form for each direct question.</div>
+        <div class="act-head"><span class="act-num">2</span> Choose the correct option to complete each sentence.</div>
 
         <div class="fp-item">
-          <div class="fp-q">1. Direct: "Why did you leave your last job?" — Which is the correct indirect form?</div>
+          <div class="fp-q">1. Sales ___ by 15% last quarter, according to the annual report.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-1')">A. "Could you tell me why you left your last job?"</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">B. "Could you tell me why did you leave your last job?"</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">C. "Could you tell me that why you left your last job?"</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">A. increased</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-1')">B. were reported to have increased</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-1')">C. have increased</button>
           </div>
-          <div class="fp-hint" id="hint-1">✅ <strong>Option A</strong> — In indirect questions, there is no inversion. The word order follows a normal statement: subject + verb (<em>you left</em>). Options B and C both have errors in word order or connector word.</div>
+          <div class="fp-hint" id="hint-1">✅ <strong>were reported to have increased</strong> — this is the formal passive reporting structure used in business reports. Option A is active voice; option C is present perfect but lacks the passive reporting structure.</div>
         </div>
 
         <div class="fp-item">
-          <div class="fp-q">2. Direct: "Do you have any experience managing a budget?" — Which is the correct indirect form?</div>
+          <div class="fp-q">2. It ___ that the market will grow by 12% next year.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">A. "I'd like to know do you have any experience managing a budget?"</button>
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-2')">B. "I'd like to know whether you have any experience managing a budget."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">C. "I'd like to know that you have any experience managing a budget."</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-2')">A. is expected</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">B. expects</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-2')">C. is expecting</button>
           </div>
-          <div class="fp-hint" id="hint-2">✅ <strong>Option B</strong> — For yes/no questions, use <em>if</em> or <em>whether</em> in the indirect form. Option A keeps the direct word order (wrong). Option C uses "that" — which is never correct here.</div>
+          <div class="fp-hint" id="hint-2">✅ <strong>is expected</strong> — the passive structure "It is expected that..." is used for forecasts and projections in formal English. "Expects" is active (who is expecting?). "Is expecting" is continuous and does not fit.</div>
         </div>
 
         <div class="fp-item">
-          <div class="fp-q">3. Direct: "What motivates you?" — Which is the correct indirect form?</div>
+          <div class="fp-q">3. Profits ___ since the new strategy was introduced six months ago.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-3')">A. "I was wondering what motivates you."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">B. "I was wondering what does motivate you."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">C. "I was wondering that what motivates you."</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">A. rose steadily</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-3')">B. are risen steadily</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-3')">C. have risen steadily</button>
           </div>
-          <div class="fp-hint" id="hint-3">✅ <strong>Option A</strong> — The verb "motivates" stays in normal statement form (no auxiliary <em>does</em>). Option B incorrectly adds <em>does</em>. Option C incorrectly uses <em>that</em> before the question word.</div>
+          <div class="fp-hint" id="hint-3">✅ <strong>have risen steadily</strong> — the present perfect is used for a trend that started in the past and continues to now ("since the strategy was introduced"). "Rose" is simple past (finished action). "Are risen" is not a correct form in English.</div>
         </div>
 
         <div class="fp-item">
-          <div class="fp-q">4. Which opening phrase best softens a direct question to make it sound polite and professional?</div>
+          <div class="fp-q">4. The number of remote workers ___ to double by 2027, according to industry analysts.</div>
           <div class="fp-opts">
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">A. "Just tell me..."</button>
-            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">B. "I need you to explain..."</button>
-            <button class="fp-opt" onclick="fpPick(this,true,'hint-4')">C. "Would you mind telling me..."</button>
+            <button class="fp-opt" onclick="fpPick(this,true,'hint-4')">A. is projected</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">B. projects</button>
+            <button class="fp-opt" onclick="fpPick(this,false,'hint-4')">C. is projecting</button>
           </div>
-          <div class="fp-hint" id="hint-4">✅ <strong>Option C</strong> — "Would you mind telling me..." is a classic polite softener. "Just tell me" sounds abrupt and informal. "I need you to explain" sounds demanding rather than collaborative.</div>
+          <div class="fp-hint" id="hint-4">✅ <strong>is projected</strong> — "is projected to" is a passive structure used for formal forecasts. "Projects" is active (the number doesn't project anything itself). "Is projecting" is active continuous and does not fit this context.</div>
         </div>
 
       </div>
@@ -676,72 +677,68 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Part 5</div>
           <div class="card-title">Speaking</div>
         </div>
-        <span class="card-badge">3 Interviewer Role-plays</span>
+        <span class="card-badge">3 Data Scenarios</span>
       </div>
       <div class="card-body">
 
         <div class="scene-nav-bar">
-          <div class="scene-dot-row" id="scene-dots-11">
-            <div class="scene-dot active" onclick="goToScene11(1)"></div>
-            <div class="scene-dot" onclick="goToScene11(2)"></div>
-            <div class="scene-dot" onclick="goToScene11(3)"></div>
+          <div class="scene-dot-row" id="scene-dots-15">
+            <div class="scene-dot active" onclick="goToScene15(1)"></div>
+            <div class="scene-dot" onclick="goToScene15(2)"></div>
+            <div class="scene-dot" onclick="goToScene15(3)"></div>
           </div>
-          <span id="scene-counter-11" style="font-size:12px;font-weight:700;color:var(--gray);">Situation 1 of 3</span>
-          <button class="sc-nav-btn" id="scene-next-btn-11" onclick="nextScene11()">Next situation →</button>
+          <span id="scene-counter-15" style="font-size:12px;font-weight:700;color:var(--gray);">Situation 1 of 3</span>
+          <button class="sc-nav-btn" id="scene-next-btn-15" onclick="nextScene15()">Next situation →</button>
         </div>
 
         <!-- SCENE 1 -->
-        <div class="scene-block active" id="sc11-1">
+        <div class="scene-block active" id="sc15-1">
           <div class="scene-card">
-            <div class="scene-title">Situation 1 · Probing for More Detail</div>
-            <div class="scene-prompt">A candidate has just answered the question "Tell me about a time you led a project" with a very short, vague response: "Yes, I led a project last year. It went well." As the interviewer, ask two probing follow-up questions using indirect or polite question forms to draw out a full, specific answer.</div>
-            <div class="scene-hint">💡 Avoid yes/no follow-ups. Use open-ended indirect questions: "Could you tell me more about..." / "I was wondering if you could describe..."</div>
-            <button class="sa-btn" onclick="toggleSa11(this,'sa11-1')">👁 Sample answer</button>
-            <div class="sa-box" id="sa11-1">
-              <strong>Follow-up 1:</strong> "That's great to hear — could you tell me a little more about what the project actually involved? For example, what was the scale of it, and what was your specific role?"<br><br>
-              <strong>Follow-up 2:</strong> "I was wondering if you could explain what the main challenges were and how you dealt with them — I'd love to understand what you personally did to make it a success."<br><br>
-              <em style="color:var(--gray);">Notice: both questions are open-ended, politely framed, and push for the specific Action and Result details that were missing from the original answer.</em>
+            <div class="scene-title">Situation 1 · Describing a bar chart</div>
+            <div class="scene-prompt">Describe a bar chart showing quarterly revenue over one year: Q1 rose by 5%, Q2 saw a sharp rise of 18%, Q3 levelled off, and Q4 showed a slight decline. Use trend language and at least two adverbs.</div>
+            <div class="scene-hint">💡 Use: <em>"In the first quarter..."</em> / <em>"This was followed by a sharp rise..."</em> / <em>"By Q4, revenue had declined slightly..."</em></div>
+            <button class="sa-btn" onclick="toggleSa15(this,'sa15-1')">👁 Sample answer</button>
+            <div class="sa-box" id="sa15-1">
+              "Looking at this bar chart, we can see that revenue rose gradually in Q1 — a modest increase of around 5%. This was followed by a significant surge in Q2, where revenue climbed sharply by 18% — by far the strongest quarter of the year. In Q3, growth levelled off and remained largely stable. Then in Q4, we saw a slight decline, which it is worth noting coincided with our competitor's product launch. Overall, the year showed strong performance, though Q4 warrants further analysis."
             </div>
           </div>
         </div>
 
         <!-- SCENE 2 -->
-        <div class="scene-block" id="sc11-2">
+        <div class="scene-block" id="sc15-2">
           <div class="scene-card">
-            <div class="scene-title">Situation 2 · Handling a Concerning Response</div>
-            <div class="scene-prompt">A candidate, when asked why they left their last company, says: "Honestly, my manager was completely incompetent and I couldn't stand working there anymore." As the interviewer, how do you respond professionally? You want to gather more information without encouraging negativity or ignoring what was said.</div>
-            <div class="scene-hint">💡 Stay neutral, don't take sides, and redirect towards the candidate's professional reasoning. Keep the conversation constructive.</div>
-            <button class="sa-btn" onclick="toggleSa11(this,'sa11-2')">👁 Sample answer</button>
-            <div class="sa-box" id="sa11-2">
-              "I see — it sounds like it was a challenging environment. Sometimes a change is exactly the right move. Could you tell me a bit more about what you were looking for in terms of management style or team culture? And what would the ideal working relationship with your manager look like for you in your next role?"<br><br>
-              <em style="color:var(--gray);">Notice: you acknowledge without agreeing, you don't encourage further negativity, and you redirect towards what the candidate is looking FOR — which gives you useful information without creating an awkward moment.</em>
+            <div class="scene-title">Situation 2 · Adding context with hedging</div>
+            <div class="scene-prompt">A colleague says: <em>"Sales doubled last quarter — that's amazing!"</em> You need to add important context: the growth happened because of a one-time promotional event. Respond using hedging language to avoid over-claiming.</div>
+            <div class="scene-hint">💡 Use: <em>"It's worth noting that..."</em> / <em>"However, this should be interpreted with caution..."</em> / <em>"The data suggests..."</em></div>
+            <button class="sa-btn" onclick="toggleSa15(this,'sa15-2')">👁 Sample answer</button>
+            <div class="sa-box" id="sa15-2">
+              "That's great news — and the figures are genuinely impressive. However, I think this should be interpreted with some caution. The data suggests that the doubling in sales is largely attributable to the flash promotion we ran in week two. It appears that a significant portion of those purchases were one-off buyers, not repeat customers. It is worth noting that our week-on-week retention rate actually remained flat. So while the headline figure is positive, the underlying trend is less clear. Let's look at the next quarter before drawing any firm conclusions."
             </div>
           </div>
         </div>
 
         <!-- SCENE 3 -->
-        <div class="scene-block" id="sc11-3">
+        <div class="scene-block" id="sc15-3">
           <div class="scene-card">
-            <div class="scene-title">Situation 3 · Closing the Interview</div>
-            <div class="scene-prompt">The interview is coming to an end. Wrap up professionally: thank the candidate for their time, briefly explain the next steps in the hiring process, invite them to ask any final questions, and close the conversation warmly.</div>
-            <div class="scene-hint">💡 Be specific about timelines if possible. End on a warm, professional note — the candidate may also be evaluating whether they want to work for you.</div>
-            <button class="sa-btn" onclick="toggleSa11(this,'sa11-3')">👁 Sample answer</button>
-            <div class="sa-box" id="sa11-3">
-              "Well, that brings us to the end of the interview — thank you so much for coming in today. It was a real pleasure learning more about your background. In terms of next steps: we're interviewing a few more candidates this week, and we expect to make a decision by the end of next week. You should hear from us either way by Friday the 8th at the latest. Before we wrap up, do you have any questions for us — about the role, the team, or the company in general?"<br><br>
-              <em style="color:var(--gray);">[After their questions:] "Those are great questions. We'll make sure to include those details when we get back to you. Thanks again — it was a real pleasure. We'll be in touch very soon."</em>
+            <div class="scene-title">Situation 3 · Making data interesting</div>
+            <div class="scene-prompt">Present three key statistics from your industry (real or invented). For each one, use trend language, a passive reporting structure, or hedging — and explain what the statistic means for your work. Make the data come alive.</div>
+            <div class="scene-hint">💡 Use: <em>"It is estimated that..."</em> / <em>"Year-on-year, this represents..."</em> / <em>"What this means for us is..."</em></div>
+            <button class="sa-btn" onclick="toggleSa15(this,'sa15-3')">👁 Sample answer</button>
+            <div class="sa-box" id="sa15-3">
+              "First: it is estimated that global e-commerce sales will reach €6 trillion by 2026 — year-on-year growth of approximately 10%. For our team, this means the shift to digital is not optional; it is essential.<br><br>Second: it has been reported that 73% of consumers now expect a personalised experience when they shop online. This suggests our current generic approach is losing us customers we could retain.<br><br>Third: average cart abandonment rates have surged to 70% across our sector. The data suggests that better checkout design alone could recover a significant portion of lost revenue."
             </div>
           </div>
         </div>
 
         <!-- PREV BOX -->
         <div class="prev-box">
-          <div class="prev-box-title">💡 Useful interviewer phrases</div>
+          <div class="prev-box-title">💡 Useful data language phrases</div>
           <div class="prev-box-items">
-            <div class="prev-box-item"><em>"Could you elaborate on that a little more?"</em> — asking for detail</div>
-            <div class="prev-box-item"><em>"Can you give me a specific example?"</em> — prompting a concrete STAR answer</div>
-            <div class="prev-box-item"><em>"I'd like to understand better..."</em> — polite probing</div>
-            <div class="prev-box-item"><em>"What would you say was the main lesson from that experience?"</em> — deeper reflection</div>
-            <div class="prev-box-item"><em>"We'll be in touch within the next two weeks."</em> — closing the interview</div>
+            <div class="prev-box-item"><em>"The figures show a steady increase in..."</em> — describing a trend</div>
+            <div class="prev-box-item"><em>"This represents a rise of approximately..."</em> — giving approximate numbers</div>
+            <div class="prev-box-item"><em>"It is worth noting that..."</em> — drawing attention to important context</div>
+            <div class="prev-box-item"><em>"However, this should be interpreted with caution because..."</em> — hedging</div>
+            <div class="prev-box-item"><em>"Year-on-year, the data suggests..."</em> — comparing over time</div>
           </div>
         </div>
 
@@ -767,55 +764,55 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
         <span class="card-badge">5 Pairs</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Match each interview situation (1–5) to the best interviewer response (A–E). Click a number, then click a letter.</div>
+        <div class="act-head"><span class="act-num">1</span> Match each trend description (1–5) to the correct verb phrase (A–E). Click a number, then click a letter.</div>
 
         <div class="match-grid">
           <div>
-            <div class="match-col-label">Situation</div>
-            <div class="match-left-item" id="mL1" onclick="matchClick11(this,'L',1)">
-              <span class="match-badge">1</span> Candidate gives a very short answer
+            <div class="match-col-label">Description</div>
+            <div class="match-left-item" id="mL1" onclick="matchClick(this,'L',1)">
+              <span class="match-badge">1</span> Sales went from €1M to €1.8M in one month
             </div>
-            <div class="match-left-item" id="mL2" onclick="matchClick11(this,'L',2)">
-              <span class="match-badge">2</span> Candidate seems very nervous
+            <div class="match-left-item" id="mL2" onclick="matchClick(this,'L',2)">
+              <span class="match-badge">2</span> Prices stayed at the same level for six months
             </div>
-            <div class="match-left-item" id="mL3" onclick="matchClick11(this,'L',3)">
-              <span class="match-badge">3</span> Candidate asks about salary immediately
+            <div class="match-left-item" id="mL3" onclick="matchClick(this,'L',3)">
+              <span class="match-badge">3</span> Profits fell slowly over a period of two years
             </div>
-            <div class="match-left-item" id="mL4" onclick="matchClick11(this,'L',4)">
-              <span class="match-badge">4</span> Candidate gives a very impressive answer
+            <div class="match-left-item" id="mL4" onclick="matchClick(this,'L',4)">
+              <span class="match-badge">4</span> Customer numbers went up and down throughout the year
             </div>
-            <div class="match-left-item" id="mL5" onclick="matchClick11(this,'L',5)">
-              <span class="match-badge">5</span> The interview is running over time
+            <div class="match-left-item" id="mL5" onclick="matchClick(this,'L',5)">
+              <span class="match-badge">5</span> Costs dropped dramatically overnight
             </div>
           </div>
           <div>
-            <div class="match-col-label">Best Interviewer Response</div>
-            <div class="match-right-item" id="mR-A" onclick="matchClick11(this,'R','A')">
-              <span class="match-badge">A</span> "We typically discuss compensation at the offer stage — let's focus on the role for now."
+            <div class="match-col-label">Verb Phrase</div>
+            <div class="match-right-item" id="mR-A" onclick="matchClick(this,'R','A')">
+              <span class="match-badge">A</span> declined steadily
             </div>
-            <div class="match-right-item" id="mR-B" onclick="matchClick11(this,'R','B')">
-              <span class="match-badge">B</span> "That's a really strong example — thank you."
+            <div class="match-right-item" id="mR-B" onclick="matchClick(this,'R','B')">
+              <span class="match-badge">B</span> surged
             </div>
-            <div class="match-right-item" id="mR-C" onclick="matchClick11(this,'R','C')">
-              <span class="match-badge">C</span> "Take your time — there's no rush."
+            <div class="match-right-item" id="mR-C" onclick="matchClick(this,'R','C')">
+              <span class="match-badge">C</span> fluctuated
             </div>
-            <div class="match-right-item" id="mR-D" onclick="matchClick11(this,'R','D')">
-              <span class="match-badge">D</span> "Could you tell me a little more about that?"
+            <div class="match-right-item" id="mR-D" onclick="matchClick(this,'R','D')">
+              <span class="match-badge">D</span> levelled off
             </div>
-            <div class="match-right-item" id="mR-E" onclick="matchClick11(this,'R','E')">
-              <span class="match-badge">E</span> "I want to make sure we cover everything — let's wrap up the last question."
+            <div class="match-right-item" id="mR-E" onclick="matchClick(this,'R','E')">
+              <span class="match-badge">E</span> plummeted
             </div>
           </div>
         </div>
 
-        <div id="match-score-11" style="margin-top:14px;font-size:14px;font-weight:700;color:var(--navy);min-height:24px;"></div>
+        <div id="match-score" style="margin-top:14px;font-size:14px;font-weight:700;color:var(--navy);min-height:24px;"></div>
         <div class="btn-center">
-          <button class="btn btn-green btn-sm" onclick="checkMatch11()">✔ Check Answers</button>
-          <button class="btn btn-outline btn-sm" id="ans-key-btn-11" style="display:none;" onclick="showAnsKey11()">🔑 Answer Key</button>
-          <button class="btn btn-outline btn-sm" onclick="resetMatch11()">↺ Reset</button>
+          <button class="btn btn-green btn-sm" onclick="checkMatch15()">✔ Check Answers</button>
+          <button class="btn btn-outline btn-sm" id="ans-key-btn-15" style="display:none;" onclick="showAnsKey15()">🔑 Answer Key</button>
+          <button class="btn btn-outline btn-sm" onclick="resetMatch15()">↺ Reset</button>
         </div>
-        <div id="ans-key-11" style="display:none;margin-top:12px;padding:12px 16px;background:var(--lgr);border-radius:10px;font-size:13.5px;line-height:1.9;">
-          <strong>Answer Key:</strong> 1 → D &nbsp;|&nbsp; 2 → C &nbsp;|&nbsp; 3 → A &nbsp;|&nbsp; 4 → B &nbsp;|&nbsp; 5 → E
+        <div id="ans-key-15" style="display:none;margin-top:12px;padding:12px 16px;background:var(--lgr);border-radius:10px;font-size:13.5px;line-height:1.9;">
+          <strong>Answer Key:</strong> 1 → B &nbsp;|&nbsp; 2 → D &nbsp;|&nbsp; 3 → A &nbsp;|&nbsp; 4 → C &nbsp;|&nbsp; 5 → E
         </div>
 
       </div>
@@ -837,30 +834,25 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <div class="card-label">Extra Activity</div>
           <div class="card-title">If there's time</div>
         </div>
-        <span class="card-badge">Bias Check</span>
+        <span class="card-badge">Data Story</span>
       </div>
       <div class="card-body">
-        <div class="act-head"><span class="act-num">1</span> Discuss the following scenarios with your partner.</div>
+        <div class="act-head"><span class="act-num">1</span> Turn data into a story — and make it stick.</div>
 
         <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:12px;padding:18px;margin-bottom:16px;">
-          <div style="font-size:14.5px;font-weight:700;color:var(--green);margin-bottom:10px;">🧠 Unconscious Bias in Interviews</div>
-          <p style="font-size:14px;line-height:1.6;margin-bottom:12px;">Unconscious bias can affect hiring decisions without us even realising it. Look at the five scenarios below. Which ones might introduce bias into an interview? How could an interviewer counteract each one?</p>
-          <ol style="font-size:14px;line-height:2;padding-left:20px;">
-            <li>The candidate attended the same university as you and you immediately feel a connection.</li>
-            <li>The candidate has a strong accent that is unfamiliar to you and you have to concentrate harder to understand them.</li>
-            <li>The candidate's CV has a two-year gap that they explained was for family caregiving reasons.</li>
-            <li>The candidate is much younger than you expected for a senior role.</li>
-            <li>The candidate is dressed very casually for the interview.</li>
-          </ol>
+          <div style="font-size:14.5px;font-weight:700;color:var(--green);margin-bottom:10px;">📊 Data Story</div>
+          <p style="font-size:14px;line-height:1.6;margin-bottom:10px;">Find or invent three statistics about your company or industry. Present them to the class in 90 seconds. You must use: trend language (at least two verbs + adverbs), the passive voice at least once, and at least one hedging phrase.</p>
+          <p style="font-size:14px;line-height:1.6;margin-bottom:10px;">After your presentation, your audience asks you one follow-up question. Answer it using data language.</p>
+          <p style="font-size:13px;color:var(--gray);font-style:italic;">Think about: what story does the data tell? · what context does the audience need? · what conclusion are you leading them towards?</p>
         </div>
 
-        <button class="sa-btn" style="border-color:var(--green);color:var(--green);" onclick="toggleSa(this,'sa-extra-11')">👁 Discussion guide</button>
-        <div class="sa-box" id="sa-extra-11" style="border-color:var(--green);">
-          <strong>1. Shared university:</strong> "Affinity bias" — feeling warmer towards someone similar to you. Counteract by scoring responses against objective competency criteria, not gut feeling.<br><br>
-          <strong>2. Unfamiliar accent:</strong> Can trigger unconscious negative assumptions about capability. Counteract by separating communication clarity from language origin — ask yourself: did I understand the content of the answer?<br><br>
-          <strong>3. CV gap for caregiving:</strong> Caregiving gaps are legitimate and common. Ask only job-relevant questions: "What skills or experiences did you gain during this period?"<br><br>
-          <strong>4. Younger than expected:</strong> Age bias (positive or negative) is real. Focus on evidence of competence: "Can they demonstrate the experience the role requires?"<br><br>
-          <strong>5. Casual dress:</strong> Dress codes vary across industries and cultures. Ask yourself: is this relevant to job performance? If the role has a dress code, address it factually in the offer stage — don't let it colour your assessment of their skills.
+        <button class="sa-btn" style="border-color:var(--green);color:var(--green);" onclick="toggleSa(this,'sa-extra-15')">👁 Sample response</button>
+        <div class="sa-box" id="sa-extra-15" style="border-color:var(--green);">
+          <strong>Stat 1:</strong> "It is estimated that 40% of our target customers now research products exclusively on mobile devices. Year-on-year, that figure has risen steadily — up from 28% just two years ago."<br><br>
+          <strong>Stat 2:</strong> "Average page load times in our sector have been reported to have declined to under two seconds. However, this should be interpreted with caution — our own site currently takes four seconds, which may be costing us customers."<br><br>
+          <strong>Stat 3:</strong> "Customer loyalty scores have fluctuated throughout the year, though it appears that Q3 — when we launched our new support system — saw the strongest performance."<br><br>
+          <strong>Follow-up Q: "Where did these figures come from?"</strong><br>
+          "Great question. Statistics 1 and 3 come from our internal CRM data. Statistic 2 is from an industry benchmarking report published last quarter — I'll share the link after."
         </div>
 
       </div>
@@ -886,68 +878,48 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
       </div>
       <div class="card-body">
 
-        <div class="act-head"><span class="act-num">Task 1</span> Fill in the missing word to complete each indirect question correctly.</div>
+        <div class="act-head"><span class="act-num">Task 1</span> Fill in the blanks with the correct passive verb form.</div>
 
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
-
           <div style="font-size:14px;line-height:2;">
-            1. Direct: "Why do you want this role?" → Indirect: "Could you tell me why you
-            <input type="text" class="hw-input" id="hw1" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:140px;outline:none;text-align:center;color:var(--navy);">
-            this role?"
+            1. Sales <input type="text" class="hw-input" id="hw1" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:230px;outline:none;text-align:center;color:var(--navy);"> to have risen by 12% this quarter. <span style="font-size:12px;color:var(--gray);">(report)</span>
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            2. Direct: "Did you manage a budget?" → Indirect: "I'd like to know whether you
-            <input type="text" class="hw-input" id="hw2" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:160px;outline:none;text-align:center;color:var(--navy);">
-            a budget."
+            2. It <input type="text" class="hw-input" id="hw2" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:180px;outline:none;text-align:center;color:var(--navy);"> that the market will grow by 8% next year. <span style="font-size:12px;color:var(--gray);">(estimate)</span>
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            3. Direct: "What are your long-term goals?" → Indirect: "Could you explain what your long-term goals
-            <input type="text" class="hw-input" id="hw3" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:100px;outline:none;text-align:center;color:var(--navy);">
-            ?"
+            3. The figures <input type="text" class="hw-input" id="hw3" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:200px;outline:none;text-align:center;color:var(--navy);"> by the research team last month. <span style="font-size:12px;color:var(--gray);">(analyse)</span>
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            4. Direct: "Do you prefer working alone or in a team?" → Indirect: "I was wondering whether you prefer
-            <input type="text" class="hw-input" id="hw4" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:180px;outline:none;text-align:center;color:var(--navy);">
-            or in a team."
+            4. Revenue <input type="text" class="hw-input" id="hw4" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:180px;outline:none;text-align:center;color:var(--navy);"> to double within the next five years. <span style="font-size:12px;color:var(--gray);">(project)</span>
           </div>
-
           <div style="font-size:14px;line-height:2;">
-            5. Direct: "How did you handle the pressure?" → Indirect: "Would you mind telling me how you
-            <input type="text" class="hw-input" id="hw5" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:160px;outline:none;text-align:center;color:var(--navy);">
-            the pressure?"
+            5. Several new consumer trends <input type="text" class="hw-input" id="hw5" placeholder="________" style="border:none;border-bottom:2px solid var(--orange);background:transparent;font-size:14px;font-weight:700;width:240px;outline:none;text-align:center;color:var(--navy);"> in the latest report. <span style="font-size:12px;color:var(--gray);">(identify)</span>
           </div>
         </div>
 
         <div class="btn-center">
-          <button class="btn btn-green btn-sm" onclick="checkHW11()">✔ Check Answers</button>
-          <button class="btn btn-outline btn-sm" onclick="resetHW11()">↺ Reset</button>
+          <button class="btn btn-green btn-sm" onclick="checkHW15()">✔ Check Answers</button>
+          <button class="btn btn-outline btn-sm" onclick="resetHW15()">↺ Reset</button>
         </div>
-        <div id="hw-feedback-11" style="margin-top:10px;font-size:13px;min-height:20px;"></div>
+        <div id="hw-feedback" style="margin-top:10px;font-size:13px;min-height:20px;"></div>
 
         <div class="divider"></div>
 
-        <div class="act-head"><span class="act-num">Task 2</span> Write 6 interview questions you would ask for a Business Development Manager role. Include at least 2 behavioral questions and 2 indirect questions.</div>
+        <div class="act-head"><span class="act-num">Task 2</span> Write a short paragraph (80–100 words) describing a trend in your industry. Use at least four vocabulary items from this lesson and one passive structure.</div>
 
-        <textarea rows="9" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px;font-size:13.5px;font-family:'Segoe UI',Arial,sans-serif;resize:vertical;color:var(--text);line-height:1.7;" placeholder="Write your 6 interview questions here...&#10;&#10;Remember: at least 2 must be behavioral ('Tell me about a time when...') and at least 2 must be indirect polite questions ('Could you tell me...' / 'I was wondering if...')."></textarea>
+        <textarea rows="7" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px;font-size:13.5px;font-family:'Segoe UI',Arial,sans-serif;resize:vertical;color:var(--text);line-height:1.7;" placeholder="Write your paragraph here..."></textarea>
 
-        <button class="sa-btn" style="border-color:var(--orange);color:var(--orange);margin-top:10px;" onclick="toggleSa(this,'sa-hw2-11')">👁 Sample answer</button>
-        <div class="sa-box" id="sa-hw2-11" style="border-color:var(--orange);">
-          <strong>1.</strong> "Could you tell me what attracted you to a Business Development role, and why this particular industry?" <em>(indirect)</em><br><br>
-          <strong>2.</strong> "Tell me about a time when you identified and closed a significant new business opportunity. What was your approach?" <em>(behavioral)</em><br><br>
-          <strong>3.</strong> "I was wondering if you could describe your typical process for building a relationship with a new prospect from first contact to signed contract." <em>(indirect)</em><br><br>
-          <strong>4.</strong> "Tell me about a time when a deal you were confident about fell through. What happened, and what did you learn from it?" <em>(behavioral)</em><br><br>
-          <strong>5.</strong> "How do you currently track and manage your pipeline, and how do you prioritise your accounts?"<br><br>
-          <strong>6.</strong> "Where do you see yourself in this industry in three to five years, and how does this role fit into that picture?"
+        <button class="sa-btn" style="border-color:var(--orange);color:var(--orange);margin-top:10px;" onclick="toggleSa(this,'sa-hw2-15')">👁 Sample answer</button>
+        <div class="sa-box" id="sa-hw2-15" style="border-color:var(--orange);">
+          Over the past three years, it has been reported that demand for remote working tools has surged significantly across the technology sector. Year-on-year, adoption rates have risen steadily, with companies investing, on average, 40% more in digital infrastructure than they did before 2020. However, growth has begun to level off in the past two quarters, and some analysts predict a gradual decline as businesses reassess their hybrid working policies. This should be interpreted with caution, as market conditions continue to fluctuate in response to economic uncertainty.
         </div>
 
       </div>
     </div>
     <div class="slide-bottom-nav">
       <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
-      <a href="Lesson_12_Giving_Feedback_Performance_Reviews.html" class="btn btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;">Next Lesson →</a>
+      <button class="btn btn-primary" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">🏠 Course Home</button>
     </div>
   </div>
 </div>
@@ -1016,12 +988,13 @@ function updateSlideUI() {
     else if (i === currentSlide) d.classList.add('active');
   });
 }
+document.querySelector('#slide-8 .slide-bottom-nav button:last-child').onclick = () => { window.location.href='index.html'; };
 
 /* ── TFD ── */
 function tfdPick(btn, correct, expId) {
   const item = btn.closest('.tfd-item');
   const btns = item.querySelectorAll('.tfd-btn');
-  if ([...btns].some(b => b.classList.contains('sel-t') || b.classList.contains('sel-f') || b.classList.contains('sel-d'))) return;
+  if ([...btns].some(b => b.classList.contains('sel-t','sel-f','sel-d'))) return;
   btns.forEach(b => b.classList.add('locked'));
   const labels = ['T','F','D'];
   const classes = ['sel-t','sel-f','sel-d'];
@@ -1069,12 +1042,13 @@ function dropOnBlank(blank) {
   }
 }
 function checkBlanks(ids, bankId) {
+  let correct = 0;
   ids.forEach(id => {
     const blank = document.getElementById(id);
     if (!blank.classList.contains('has-word')) return;
     const ans = (blank.dataset.answer || '').toLowerCase().trim();
     const filled = (blank.dataset.filled || '').toLowerCase().trim();
-    if (filled === ans) { blank.classList.add('correct'); blank.classList.remove('incorrect'); }
+    if (filled === ans) { blank.classList.add('correct'); blank.classList.remove('incorrect'); correct++; }
     else { blank.classList.add('incorrect'); blank.classList.remove('correct'); }
   });
 }
@@ -1103,28 +1077,28 @@ function fpPick(el, correct, hintId) {
 }
 
 /* ── SPEAKING SCENES ── */
-let curScene11 = 1; const totalScenes11 = 3;
-function goToScene11(n) {
-  document.getElementById('sc11-' + curScene11).classList.remove('active');
-  curScene11 = n;
-  document.getElementById('sc11-' + curScene11).classList.add('active');
-  document.getElementById('scene-counter-11').textContent = 'Situation ' + curScene11 + ' of ' + totalScenes11;
-  updateSceneDots11();
-  const btn = document.getElementById('scene-next-btn-11');
-  btn.textContent = curScene11 === totalScenes11 ? '✅ Done' : 'Next situation →';
-  btn.onclick = curScene11 === totalScenes11 ? null : nextScene11;
+let curScene15 = 1; const totalScenes15 = 3;
+function goToScene15(n) {
+  document.getElementById('sc15-' + curScene15).classList.remove('active');
+  curScene15 = n;
+  document.getElementById('sc15-' + curScene15).classList.add('active');
+  document.getElementById('scene-counter-15').textContent = 'Situation ' + curScene15 + ' of ' + totalScenes15;
+  updateSceneDots15();
+  const btn = document.getElementById('scene-next-btn-15');
+  btn.textContent = curScene15 === totalScenes15 ? '✅ Done' : 'Next situation →';
+  btn.onclick = curScene15 === totalScenes15 ? null : nextScene15;
 }
-function nextScene11() {
-  if (curScene11 < totalScenes11) goToScene11(curScene11 + 1);
+function nextScene15() {
+  if (curScene15 < totalScenes15) goToScene15(curScene15 + 1);
 }
-function updateSceneDots11() {
-  document.querySelectorAll('#scene-dots-11 .scene-dot').forEach((d,i) => {
+function updateSceneDots15() {
+  document.querySelectorAll('#scene-dots-15 .scene-dot').forEach((d,i) => {
     d.classList.remove('active','done');
-    if (i < curScene11-1) d.classList.add('done');
-    else if (i === curScene11-1) d.classList.add('active');
+    if (i < curScene15-1) d.classList.add('done');
+    else if (i === curScene15-1) d.classList.add('active');
   });
 }
-function toggleSa11(btn, id) {
+function toggleSa15(btn, id) {
   const box = document.getElementById(id);
   const showing = box.classList.contains('show');
   box.classList.toggle('show');
@@ -1138,21 +1112,21 @@ function toggleSa(btn, id) {
 }
 
 /* ── MATCHING ── */
-const matchAnswers11 = {1:'D', 2:'C', 3:'A', 4:'B', 5:'E'};
-let mSel11 = null;
-function matchClick11(el, side, id) {
+const matchAnswers15 = {1:'B', 2:'D', 3:'A', 4:'C', 5:'E'};
+let mSel15 = null;
+function matchClick(el, side, id) {
   if (el.classList.contains('matched')) return;
-  if (mSel11 && mSel11.side === side) {
-    document.getElementById(mSel11.elId).classList.remove('selected');
-    if (mSel11.elId === el.id) { mSel11=null; return; }
+  if (mSel15 && mSel15.side === side) {
+    document.getElementById(mSel15.elId).classList.remove('selected');
+    if (mSel15.elId === el.id) { mSel15=null; return; }
   }
   el.classList.add('selected');
-  if (!mSel11) { mSel11 = {side, id, elId: el.id}; return; }
-  const lNum = side==='L' ? id : mSel11.id;
-  const rLet = side==='R' ? id : mSel11.id;
+  if (!mSel15) { mSel15 = {side, id, elId: el.id}; return; }
+  const lNum = side==='L' ? id : mSel15.id;
+  const rLet = side==='R' ? id : mSel15.id;
   const lEl = document.getElementById('mL' + lNum);
   const rEl = document.getElementById('mR-' + rLet);
-  if (matchAnswers11[lNum] === rLet) {
+  if (matchAnswers15[lNum] === rLet) {
     lEl.classList.add('matched'); rEl.classList.add('matched');
     lEl.classList.remove('selected'); rEl.classList.remove('selected');
     const col = ['#dcfce7','#dbeafe','#ede9fe','#fef3c7','#ffe4e6'][lNum-1];
@@ -1161,21 +1135,21 @@ function matchClick11(el, side, id) {
     lEl.classList.add('match-wrong-flash'); rEl.classList.add('match-wrong-flash');
     setTimeout(()=>{lEl.classList.remove('match-wrong-flash','selected');rEl.classList.remove('match-wrong-flash','selected');},400);
   }
-  mSel11 = null;
+  mSel15 = null;
 }
-function checkMatch11() {
-  const total = Object.keys(matchAnswers11).length;
+function checkMatch15() {
+  const total = Object.keys(matchAnswers15).length;
   const matched = document.querySelectorAll('.match-left-item.matched').length;
-  document.getElementById('match-score-11').textContent = matched === total
+  document.getElementById('match-score').textContent = matched === total
     ? '🎉 All correct!' : matched + ' of ' + total + ' matched correctly.';
-  if (matched === total) { document.getElementById('ans-key-btn-11').style.display='none'; }
-  else { document.getElementById('ans-key-btn-11').style.display='inline-block'; }
+  if (matched === total) { document.getElementById('ans-key-btn-15').style.display='none'; }
+  else { document.getElementById('ans-key-btn-15').style.display='inline-block'; }
 }
-function showAnsKey11() {
-  document.getElementById('ans-key-11').style.display='block';
-  document.getElementById('ans-key-btn-11').style.display='none';
+function showAnsKey15() {
+  document.getElementById('ans-key-15').style.display='block';
+  document.getElementById('ans-key-btn-15').style.display='none';
 }
-function resetMatch11() {
+function resetMatch15() {
   ['mL1','mL2','mL3','mL4','mL5'].forEach(id => {
     const el=document.getElementById(id);
     el.classList.remove('matched','selected');el.style.background='';
@@ -1184,23 +1158,23 @@ function resetMatch11() {
     const el=document.getElementById(id);
     el.classList.remove('matched','selected');el.style.background='';
   });
-  document.getElementById('match-score-11').textContent='';
-  document.getElementById('ans-key-btn-11').style.display='none';
-  document.getElementById('ans-key-11').style.display='none';
-  mSel11=null;
+  document.getElementById('match-score').textContent='';
+  document.getElementById('ans-key-btn-15').style.display='none';
+  document.getElementById('ans-key-15').style.display='none';
+  mSel15=null;
 }
 
 /* ── HOMEWORK CHECK ── */
-const hwAnswers11 = {
-  hw1: ['want'],
-  hw2: ['managed', 'had managed'],
-  hw3: ['are'],
-  hw4: ['working alone', 'to work alone'],
-  hw5: ['handled', 'dealt with', 'managed']
+const hwAnswers15 = {
+  hw1: ['were reported'],
+  hw2: ['is estimated'],
+  hw3: ['were analysed', 'were analyzed'],
+  hw4: ['is projected'],
+  hw5: ['have been identified']
 };
-function checkHW11() {
+function checkHW15() {
   let correct = 0, total = 5;
-  Object.entries(hwAnswers11).forEach(([id, accepted]) => {
+  Object.entries(hwAnswers15).forEach(([id, accepted]) => {
     const inp = document.getElementById(id);
     const val = inp.value.trim().toLowerCase();
     const ok = accepted.some(a => val === a.toLowerCase());
@@ -1208,16 +1182,16 @@ function checkHW11() {
     inp.style.color = ok ? 'var(--green)' : 'var(--rose)';
     if (ok) correct++;
   });
-  document.getElementById('hw-feedback-11').innerHTML =
+  document.getElementById('hw-feedback').innerHTML =
     correct === total ? '<span style="color:var(--green);font-weight:700;">✅ All correct! Well done.</span>'
     : '<span style="color:var(--rose);font-weight:700;">' + correct + '/' + total + ' correct. Check the ones in red and try again.</span>';
 }
-function resetHW11() {
+function resetHW15() {
   ['hw1','hw2','hw3','hw4','hw5'].forEach(id => {
     const inp = document.getElementById(id);
     inp.value=''; inp.style.borderBottomColor=''; inp.style.color='';
   });
-  document.getElementById('hw-feedback-11').innerHTML='';
+  document.getElementById('hw-feedback').innerHTML='';
 }
 
 /* ── NOTES ── */
@@ -1325,7 +1299,14 @@ function notesFormat(cmd) {
   const ta = document.getElementById('notesTA');
   if (!ta) return;
   ta.focus();
-  document.execCommand(cmd, false, null);
+  if (cmd === 'highlight') {
+    document.execCommand('styleWithCSS', false, true);
+    const col = document.queryCommandValue('BackColor');
+    const on = col.includes('255, 245, 157') || col.toLowerCase().includes('fff59d');
+    document.execCommand('hiliteColor', false, on ? 'transparent' : '#FFF59D');
+  } else {
+    document.execCommand(cmd, false, null);
+  }
 }
 function notesHilite(color) {
   var ta = document.getElementById('notesTA'); ta.focus();

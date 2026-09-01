@@ -37,7 +37,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Segoe UI',system-u
 .notes-toolbar-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.5px;margin-right:2px;}
 .notes-tbtn{background:rgba(255,255,255,.12);border:none;border-radius:5px;padding:3px 9px;cursor:pointer;font-size:.85rem;font-weight:700;transition:background .15s;color:#fff;font-family:inherit;}
 .notes-tbtn:hover{background:rgba(255,255,255,.25);}
-#notesTA{min-height:220px;max-height:260px;overflow-y:auto;border:none;border-radius:0;padding:14px;font-size:.8rem;line-height:1.5;outline:none;font-family:'Segoe UI',Arial,sans-serif;color:#fff;background:rgba(26,46,74,.92);}
+#notesTA{min-height:220px;max-height:260px;overflow-y:auto;border:none;border-radius:0;padding:14px;font-size:1rem;line-height:1.5;outline:none;font-family:'Segoe UI',Arial,sans-serif;color:#fff;background:rgba(26,46,74,.92);}
 #notesTA:empty:before{content:attr(data-placeholder);color:rgba(255,255,255,.4);pointer-events:none;}
 #notesTA [style*="background-color"]{color:#1a1a1a!important;}
 .notes-actions{display:flex;gap:8px;justify-content:space-between;align-items:center;padding:8px 10px;border-top:1px solid rgba(255,255,255,.12);}
@@ -154,6 +154,24 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       <div id="s1b-cards"></div>
       <div style="margin-top:16px;background:linear-gradient(135deg,#EAF1FB,#D8E8FA);border-radius:14px;padding:16px 22px;border-left:5px solid #1A5080;font-size:1.05rem;color:#0A2010;">
         <strong>💬 Talk about it:</strong> In your work, do you usually deal with exact figures or approximations? When is it acceptable — or even better — to use a rough estimate instead of a precise number?
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ s1c · QUICK REVIEW (speaking bridge from Lesson 2) ══════════════════════════ -->
+<div class="slide" id="s1c">
+  <div class="banner" style="background:#0E7A8A;color:#fff;">🔄 Quick Review</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Before We Continue…</h2>
+      <p class="inst-light">A quick spoken review of what you learned in Lesson 2 — talk it through with a partner (or out loud).</p>
+      <div style="background:linear-gradient(135deg,#0E4A5A,#0E7A8A);border-radius:16px;padding:18px 22px;color:#fff;box-shadow:0 4px 14px rgba(14,74,90,.25);">
+        <div style="font-size:1.05rem;font-weight:800;letter-spacing:.03em;margin-bottom:10px;">💬 Talk About It</div>
+        <div style="font-size:1.05rem;line-height:1.8;opacity:.95;">
+          <div style="margin-bottom:8px;"><strong style="color:#F5893A;">1.</strong> Report something a colleague told you recently, using "said" or "told".</div>
+          <div><strong style="color:#F5893A;">2.</strong> Describe a situation where you had to warn, suggest, or admit something at work.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -403,10 +421,11 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <script>
 /* ═══ SLIDE IDS & LABELS ═══ */
-var slideIds = ["s1","s1b","s2","s3","s4","s5","s6","s7","s8","s9","s10","s-hw"];
+var slideIds = ["s1","s1b","s1c","s2","s3","s4","s5","s6","s7","s8","s9","s10","s-hw"];
 var slideLabels = [
   "Cover",
   "Warm-Up: Have You Ever…?",
+  "Quick Review — Before We Continue",
   "Quantities & Precision",
   "Vocabulary Practice",
   "Few / Little vs. A Few / A Little",

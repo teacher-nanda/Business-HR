@@ -98,6 +98,41 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .hw-check{list-style:none;padding:0;margin:10px 0 14px;}
 .hw-check li{padding:8px 12px;border-left:3px solid #1A5080;background:#F4F8FA;border-radius:0 8px 8px 0;font-size:1.06rem;color:#1C2B3A;margin-bottom:16px;line-height:1.5;}
 @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}60%{transform:translateX(6px);}}
+/* ═══ flip-through scenario cards (opening bridge slide) ═══ */
+.gs-scenario{display:none;background:#EEF4FB;border-radius:14px;padding:18px 20px;border-top:4px solid #1A4A8C;margin-bottom:4px;}
+.gs-scenario.gs-active{display:block;}
+.gs-card-label{font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#1A4A8C;margin-bottom:4px;}
+.gs-card-situation{font-size:1.06rem;color:#3A4A5A;margin-bottom:12px;line-height:1.5;}
+.gs-teacher{background:#F4F4F4;border-radius:8px;padding:10px 14px;font-size:1.06rem;color:#333;margin-bottom:8px;line-height:1.5;}
+.gs-teacher span{font-size:.85rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:3px;}
+.gs-student{background:#EEF4FB;border-radius:8px;padding:10px 14px;font-size:1.06rem;color:#1C2B3A;border-left:4px solid #1A4A8C;line-height:1.5;}
+.gs-student span{font-size:.85rem;font-weight:800;color:#1A4A8C;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:3px;}
+.hint-btn{background:none;border:1.5px solid #aaa;border-radius:6px;font-size:.9rem;color:#666;padding:3px 11px;cursor:pointer;margin-top:6px;transition:all .15s;font-family:inherit;}
+.hint-btn:hover{border-color:#1A4A8C;color:#1A4A8C;}
+.hint-text{display:none;background:#FFFBE6;border-left:3px solid #E8C830;border-radius:6px;padding:8px 12px;font-size:1.05rem;font-style:italic;color:#5A4000;margin-top:6px;line-height:1.5;}
+.gs-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px;}
+.gs-nav button{background:#1A4A8C;color:#fff;border:none;border-radius:8px;padding:8px 22px;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .15s;font-family:inherit;}
+.gs-nav button:disabled{opacity:.35;cursor:default;}
+.gs-counter{font-size:1rem;font-weight:700;color:#1A4A8C;min-width:100px;text-align:center;}
+/* ═══ term-card vocabulary grid ═══ */
+.term-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px;}
+.term-card{border:1.5px solid #DDE5F0;border-radius:12px;padding:14px 16px;background:#fff;transition:box-shadow .15s,border-color .15s;}
+.term-card:hover{border-color:#1A5080;box-shadow:0 3px 10px rgba(26,80,128,.12);}
+.term-icon{font-size:1.3rem;margin-bottom:4px;}
+.term-headline{font-weight:800;font-size:1.15rem;color:#1A5080;margin-bottom:4px;}
+.term-def{font-size:1.05rem;color:#5A6B7A;font-style:italic;margin-bottom:8px;line-height:1.4;}
+.term-example{font-size:1.06rem;color:#1C2B3A;background:#F4F8FA;border-left:3px solid #1A5080;border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5;}
+.term-example strong{color:#1A5080;}
+/* ═══ quick-check click-to-reveal micro-prompt ═══ */
+.qc-box{margin-top:16px;background:#FFF9EE;border:2px dashed #E8A030;border-radius:12px;padding:14px 18px;}
+.qc-label{font-weight:800;color:#B8860B;margin-bottom:8px;font-size:1.05rem;}
+.qc-opts{display:flex;gap:10px;flex-wrap:wrap;}
+.qc-opt{background:#F4F8FA;border:2px solid #dde;border-radius:8px;padding:7px 14px;font-size:1.05rem;color:#1C2B3A;cursor:pointer;transition:all .15s;font-family:inherit;}
+.qc-opt:hover:not(:disabled){border-color:#1A5080;background:#EEF5FA;}
+.qc-opt:disabled{cursor:default;}
+.qc-opt.qc-ok{background:#1A7A4A;border-color:#1A7A4A;color:#fff;}
+.qc-opt.qc-bad{background:#C4614A;border-color:#C4614A;color:#fff;}
+.qc-exp{display:none;margin-top:8px;font-size:1.05rem;color:#1A5C2A;font-style:italic;}
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
   html,body{background:#fff!important;overflow:visible!important;height:auto!important;}
@@ -144,33 +179,59 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <button onclick="goToId('s-hw')" style="position:absolute;bottom:70px;right:32px;background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.4);padding:10px 22px;border-radius:22px;cursor:pointer;font-size:1.05rem;font-weight:700;backdrop-filter:blur(4px);">📝 Homework</button>
 </div>
 
-<!-- ══════════════════════════ s1b · WARM-UP ══════════════════════════ -->
+<!-- ══════════════════════════ s1b · OPENING BRIDGE (Lessons 1 & 2 → Lesson 3) ══════════════════════════ -->
 <div class="slide" id="s1b">
-  <div class="banner" style="background:#B8860B;color:#fff;">🔥 Warm-Up</div>
+  <div class="banner" style="background:#0E7A8A;color:#fff;">🔄 Before We Start</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
-      <h2>Reporting Numbers — Have You Ever…?</h2>
-      <p class="inst-light">Read each situation and share your own experience out loud.</p>
-      <div id="s1b-cards"></div>
-      <div style="margin-top:16px;background:linear-gradient(135deg,#EAF1FB,#D8E8FA);border-radius:14px;padding:16px 22px;border-left:5px solid #1A5080;font-size:1.05rem;color:#0A2010;">
-        <strong>💬 Talk about it:</strong> In your work, do you usually deal with exact figures or approximations? When is it acceptable — or even better — to use a rough estimate instead of a precise number?
-      </div>
-    </div>
-  </div>
-</div>
+      <h2>The Meeting Isn't Over Yet…</h2>
+      <p class="inst-light">Your teacher will play each role below. Flip through the cards and respond out loud the way each one asks.</p>
+      <div id="s1b-cards" style="max-width:660px;margin:0 auto;">
 
-<!-- ══════════════════════════ s1c · QUICK REVIEW (speaking bridge from Lesson 2) ══════════════════════════ -->
-<div class="slide" id="s1c">
-  <div class="banner" style="background:#0E7A8A;color:#fff;">🔄 Quick Review</div>
-  <div class="slide-main">
-    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
-      <h2>Before We Continue…</h2>
-      <p class="inst-light">A quick spoken review of what you learned in Lesson 2 — talk it through with a partner (or out loud).</p>
-      <div style="background:linear-gradient(135deg,#0E4A5A,#0E7A8A);border-radius:16px;padding:18px 22px;color:#fff;box-shadow:0 4px 14px rgba(14,74,90,.25);">
-        <div style="font-size:1.05rem;font-weight:800;letter-spacing:.03em;margin-bottom:10px;">💬 Talk About It</div>
-        <div style="font-size:1.05rem;line-height:1.8;opacity:.95;">
-          <div style="margin-bottom:8px;"><strong style="color:#F5893A;">1.</strong> Report something a colleague told you recently, using "said" or "told".</div>
-          <div><strong style="color:#F5893A;">2.</strong> Describe a situation where you had to warn, suggest, or admit something at work.</div>
+        <div class="gs-scenario gs-active">
+          <div class="gs-card-label">📋 Card 1 — Wrap Up the Meeting</div>
+          <div class="gs-card-situation">You just finished chairing a headcount planning meeting with three HR colleagues.</div>
+          <div class="gs-teacher"><span>HR Director</span>"Before you go — can you send out the minutes and confirm the action items with everyone?"</div>
+          <div class="gs-student"><span>Your turn — reply, using at least one Lesson 1 phrase (attendees, action items, reach a consensus, wrap up, flag, circulate…)</span>
+            <button class="hint-btn" onclick="toggleFlip(this)">💡 Show sample</button>
+            <div class="hint-text">"Sure — I'll circulate the minutes to all the attendees today, and I'll flag the two action items we agreed on before we wrap up."</div>
+          </div>
+        </div>
+
+        <div class="gs-scenario" style="border-top-color:#E8A030;">
+          <div class="gs-card-label" style="color:#C8891E;">💬 Card 2 — Report What Was Said</div>
+          <div class="gs-card-situation">A colleague who missed the meeting stops by your desk afterward.</div>
+          <div class="gs-teacher"><span>Colleague</span>"Hey, I couldn't make the headcount meeting — what did I miss?"</div>
+          <div class="gs-student" style="border-left-color:#E8A030;"><span>Your turn — report what was said, using said/told or a reporting verb like admitted, suggested, or warned</span>
+            <button class="hint-btn" onclick="toggleFlip(this)">💡 Show sample</button>
+            <div class="hint-text">"The director told me headcount was under review. She admitted the budget was tight, and suggested we wait until next quarter to finalize numbers."</div>
+          </div>
+        </div>
+
+        <div class="gs-scenario" style="border-top-color:#4A1A6A;">
+          <div class="gs-card-label" style="color:#4A1A6A;">🔢 Card 3 — Then Someone Asks a Number…</div>
+          <div class="gs-card-situation">You don't have the exact number confirmed yet.</div>
+          <div class="gs-teacher"><span>Colleague</span>"So… roughly how many people are we actually hiring?"</div>
+          <div class="gs-student" style="border-left-color:#4A1A6A;"><span>Your turn — answer however feels natural. (Guessing is fine — today's lesson gives you the exact words for moments like this.)</span>
+            <button class="hint-btn" onclick="toggleFlip(this)">💡 Show sample</button>
+            <div class="hint-text">"I'm not totally sure yet, but it's around 5, maybe 6."</div>
+          </div>
+        </div>
+
+        <div class="gs-scenario" style="border-top-color:#0E7A8A;">
+          <div class="gs-card-label" style="color:#0E7A8A;">🎯 Card 4 — Today's Focus</div>
+          <div class="gs-card-situation">Today's lesson gives you precise language for exactly that moment — reporting numbers exactly, approximately, and explaining any gaps.</div>
+          <div class="gs-teacher"><span>Facilitator</span>"Think of a real number you've had to report at work — headcount, attrition, training completion, absence rate…"</div>
+          <div class="gs-student" style="border-left-color:#0E7A8A;"><span>Your turn — share one, and say whether you knew the exact figure or had to estimate</span>
+            <button class="hint-btn" onclick="toggleFlip(this)">💡 Show sample</button>
+            <div class="hint-text">"I once had to report our attrition rate without the final number yet — I just said it was around 12%."</div>
+          </div>
+        </div>
+
+        <div class="gs-nav">
+          <button id="s1bnav-prev" onclick="cardNavGo('s1bnav',-1)" disabled>◀ Previous</button>
+          <span id="s1bnav-counter" class="gs-counter">Card 1 of 4</span>
+          <button id="s1bnav-next" onclick="cardNavGo('s1bnav',1)">Next ▶</button>
         </div>
       </div>
     </div>
@@ -186,26 +247,58 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       <p class="inst-light">Key words and phrases for reporting numbers, gaps, and approximations at work.</p>
 
       <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#1A5080;margin:14px 0 8px;">📝 Key vocabulary</div>
-      <div class="two-col">
-        <div class="col-section">
-          <div class="ex-row" style="border-left-color:#1A5080;"><strong style="color:#1A5080;">ballpark figure</strong> — an approximate estimate, not necessarily exact.<br><em>"I don't have the exact number — can I give you a <strong>ballpark figure</strong> for now?"</em></div>
-          <div class="ex-row" style="border-left-color:#1A5080;"><strong style="color:#1A5080;">shortfall</strong> — the gap between what was expected/needed and what was actually achieved.<br><em>"There's a <strong>shortfall</strong> of 15% — we didn't hit the target."</em></div>
-          <div class="ex-row" style="border-left-color:#1A5080;"><strong style="color:#1A5080;">discrepancy</strong> — a difference or inconsistency between two sets of information.<br><em>"There's a <strong>discrepancy</strong> between the two reports — we need to find out why."</em></div>
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-icon">🎯</div>
+          <div class="term-headline">ballpark figure</div>
+          <div class="term-def">an approximate estimate, not necessarily exact</div>
+          <div class="term-example">"I don't have the final headcount yet — can I give you a <strong>ballpark figure</strong> for now?"</div>
         </div>
-        <div class="col-section">
-          <div class="ex-row" style="border-left-color:#1A5080;"><strong style="color:#1A5080;">to account for</strong> — to explain or justify a figure, result, or difference.<br><em>"Can you <strong>account for</strong> the shortfall before the next meeting?"</em></div>
-          <div class="ex-row" style="border-left-color:#1A5080;"><strong style="color:#1A5080;">to double-check</strong> — to check something a second time to make sure it's correct.<br><em>"Let me <strong>double-check</strong> the number of attendees."</em></div>
+        <div class="term-card">
+          <div class="term-icon">📉</div>
+          <div class="term-headline">shortfall</div>
+          <div class="term-def">the gap between what was expected/needed and what was actually achieved</div>
+          <div class="term-example">"There's a <strong>shortfall</strong> of 15% versus our hiring target this quarter."</div>
+        </div>
+        <div class="term-card">
+          <div class="term-icon">⚠️</div>
+          <div class="term-headline">discrepancy</div>
+          <div class="term-def">a difference or inconsistency between two sets of information</div>
+          <div class="term-example">"There's a <strong>discrepancy</strong> between the HRIS and payroll numbers — we need to find out why."</div>
+        </div>
+        <div class="term-card">
+          <div class="term-icon">🧾</div>
+          <div class="term-headline">to account for</div>
+          <div class="term-def">to explain or justify a figure, result, or difference</div>
+          <div class="term-example">"Can you <strong>account for</strong> the drop in training completion before next week's review?"</div>
+        </div>
+        <div class="term-card">
+          <div class="term-icon">🔍</div>
+          <div class="term-headline">to double-check</div>
+          <div class="term-def">to check something a second time to make sure it's correct</div>
+          <div class="term-example">"Let me <strong>double-check</strong> the number of attendees before I send the invite list."</div>
         </div>
       </div>
 
       <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#5A2A8C;margin:18px 0 8px;">🚀 Going further</div>
-      <div class="two-col">
-        <div class="col-section">
-          <div class="ex-row" style="border-left-color:#5A2A8C;"><strong style="color:#5A2A8C;">to flag</strong> — to draw attention to something, often a problem.<br><em>"I'd like to <strong>flag</strong> an issue with the Q3 projections."</em></div>
+      <div class="term-grid">
+        <div class="term-card" style="border-color:#DCC8EC;">
+          <div class="term-icon">🚩</div>
+          <div class="term-headline" style="color:#5A2A8C;">to flag</div>
+          <div class="term-def">to draw attention to something, often a problem</div>
+          <div class="term-example" style="border-left-color:#5A2A8C;"><strong style="color:#5A2A8C;">"I'd like to flag</strong> an issue with the engagement survey response rate."</div>
         </div>
-        <div class="col-section">
-          <div class="ex-row" style="border-left-color:#5A2A8C;"><strong style="color:#5A2A8C;">give or take</strong> — approximately, allowing for a small margin of error.<br><em>"It'll take three weeks, <strong>give or take</strong> a few days."</em></div>
-          <div class="ex-row" style="border-left-color:#5A2A8C;"><strong style="color:#5A2A8C;">to cross-reference</strong> — to compare information from two sources to verify accuracy.<br><em>"We should <strong>cross-reference</strong> these numbers against last year's report."</em></div>
+        <div class="term-card" style="border-color:#DCC8EC;">
+          <div class="term-icon">➕➖</div>
+          <div class="term-headline" style="color:#5A2A8C;">give or take</div>
+          <div class="term-def">approximately, allowing for a small margin of error</div>
+          <div class="term-example" style="border-left-color:#5A2A8C;">"Onboarding usually takes two weeks, <strong style="color:#5A2A8C;">give or take</strong> a few days."</div>
+        </div>
+        <div class="term-card" style="border-color:#DCC8EC;">
+          <div class="term-icon">🔗</div>
+          <div class="term-headline" style="color:#5A2A8C;">to cross-reference</div>
+          <div class="term-def">to compare information from two sources to verify accuracy</div>
+          <div class="term-example" style="border-left-color:#5A2A8C;">"We should <strong style="color:#5A2A8C;">cross-reference</strong> the attrition numbers against last year's report."</div>
         </div>
       </div>
     </div>
@@ -256,6 +349,14 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       </div>
       <div class="example-box" style="margin-top:16px;">
         <strong>Also remember:</strong> use <em>few / a few</em> with <strong>countable</strong> nouns (meetings, options, people). Use <em>little / a little</em> with <strong>uncountable</strong> nouns (time, budget, evidence, support).
+      </div>
+      <div class="qc-box">
+        <div class="qc-label">🤔 Quick check — HR context: "We only have 2 candidates left in the pipeline."</div>
+        <div class="qc-opts">
+          <button class="qc-opt" onclick="qcPick(this,true,'s4qc')">"We have few candidates left."</button>
+          <button class="qc-opt" onclick="qcPick(this,false,'s4qc')">"We have a few candidates left."</button>
+        </div>
+        <div id="s4qc-exp" class="qc-exp"></div>
       </div>
     </div>
   </div>
@@ -309,15 +410,23 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       <p class="inst-light">"All" can mean two slightly different things, depending on the context.</p>
       <div class="two-col">
         <div class="grammar-theory">
-          <h3>all = <strong>everything</strong></h3>
-          <em>"I hope <strong style="color:#1A5080;">all</strong> goes well in the presentation."</em><br>
+          <h3>🌐 all = <strong>everything</strong></h3>
+          <em>"I hope <strong style="color:#1A5080;">all</strong> goes well in tomorrow's interview."</em><br>
           <span style="font-size:1.05rem;color:#555;">→ everything goes well</span>
         </div>
         <div class="grammar-theory" style="border-left-color:#5A2A8C;background:#F0EEF8;">
-          <h3 style="color:#5A2A8C;">all = <strong>the only thing</strong></h3>
-          <em>"<strong style="color:#5A2A8C;">All</strong> we can do is prepare thoroughly."</em><br>
+          <h3 style="color:#5A2A8C;">🎯 all = <strong>the only thing</strong></h3>
+          <em>"<strong style="color:#5A2A8C;">All</strong> we can do now is wait for the candidate's decision."</em><br>
           <span style="font-size:1.05rem;color:#555;">→ the only thing we can do</span>
         </div>
+      </div>
+      <div class="qc-box">
+        <div class="qc-label">🤔 Quick check — "All we need is the manager's sign-off before we can extend the offer."</div>
+        <div class="qc-opts">
+          <button class="qc-opt" onclick="qcPick(this,true,'s7qc')">all = the only thing</button>
+          <button class="qc-opt" onclick="qcPick(this,false,'s7qc')">all = everything</button>
+        </div>
+        <div id="s7qc-exp" class="qc-exp"></div>
       </div>
     </div>
   </div>
@@ -363,10 +472,10 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       <h2>Fix the Minutes</h2>
       <p class="instruction">Each draft meeting minute below contains one mistake. Click the corrected version.</p>
       <div class="mc-question" style="background:#FFF4EE;border:2px solid #C45020;border-radius:10px;padding:9px 12px;">
-        <div class="mc-q-text"><span class="mc-q-num" style="color:#C45020;">Ex.</span> 📄 "The team <u>are</u> still waiting for approval from finance."</div>
+        <div class="mc-q-text"><span class="mc-q-num" style="color:#C45020;">Ex.</span> 📄 "The team <u>are</u> still waiting for approval from the hiring committee."</div>
         <div class="mc-opts" style="flex-direction:column;">
-          <button class="mc-opt mc-block mc-ok" style="pointer-events:none;">"The team <strong>is</strong> still waiting for approval from finance." ✓</button>
-          <button class="mc-opt mc-block" style="pointer-events:none;background:#f5f5f5;color:#bbb;text-decoration:line-through;">"The team <strong>be</strong> still waiting for approval from finance."</button>
+          <button class="mc-opt mc-block mc-ok" style="pointer-events:none;">"The team <strong>is</strong> still waiting for approval from the hiring committee." ✓</button>
+          <button class="mc-opt mc-block" style="pointer-events:none;background:#f5f5f5;color:#bbb;text-decoration:line-through;">"The team <strong>be</strong> still waiting for approval from the hiring committee."</button>
         </div>
       </div>
       <div id="s10-qs"></div>
@@ -385,7 +494,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
       <h2 style="color:#fff;">HW 1 – Write Your Meeting Summary Email</h2>
-      <p class="inst-light" style="color:rgba(255,255,255,.85);">Write a short email (80–100 words) summarizing the project review meeting from the speaking practice slide. A colleague who wasn't present needs to be brought up to speed.</p>
+      <p class="inst-light" style="color:rgba(255,255,255,.85);">Write a short email (80–100 words) summarizing one of the HR situations from the guided speaking slide (the headcount estimate, the training shortfall, or the headcount discrepancy). A colleague who wasn't present needs to be brought up to speed.</p>
       <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#F5893A;margin:14px 0 6px;">Your email must include:</div>
       <ul class="hw-check" style="background:transparent;">
         <li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">① A summary of key figures and decisions (use reported speech)</li>
@@ -393,7 +502,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
         <li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">③ At least one quantity word (ballpark figure, shortfall, discrepancy, or give or take)</li>
         <li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">④ A professional closing line</li>
       </ul>
-      <textarea style="width:100%;min-height:180px;border-radius:10px;border:none;padding:14px;font-size:1.05rem;font-family:inherit;line-height:1.6;color:#1C2B3A;background:rgba(255,255,255,.92);outline:none;resize:vertical;" placeholder="Hi [name],&#10;&#10;Just to bring you up to speed on today's project review…"></textarea>
+      <textarea style="width:100%;min-height:180px;border-radius:10px;border:none;padding:14px;font-size:1.05rem;font-family:inherit;line-height:1.6;color:#1C2B3A;background:rgba(255,255,255,.92);outline:none;resize:vertical;" placeholder="Hi [name],&#10;&#10;Just to bring you up to speed on today's HR meeting…"></textarea>
       <div style="margin-top:18px;">
         <a href="Lesson_04_Checking_Information_Full_Meeting.html" style="color:#fff;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.4);padding:10px 22px;border-radius:22px;text-decoration:none;font-weight:700;font-size:1.05rem;">Lesson 4 →</a>
       </div>
@@ -413,11 +522,10 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <script>
 /* ═══ SLIDE IDS & LABELS ═══ */
-var slideIds = ["s1","s1b","s1c","s2","s3","s4","s5","s6","s7","s8","s9","s10","s-hw"];
+var slideIds = ["s1","s1b","s2","s3","s4","s5","s6","s7","s8","s9","s10","s-hw"];
 var slideLabels = [
   "Cover",
-  "Warm-Up: Have You Ever…?",
-  "Quick Review — Before We Continue",
+  "Before We Start — The Meeting Isn't Over Yet",
   "Quantities & Precision",
   "Vocabulary Practice",
   "Few / Little vs. A Few / A Little",
@@ -783,62 +891,90 @@ function qamReset(exId){
   qamRender(exId);
 }
 
-/* ═══ S1b — Warm-Up ═══ */
-var s1bData = [
-  { q:"Have you ever given an approximate figure in a meeting that turned out to be far off the real number?", sample:"Yes — once I gave a ballpark figure of €50,000 for a project and the real cost ended up being closer to €70,000. Now I always say 'give or take' so people know it's an estimate." },
-  { q:"Have you ever noticed that two reports showed different numbers for the same data?", sample:"Yes, I once found a discrepancy between the sales report and the finance report — the totals didn't match, so we had to cross-reference both documents." },
-  { q:"Have you ever had to explain why actual results were lower than expected?", sample:"Yes — I had to account for a shortfall in our quarterly numbers. I explained that a key client had delayed their order." },
-  { q:"Have you ever said \"a few\" when you meant \"not many\", or \"little\" when you meant \"some\"?", sample:"Yes, I think I've mixed those up before — I said 'we have a few options' when I actually meant there were almost none left." }
-];
-function buildS1b(){
-  var el=document.getElementById('s1b-cards'); if(!el) return;
-  el.innerHTML='';
-  s1bData.forEach(function(item,i){
-    var card=document.createElement('div'); card.className='speak-card';
-    card.innerHTML='<div class="speak-num">Question '+(i+1)+'</div>'
-      +'<div class="speak-q">'+item.q+'</div>'
-      +'<div class="speak-ex" id="s1b-ex-'+i+'">💡 '+item.sample+'</div>'
-      +'<button class="speak-toggle" onclick="s1bToggle('+i+')" id="s1b-btn-'+i+'">👁 Sample answer</button>';
-    el.appendChild(card);
-  });
+/* ═══ shared helper: guided-speaking hint/reveal toggle (flip-card pattern) ═══ */
+function toggleFlip(btn, hideLabel, showLabel){
+  hideLabel = hideLabel || '🙈 Hide sample';
+  showLabel = showLabel || '💡 Show sample';
+  var panel = btn.nextElementSibling;
+  var showing = panel.style.display === 'block';
+  panel.style.display = showing ? 'none' : 'block';
+  btn.textContent = showing ? showLabel : hideLabel;
 }
-function s1bToggle(i){
-  var ex=document.getElementById('s1b-ex-'+i); var btn=document.getElementById('s1b-btn-'+i);
-  var open=ex.classList.toggle('open');
-  btn.textContent = open ? '🙈 Hide' : '👁 Sample answer';
+
+/* ═══ shared helper: flip-through scenario/card navigator ═══ */
+var cardNavState = {};
+function cardNavBuild(navKey, containerId, unitLabel){
+  var cards = document.querySelectorAll('#' + containerId + ' .gs-scenario');
+  cardNavState[navKey] = { cards: cards, idx: 0, unitLabel: unitLabel || 'Card' };
+  cardNavUpdate(navKey);
+}
+function cardNavGo(navKey, dir){
+  var st = cardNavState[navKey];
+  if (!st) return;
+  st.cards[st.idx].classList.remove('gs-active');
+  st.idx = Math.max(0, Math.min(st.cards.length - 1, st.idx + dir));
+  st.cards[st.idx].classList.add('gs-active');
+  cardNavUpdate(navKey);
+}
+function cardNavUpdate(navKey){
+  var st = cardNavState[navKey];
+  var counter = document.getElementById(navKey + '-counter');
+  var prev = document.getElementById(navKey + '-prev');
+  var next = document.getElementById(navKey + '-next');
+  if (counter) counter.textContent = st.unitLabel + ' ' + (st.idx + 1) + ' of ' + st.cards.length;
+  if (prev) prev.disabled = st.idx === 0;
+  if (next) next.disabled = st.idx === st.cards.length - 1;
+}
+
+/* ═══ shared helper: quick-check click-to-reveal micro-prompt (s4/s7 grammar boxes) ═══ */
+function qcPick(btn, correct, groupId){
+  var opts = btn.parentElement.querySelectorAll('.qc-opt');
+  opts.forEach(function(o){ o.classList.remove('qc-ok','qc-bad'); });
+  if(correct){
+    btn.classList.add('qc-ok');
+  } else {
+    btn.classList.add('qc-bad');
+    opts.forEach(function(o){ if(o!==btn) o.classList.add('qc-ok'); });
+  }
+  opts.forEach(function(o){ o.disabled = true; });
+  var exp = document.getElementById(groupId + '-exp');
+  if(exp){
+    exp.textContent = correct ? '✅ Correct!' : '❌ Not quite — the other option fits better here.';
+    exp.style.display = 'block';
+  }
 }
 
 /* ═══ S3 — Vocabulary Gap-Fill ═══ */
 var s3Items = [
-  { pre:"We fell short of the sales target — there's a", post:"of around 12% that we need to address.", ans:["shortfall"] },
-  { pre:"I don't have the exact number yet, but I can give you a", post:"— we're looking at somewhere between €80,000 and €100,000.", ans:["ballpark figure"] },
-  { pre:"Can you", post:"the start date before we send the client the timeline?", ans:["double-check"] },
-  { pre:"The board has asked the team to", post:"the €25,000 difference before Friday's presentation.", ans:["account for"] }
+  { pre:"We fell short of our hiring target — there's a", post:"of around 12% versus the headcount plan.", ans:["shortfall"] },
+  { pre:"I don't have the final attrition rate yet, but I can give you a", post:"— we're looking at somewhere between 8% and 10%.", ans:["ballpark figure"] },
+  { pre:"Can you", post:"the start date before we send the offer letter to the candidate?", ans:["double-check"] },
+  { pre:"The finance team has asked HR to", post:"the €25,000 difference in this month's payroll costs before Friday's review.", ans:["account for"] }
 ];
 var s3Bank = ["ballpark figure","shortfall","account for","double-check","give or take","cross-reference"];
-function buildS3(){ wbBuild('s3','s3-rows','s3-bank',s3Items,s3Bank,'s3-result','I\'d like to <span style="color:#C45020;font-weight:700;">flag</span> a possible issue with the numbers before we move on.','s3-example',['flag']); }
+function buildS3(){ wbBuild('s3','s3-rows','s3-bank',s3Items,s3Bank,'s3-result','I\'d like to <span style="color:#C45020;font-weight:700;">flag</span> a possible issue with the turnover numbers before we move on.','s3-example',['flag']); }
 function checkS3(){ wbCheck('s3'); }
 function resetS3(){ wbReset('s3'); }
 
 /* ═══ S5 — Few/Little Gap-Fill ═══ */
 var s5Items = [
-  { pre:"We have", post:"time before the call — let's run through the agenda quickly.", ans:["a little"] },
+  { pre:"We have", post:"time before the interview — let's run through the candidate's resume quickly.", ans:["a little"] },
   { pre:"", post:"people attended the training — we may need to reschedule.", ans:["few"] },
-  { pre:"There is", post:"evidence to support that proposal — we need more data before moving forward.", ans:["little"] },
-  { pre:"I still have", post:"questions before we close the discussion.", ans:["a few"] }
+  { pre:"There is", post:"evidence to support that performance rating — we need more data before finalizing it.", ans:["little"] },
+  { pre:"I still have", post:"questions before we close out the exit interview.", ans:["a few"] }
 ];
 var s5Bank = ["few","a few","little","a little"];
-function buildS5(){ wbBuild('s5','s5-rows','s5-bank',s5Items,s5Bank,'s5-result','There\'s <span style="color:#C45020;font-weight:700;">little</span> point in continuing without more data.','s5-example'); }
+function buildS5(){ wbBuild('s5','s5-rows','s5-bank',s5Items,s5Bank,'s5-result','There\'s <span style="color:#C45020;font-weight:700;">little</span> point in continuing the interview process without more candidates in the pipeline.','s5-example'); }
 function checkS5(){ wbCheck('s5'); }
 function resetS5(){ wbReset('s5'); }
 
 /* ═══ S6 — Choose the Correct Word or Phrase ═══ */
 var s6Items = [
-  { pre:"I don't have the final number yet, but I can give you a", post:"— roughly €80,000.", a:"shortfall", b:"ballpark figure", wrong:"a" },
-  { pre:"There is", post:"evidence to support this proposal — we need more data before we can move forward.", a:"little", b:"a little", wrong:"b" },
-  { pre:"The two reports show different totals — there seems to be a", post:"we need to investigate.", a:"discrepancy", b:"shortfall", wrong:"b" },
-  { pre:"There are", post:"people available to help this week — most of the team is on leave.", a:"few", b:"a few", wrong:"b" },
-  { pre:"Before we present, let's", post:"these numbers against last month's report to make sure they match.", a:"flag", b:"cross-reference", wrong:"a" }
+  { pre:"I don't have the final number yet, but I can give you a", post:"— roughly 40 new hires this year.", a:"shortfall", b:"ballpark figure", wrong:"a" },
+  { pre:"There is", post:"evidence to support this headcount request — we need more data before we can move forward.", a:"little", b:"a little", wrong:"b" },
+  { pre:"The two reports show different attrition totals — there seems to be a", post:"we need to investigate.", a:"discrepancy", b:"shortfall", wrong:"b" },
+  { pre:"There are", post:"recruiters available to help this week — most of the team is on leave.", a:"few", b:"a few", wrong:"b" },
+  { pre:"Before we present the headcount report, let's", post:"these numbers against last month's report to make sure they match.", a:"flag", b:"cross-reference", wrong:"a" }
 ];
 function s6InsertExample(){
   var ex=document.createElement('div');
@@ -848,7 +984,7 @@ function s6InsertExample(){
     +'<button style="border:2px solid #1A7A4A;border-radius:8px;padding:4px 14px;font-size:1.05rem;font-weight:700;background:#EEF7F0;color:#1A5C2A;font-family:inherit;pointer-events:none;">double-check</button>'
     +'<span style="color:#888;font-size:1.05rem;">/</span>'
     +'<button style="border:2px solid #e0e0e0;border-radius:8px;padding:4px 14px;font-size:1.05rem;font-weight:700;background:#f5f5f5;color:#bbb;font-family:inherit;text-decoration:line-through;opacity:.6;pointer-events:none;">flag</button>'
-    +'<span style="font-size:1.05rem;color:#1C2B3A;">the numbers before we send them?</span>';
+    +'<span style="font-size:1.05rem;color:#1C2B3A;">the numbers before we send the offer to the candidate?</span>';
   var left=document.getElementById('s6-left');
   left.insertBefore(ex, left.firstChild);
 }
@@ -858,11 +994,11 @@ function resetS6(){ xoResetAll('s6'); s6InsertExample(); }
 
 /* ═══ S8 — Match the Sentences ═══ */
 var s8Pairs = [
-  { q:"All we need is the client's signature.", a:"The only thing we need is the client's signature." },
-  { q:"There's a little time left before the deadline.", a:"We have some time." },
-  { q:"Few people responded to the survey.", a:"Not many people responded to the survey." },
-  { q:"There's little money left in the budget.", a:"We don't have much budget left." },
-  { q:"She knows all there is to know about the system.", a:"She's an expert in the system." }
+  { q:"All we need is the candidate's signed offer letter.", a:"The only thing we need is the candidate's signed offer letter." },
+  { q:"There's a little time left before the application deadline.", a:"We have some time." },
+  { q:"Few people responded to the engagement survey.", a:"Not many people responded to the engagement survey." },
+  { q:"There's little money left in the training budget.", a:"We don't have much budget left." },
+  { q:"She knows all there is to know about the payroll system.", a:"She's an expert in the payroll system." }
 ];
 function buildS8(){ qamBuild('s8','s8-qs','s8-as',s8Pairs,'s8-result','All I want is a bit of peace and quiet.','The only thing I want is a bit of peace and quiet.',[1,2,3,4,0]); }
 function checkS8(){ qamCheck('s8'); }
@@ -870,11 +1006,11 @@ function resetS8(){ qamReset('s8'); }
 
 /* ═══ S9 — Guided Speaking ═══ */
 var s9Data = [
-  { top:"📋 Situation 1 — Giving an estimate", situation:"Your manager asks: \"Do we have the final budget for this project yet?\" You don't have the exact number but have a rough idea.", pills:["ballpark figure","give or take","roughly","approximate"], sample:"\"I don't have the final number yet — the invoice is still pending. But I can give you a <strong>ballpark figure</strong>: we're looking at <strong>roughly</strong> €42,000, <strong>give or take</strong> a few thousand. I'll confirm the exact amount by end of week.\"" },
-  { top:"📉 Situation 2 — Reporting a shortfall", situation:"Sales reached only 76% of the quarterly target. Your director asks you to report the result and explain it to the team.", pills:["shortfall","fell short of","flag","account for"], sample:"\"I need to <strong>flag</strong> something. We <strong>fell short of</strong> our quarterly target — there's a <strong>shortfall</strong> of 24%. The director confirmed that this would be discussed at Friday's board meeting, so I'll prepare a full breakdown before then.\"" },
-  { top:"🔎 Situation 3 — Flagging a discrepancy", situation:"You're reviewing two documents before a client presentation. The revenue figures are different in each one. You need to raise this now.", pills:["discrepancy","cross-reference","double-check","flag"], sample:"\"Before we move on, I'd like to <strong>flag</strong> a <strong>discrepancy</strong>. The two documents don't show the same revenue figures. Can we take a moment to <strong>cross-reference</strong> them with the original data? I want to <strong>double-check</strong> before we present anything to the client.\"" },
-  { top:"📊 Situation 4 — Accounting for a result", situation:"The director asks: \"Can you account for the drop in customer satisfaction this quarter?\" You have a few possible reasons but limited hard data.", pills:["account for","a few","little","observations"], sample:"\"There's <strong>little</strong> hard data at this stage, but I can offer <strong>a few</strong> observations. The new platform rolled out mid-quarter and there were technical issues in the first two weeks — that likely affected user experience. She mentioned that support tickets spiked during that period, which would <strong>account for</strong> part of the drop.\"" },
-  { top:"⏱️ Situation 5 — Warning the team", situation:"The project deadline is in two days. Time and budget are almost gone. You need to alert the team and keep everyone focused on what matters.", pills:["little","few","all we can do","running out"], sample:"\"I want to make sure everyone is aware: we have very <strong>little</strong> time and <strong>little</strong> budget left. There are <strong>few</strong> options at this stage — <strong>all we can do</strong> is focus on the critical tasks. He warned us last week that this might happen, so let's not lose any more time.\"" }
+  { top:"📋 Situation 1 — Giving an estimate", situation:"Your manager asks: \"Do we have the final headcount number for the new team yet?\" You don't have the exact number but have a rough idea.", pills:["ballpark figure","give or take","roughly","approximate"], sample:"\"I don't have the final number yet — the last offer is still pending signature. But I can give you a <strong>ballpark figure</strong>: we're looking at <strong>roughly</strong> 8 new hires, <strong>give or take</strong> one or two. I'll confirm the exact number by end of week.\"" },
+  { top:"📉 Situation 2 — Reporting a shortfall", situation:"Training completion reached only 76% of this quarter's target. Your director asks you to report the result and explain it to the team.", pills:["shortfall","fell short of","flag","account for"], sample:"\"I need to <strong>flag</strong> something. We <strong>fell short of</strong> our training completion target — there's a <strong>shortfall</strong> of 24%. The director confirmed that this would be discussed at Friday's board meeting, so I'll prepare a full breakdown before then.\"" },
+  { top:"🔎 Situation 3 — Flagging a discrepancy", situation:"You're reviewing two documents before the HR steering committee meeting. The headcount figures are different in each one. You need to raise this now.", pills:["discrepancy","cross-reference","double-check","flag"], sample:"\"Before we move on, I'd like to <strong>flag</strong> a <strong>discrepancy</strong>. The two documents don't show the same headcount figures. Can we take a moment to <strong>cross-reference</strong> them with the original data? I want to <strong>double-check</strong> before we present anything to the committee.\"" },
+  { top:"📊 Situation 4 — Accounting for a result", situation:"The director asks: \"Can you account for the drop in employee engagement scores this quarter?\" You have a few possible reasons but limited hard data.", pills:["account for","a few","little","observations"], sample:"\"There's <strong>little</strong> hard data at this stage, but I can offer <strong>a few</strong> observations. The new benefits platform rolled out mid-quarter and there were technical issues in the first two weeks — that likely affected the survey response rate. She mentioned that HR tickets spiked during that period, which would <strong>account for</strong> part of the drop.\"" },
+  { top:"⏱️ Situation 5 — Warning the team", situation:"The open enrollment deadline is in two days. Time and staff availability are almost gone. You need to alert the team and keep everyone focused on what matters.", pills:["little","few","all we can do","running out"], sample:"\"I want to make sure everyone is aware: we have very <strong>little</strong> time and <strong>little</strong> staff availability left. There are <strong>few</strong> options at this stage — <strong>all we can do</strong> is focus on the critical enrollment cases. He warned us last week that this might happen, so let's not lose any more time.\"" }
 ];
 function buildS9(){
   var el=document.getElementById('s9-cards'); if(!el) return;
@@ -898,11 +1034,11 @@ function s9Toggle(i){
 
 /* ═══ S10 — Fix the Minutes ═══ */
 var s10Data = [
-  { draft:"The supplier confirmed that delivery <u>will begin</u> the following Monday.", a:"The supplier confirmed that delivery <strong>would begin</strong> the following Monday.", b:"The supplier confirmed that delivery <strong>begins</strong> the following Monday.", ans:"a", exp:"In reported speech, \"will\" shifts back to \"would\" to match the past reporting verb \"confirmed\"." },
+  { draft:"The training vendor confirmed that the workshops <u>will begin</u> the following Monday.", a:"The training vendor confirmed that the workshops <strong>would begin</strong> the following Monday.", b:"The training vendor confirmed that the workshops <strong>begins</strong> the following Monday.", ans:"a", exp:"In reported speech, \"will\" shifts back to \"would\" to match the past reporting verb \"confirmed\"." },
   { draft:"There were <u>few time</u> remaining, so the last agenda point was postponed.", a:"There was <strong>a few time</strong> remaining, so the last agenda point was postponed.", b:"There was <strong>little time</strong> remaining, so the last agenda point was postponed.", ans:"b", exp:"\"Time\" is uncountable, so it takes \"little\" (not \"few\"). \"Were\" also corrects to \"was\"." },
-  { draft:"The finance team was asked to <u>give or take</u> the two versions of the expense report.", a:"The finance team was asked to <strong>account for</strong> the two versions of the expense report.", b:"The finance team was asked to <strong>cross-reference</strong> the two versions of the expense report.", ans:"b", exp:"\"Give or take\" is used with numbers to mean \"approximately\" — it isn't a verb meaning \"compare\". \"Cross-reference\" means to check one document against another." },
-  { draft:"Sara mentioned that there <u>are</u> only <u>a little</u> options left and the team needs to decide quickly.", a:"Sara mentioned that there <strong>were</strong> only <strong>a few</strong> options left and the team <strong>needed</strong> to decide quickly.", b:"Sara mentioned that there <strong>is</strong> only <strong>little</strong> options left and the team needs to decide quickly.", ans:"a", exp:"Two fixes: \"are\" → \"were\" (reported speech backshift), and \"a little\" → \"a few\" because \"options\" is countable. \"Needs\" also shifts to \"needed\"." },
-  { draft:"James presented a <u>discrepancy</u> of around €80,000 for the total project costs.", a:"James presented a <strong>cross-reference</strong> of around €80,000 for the total project costs.", b:"James presented a <strong>ballpark figure</strong> of around €80,000 for the total project costs.", ans:"b", exp:"A \"discrepancy\" is an inconsistency between two different figures — not an estimate. When giving an approximate total, you give a \"ballpark figure\"." }
+  { draft:"The HR team was asked to <u>give or take</u> the two versions of the attrition report.", a:"The HR team was asked to <strong>account for</strong> the two versions of the attrition report.", b:"The HR team was asked to <strong>cross-reference</strong> the two versions of the attrition report.", ans:"b", exp:"\"Give or take\" is used with numbers to mean \"approximately\" — it isn't a verb meaning \"compare\". \"Cross-reference\" means to check one document against another." },
+  { draft:"Sara mentioned that there <u>are</u> only <u>a little</u> candidates left and the team needs to decide quickly.", a:"Sara mentioned that there <strong>were</strong> only <strong>a few</strong> candidates left and the team <strong>needed</strong> to decide quickly.", b:"Sara mentioned that there <strong>is</strong> only <strong>little</strong> candidates left and the team needs to decide quickly.", ans:"a", exp:"Two fixes: \"are\" → \"were\" (reported speech backshift), and \"a little\" → \"a few\" because \"candidates\" is countable. \"Needs\" also shifts to \"needed\"." },
+  { draft:"James presented a <u>discrepancy</u> of around €80,000 for the total benefits costs.", a:"James presented a <strong>cross-reference</strong> of around €80,000 for the total benefits costs.", b:"James presented a <strong>ballpark figure</strong> of around €80,000 for the total benefits costs.", ans:"b", exp:"A \"discrepancy\" is an inconsistency between two different figures — not an estimate. When giving an approximate total, you give a \"ballpark figure\"." }
 ];
 var s10Sel={};
 function buildS10(){
@@ -954,7 +1090,7 @@ window.addEventListener('DOMContentLoaded',function(){
     d.onclick=function(){ goTo(i); };
     dotsEl.appendChild(d);
   });
-  buildS1b(); buildS3(); buildS5(); buildS6(); buildS8(); buildS9(); buildS10();
+  cardNavBuild('s1bnav','s1b-cards','Card'); buildS3(); buildS5(); buildS6(); buildS8(); buildS9(); buildS10();
   goTo(0);
 });
 </script>

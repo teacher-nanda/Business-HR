@@ -80,7 +80,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .wb-chip{background:#EEF5FA;color:#1C2B3A;font-weight:700;padding:6px 16px;border-radius:20px;font-size:1rem;cursor:pointer;transition:all .15s;border:1.5px solid #A9C4E8;user-select:none;display:inline-block;}
 .wb-chip:hover{opacity:.85;}
 .wb-used{text-decoration:line-through;opacity:.55;}
-#s-hw{background:linear-gradient(145deg,#0d1f38 0%,#1a3a5f 60%,#2563eb 100%);}
+#s-hw,#s-hw2,#s-hw3{background:linear-gradient(145deg,#0d1f38 0%,#1a3a5f 60%,#2563eb 100%);}
 .hw-btns{display:flex;gap:10px;margin-top:16px;}
 .btn-check{background:#1A5C2A;color:#fff;border:none;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:1.05rem;font-weight:700;transition:background .2s;}
 .btn-check:hover{background:#154A22;}
@@ -155,6 +155,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .qc-opt:disabled{cursor:default;}
 .qc-opt.qc-ok{background:#1A7A4A;border-color:#1A7A4A;color:#fff;}
 .qc-opt.qc-bad{background:#C4614A;border-color:#C4614A;color:#fff;}
+.wb-exp{flex-basis:100%;margin-top:4px;padding:8px 12px;background:#EEF7F0;border-left:3px solid #1A7A4A;border-radius:0 8px 8px 0;font-size:1.05rem;line-height:1.65;color:#1C2B3A;}
 .qc-exp{display:none;margin-top:8px;font-size:1.05rem;color:#1A5C2A;font-style:italic;}
 @media print{
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
@@ -263,7 +264,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <!-- ══════════════════════════ s2 · KEY LANGUAGE: VOCABULARY ══════════════════════════ -->
 <div class="slide" id="s2">
-  <div class="banner" style="background:#1A5080;color:#fff;">🔑 Key Language</div>
+  <div class="banner" style="background:#1A5080;color:#fff;">🔑 Vocabulary · Key Language</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>Quantities &amp; Precision</h2>
@@ -330,7 +331,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <!-- ══════════════════════════ s3 · VOCABULARY PRACTICE ══════════════════════════ -->
 <div class="slide" id="s3">
-  <div class="banner" style="background:#1A5080;color:#fff;">✍️ Vocabulary Practice</div>
+  <div class="banner" style="background:#1A5080;color:#fff;">✍️ Vocabulary · Practice</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>Fill in the Gaps</h2>
@@ -349,7 +350,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <!-- ══════════════════════════ s3b · AI SPEAKING CHALLENGE ══════════════════════════ -->
 <div class="slide" id="s3b">
-  <div class="banner" style="background:#8C2E5A;color:#fff;">🤖 AI Speaking Challenge</div>
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🤖 Speaking · AI Practice</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>Practice Out Loud — With AI or With These Cards</h2>
@@ -371,7 +372,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <!-- ══════════════════════════ s4 · KEY LANGUAGE: FEW/LITTLE ══════════════════════════ -->
 <div class="slide" id="s4">
-  <div class="banner" style="background:#1A5C2A;color:#fff;">📐 Grammar</div>
+  <div class="banner" style="background:#1A5C2A;color:#fff;">📐 Grammar · Rule</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>Few / Little vs. A Few / A Little</h2>
@@ -401,7 +402,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
           <button class="qc-opt" onclick="qcPick(this,true,'s4qc')">"We have few candidates left."</button>
           <button class="qc-opt" onclick="qcPick(this,false,'s4qc')">"We have a few candidates left."</button>
         </div>
-        <div id="s4qc-exp" class="qc-exp"></div>
+        <div id="s4qc-exp" class="qc-exp" data-exp="Only 2 candidates is not enough for the pipeline, so the tone is negative. Few (no article) means almost none. A few would sound positive, as if 2 were enough."></div>
       </div>
     </div>
   </div>
@@ -409,7 +410,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <!-- ══════════════════════════ s5 · FEW/LITTLE PRACTICE ══════════════════════════ -->
 <div class="slide" id="s5">
-  <div class="banner" style="background:#1A5C2A;color:#fff;">📐 Grammar Practice</div>
+  <div class="banner" style="background:#1A5C2A;color:#fff;">📐 Grammar · Practice</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>Fill in the Gaps — Few / A Few / Little / A Little</h2>
@@ -426,29 +427,9 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   </div>
 </div>
 
-<!-- ══════════════════════════ s6 · CHOOSE THE CORRECT WORD ══════════════════════════ -->
-<div class="slide" id="s6">
-  <div class="banner" style="background:#0E7A8A;color:#fff;">🔍 Vocabulary &amp; Grammar</div>
-  <div class="slide-main">
-    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
-      <h2>Choose the Correct Word or Phrase</h2>
-      <p class="instruction">Read each sentence, then click the word or phrase that fits.</p>
-      <div class="two-col">
-        <div class="col-section" id="s6-left"></div>
-        <div class="col-section" id="s6-right"></div>
-      </div>
-      <div class="hw-btns">
-        <button class="btn-check" onclick="checkS6()">✓ Check Answers</button>
-        <button class="btn-reset" onclick="resetS6()">↺ Reset</button>
-      </div>
-      <div id="s6-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
-    </div>
-  </div>
-</div>
-
 <!-- ══════════════════════════ s7 · KEY LANGUAGE: ALL AS A PRONOUN ══════════════════════════ -->
 <div class="slide" id="s7">
-  <div class="banner" style="background:#1A5C2A;color:#fff;">📐 Grammar</div>
+  <div class="banner" style="background:#1A5C2A;color:#fff;">📐 Grammar · Rule</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>"All" as a Pronoun</h2>
@@ -471,15 +452,35 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
           <button class="qc-opt" onclick="qcPick(this,true,'s7qc')">all = the only thing</button>
           <button class="qc-opt" onclick="qcPick(this,false,'s7qc')">all = everything</button>
         </div>
-        <div id="s7qc-exp" class="qc-exp"></div>
+        <div id="s7qc-exp" class="qc-exp" data-exp="The manager&#39;s sign-off is the one thing missing, so All we need is... means The only thing we need is..."></div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ s6 · CHOOSE THE CORRECT WORD ══════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="banner" style="background:#0E7A8A;color:#fff;">🔍 Mixed Practice</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Choose the Correct Word or Phrase</h2>
+      <p class="instruction">Read each sentence, then click the word or phrase that fits.</p>
+      <div class="two-col">
+        <div class="col-section" id="s6-left"></div>
+        <div class="col-section" id="s6-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkS6()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetS6()">↺ Reset</button>
+      </div>
+      <div id="s6-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════ s8 · MATCH THE SENTENCES ══════════════════════════ -->
 <div class="slide" id="s8">
-  <div class="banner" style="background:#1A5080;color:#fff;">🔗 Grammar Practice</div>
+  <div class="banner" style="background:#1A5C2A;color:#fff;">🔗 Grammar · Practice</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>Match the Sentences That Mean the Same</h2>
@@ -499,25 +500,13 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <!-- ══════════════════════════ s8b · SPEAKING: THE 60-SECOND BRIEFING ══════════════════════════ -->
 <div class="slide" id="s8b">
-  <div class="banner" style="background:#9A3412;color:#fff;">🎤 Speaking Challenge</div>
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🎤 Speaking · The 60-Second Briefing</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
       <h2>The 60-Second Briefing</h2>
       <p class="inst-light">Pick a dashboard, then brief your director out loud in your own words.<br>Use the language in the chips. When you finish, click Twist for a surprise question.</p>
       <div class="br-tabs" id="br-tabs"></div>
       <div class="br-card" id="br-card"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════ s9 · GUIDED SPEAKING ══════════════════════════ -->
-<div class="slide" id="s9">
-  <div class="banner" style="background:#5A2A8C;color:#fff;">💬 Guided Speaking</div>
-  <div class="slide-main">
-    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
-      <h2>Reporting Numbers in a Meeting</h2>
-      <p class="inst-light">Read each situation and respond out loud, using the useful phrases shown. Then check the sample answer.</p>
-      <div id="s9-cards"></div>
     </div>
   </div>
 </div>
@@ -530,10 +519,10 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       <h2>Fix the Minutes</h2>
       <p class="instruction">Each draft meeting minute below contains one mistake. Click the corrected version.</p>
       <div class="mc-question" style="background:#FFF4EE;border:2px solid #C45020;border-radius:10px;padding:9px 12px;">
-        <div class="mc-q-text"><span class="mc-q-num" style="color:#C45020;">Ex.</span> 📄 "The team <u>are</u> still waiting for approval from the hiring committee."</div>
+        <div class="mc-q-text"><span class="mc-q-num" style="color:#C45020;">Ex.</span> 📄 "There is <u>few</u> support for the new work schedule among the managers."</div>
         <div class="mc-opts" style="flex-direction:column;">
-          <button class="mc-opt mc-block mc-ok" style="pointer-events:none;">"The team <strong>is</strong> still waiting for approval from the hiring committee." ✓</button>
-          <button class="mc-opt mc-block" style="pointer-events:none;background:#f5f5f5;color:#bbb;text-decoration:line-through;">"The team <strong>be</strong> still waiting for approval from the hiring committee."</button>
+          <button class="mc-opt mc-block mc-ok" style="pointer-events:none;">"There is <strong>little</strong> support for the new work schedule among the managers." ✓</button>
+          <button class="mc-opt mc-block" style="pointer-events:none;background:#f5f5f5;color:#bbb;text-decoration:line-through;">"There is <strong>a few</strong> support for the new work schedule among the managers."</button>
         </div>
       </div>
       <div id="s10-qs"></div>
@@ -546,23 +535,61 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   </div>
 </div>
 
-<!-- ══════════════════════════ s-hw · HOMEWORK ══════════════════════════ -->
+<!-- ══════════════════════════ s-hw · HOMEWORK 1 ══════════════════════════ -->
 <div class="slide" id="s-hw">
-  <div class="banner" style="background:rgba(255,255,255,.12);color:#fff;">📝 Homework</div>
+  <div class="banner" style="background:rgba(255,255,255,.12);color:#fff;">📝 Homework 1 of 3 · Practice with AI</div>
   <div class="slide-main">
     <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
-      <h2 style="color:#fff;">HW 1 – Write Your Meeting Summary Email</h2>
-      <p class="inst-light" style="color:rgba(255,255,255,.85);">Write a short email (80–100 words) summarizing one of the HR situations from the guided speaking slide (the headcount estimate, the training shortfall, or the headcount discrepancy). A colleague who wasn't present needs to be brought up to speed.</p>
-      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#F5893A;margin:14px 0 6px;">Your email must include:</div>
-      <ul class="hw-check" style="background:transparent;">
-        <li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">① A summary of key figures and decisions (use reported speech)</li>
-        <li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">② At least one use of few/a few or little/a little</li>
-        <li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">③ At least one quantity word (ballpark figure, shortfall, discrepancy, or give or take)</li>
-        <li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">④ A professional closing line</li>
-      </ul>
-      <textarea style="width:100%;min-height:180px;border-radius:10px;border:none;padding:14px;font-size:1.05rem;font-family:inherit;line-height:1.6;color:#1C2B3A;background:rgba(255,255,255,.92);outline:none;resize:vertical;" placeholder="Hi [name],&#10;&#10;Just to bring you up to speed on today's HR meeting…"></textarea>
+      <h2 style="color:#fff;">The Number Detective</h2>
+      <p class="inst-light" style="color:rgba(255,255,255,.88);">Find the mistakes hidden in an HR report, then raise them professionally.</p>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#F5893A;margin:14px 0 6px;">What to do</div>
+      <ul class="hw-check" style="background:transparent;"><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">① Paste the prompt into your AI chat.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">② Read the report the AI writes. Find the 2 hidden problems.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">③ Write back to the AI and flag them. Use <strong>discrepancy, flag, cross-reference</strong> and <strong>double-check</strong>.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">④ Read the AI's corrections and note one thing to improve.</li></ul>
+      <div class="ai-box">
+        <div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+        <div class="ai-prompt" id="hw1-prompt">Act as an HR data analyst. Write a short fictional HR report with 5 lines of numbers (headcount, new hires, resignations, training completion, survey response rate). Hide 2 discrepancies in it, for example numbers that do not match each other, and do NOT tell me where they are. I will write back to flag the problems. I should use these words: <strong>discrepancy, flag, cross-reference, double-check</strong>. Then correct my English, check that I used few / a few / little / a little correctly, and tell me whether I found both discrepancies.</div>
+        <button class="ai-copy-btn" id="hw1-btn" onclick="copyAiPrompt('hw1-prompt','hw1-btn')">📋 Copy Prompt</button>
+      </div>
+      <p style="color:rgba(255,255,255,.85);font-size:1.05rem;line-height:1.65;margin-top:14px;">🎯 Goal: practice spotting and reporting number problems, just like in the meeting from this lesson.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ s-hw2 · HOMEWORK 2 ══════════════════════════ -->
+<div class="slide" id="s-hw2">
+  <div class="banner" style="background:rgba(255,255,255,.12);color:#fff;">📝 Homework 2 of 3 · Practice with AI</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
+      <h2 style="color:#fff;">Meeting Minutes in Reported Speech</h2>
+      <p class="inst-light" style="color:rgba(255,255,255,.88);">Turn what your manager says into correct reported speech.</p>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#F5893A;margin:14px 0 6px;">What to do</div>
+      <ul class="hw-check" style="background:transparent;"><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">① Paste the prompt. The AI plays a manager giving short updates.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">② After each update, type what the manager said. Start with <em>She said that…</em></li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">③ Let the AI correct your tenses (will → would, are → were) and time words (tomorrow → the next day).</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">④ Finish all 5 updates.</li></ul>
+      <div class="ai-box">
+        <div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+        <div class="ai-prompt" id="hw2-prompt">Role-play a department meeting. You are my manager. Say 5 short sentences about HR numbers, one at a time, and wait for my answer. Use will, are, is, <strong>few / little</strong> and <strong>"All we can do is…"</strong> in your sentences. After each sentence, I will report what you said, starting with "You said that…". Correct my tense changes (will → would, are → were, is → was) and any time words (tomorrow → the next day). Give me a score out of 5 at the end and one tip.</div>
+        <button class="ai-copy-btn" id="hw2-btn" onclick="copyAiPrompt('hw2-prompt','hw2-btn')">📋 Copy Prompt</button>
+      </div>
+      <p style="color:rgba(255,255,255,.85);font-size:1.05rem;line-height:1.65;margin-top:14px;">🎯 Goal: practice reported speech from Lesson 2 with the numbers language from this lesson.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ s-hw3 · HOMEWORK 3 ══════════════════════════ -->
+<div class="slide" id="s-hw3">
+  <div class="banner" style="background:rgba(255,255,255,.12);color:#fff;">📝 Homework 3 of 3 · Practice with AI</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
+      <h2 style="color:#fff;">The Tough Questions Round</h2>
+      <p class="inst-light" style="color:rgba(255,255,255,.88);">Speak out loud and answer difficult questions from your director.</p>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#F5893A;margin:14px 0 6px;">What to do</div>
+      <ul class="hw-check" style="background:transparent;"><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">① Open your AI chat on your phone and turn on <strong>voice mode</strong> (or just type if you prefer).</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">② Paste the prompt and give a 1-minute update about numbers at your company.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">③ Answer the 3 tough follow-up questions out loud.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">④ Ask the AI for feedback and write down your best sentence.</li></ul>
+      <div class="ai-box">
+        <div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+        <div class="ai-prompt" id="hw3-prompt">You are my director in a tough meeting. I will give you a 1-minute update about numbers at my company (hiring, budget or training). Then ask me 3 difficult follow-up questions, one at a time, such as "Can you account for the shortfall?" or "Which figure is right?". Wait for my answer each time. At the end, tell me which of these I used correctly: <strong>ballpark figure, shortfall, discrepancy, account for, flag, give or take, cross-reference, double-check, few / little, "all"</strong>. Show me my 2 best sentences and 2 mistakes, with corrections.</div>
+        <button class="ai-copy-btn" id="hw3-btn" onclick="copyAiPrompt('hw3-prompt','hw3-btn')">📋 Copy Prompt</button>
+      </div>
+      <p style="color:rgba(255,255,255,.85);font-size:1.05rem;line-height:1.65;margin-top:14px;">🎯 Goal: sound confident and precise when someone questions your numbers. Bring your best sentence to the next class.</p>
       <div style="margin-top:18px;">
-        <a href="Lesson_04_Checking_Information_Full_Meeting.html" style="color:#fff;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.4);padding:10px 22px;border-radius:22px;text-decoration:none;font-weight:700;font-size:1.05rem;">Lesson 4 →</a>
+        <a href="Lesson_04_Checking_Information_Full_Meeting.html" style="color:#fff;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.4);padding:10px 22px;border-radius:22px;text-decoration:none;font-weight:700;font-size:1.05rem;">Next lesson →</a>
       </div>
     </div>
   </div>
@@ -580,7 +607,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 
 <script>
 /* ═══ SLIDE IDS & LABELS ═══ */
-var slideIds = ["s1","s1b","s2","s3","s3b","s4","s5","s6","s7","s8","s8b","s9","s10","s-hw"];
+var slideIds = ["s1","s1b","s2","s3","s3b","s4","s5","s7","s6","s8","s8b","s10","s-hw","s-hw2","s-hw3"];
 var slideLabels = [
   "Cover",
   "Before We Start — The Meeting Isn't Over Yet",
@@ -589,13 +616,14 @@ var slideLabels = [
   "AI Speaking Challenge",
   "Few / Little vs. A Few / A Little",
   "Grammar Practice",
-  "Choose the Correct Word or Phrase",
   "\"All\" as a Pronoun",
+  "Mixed Practice: Choose the Correct Word or Phrase",
   "Match the Sentences",
-  "Speaking Challenge: The 60-Second Briefing",
-  "Guided Speaking: Reporting Numbers",
+  "The 60-Second Briefing",
   "Wrap-Up: Fix the Minutes",
-  "Homework"
+  "Homework 1: The Number Detective",
+  "Homework 2: Meeting Minutes in Reported Speech",
+  "Homework 3: The Tough Questions Round"
 ];
 
 /* ═══ NAVIGATION ═══ */
@@ -642,6 +670,33 @@ function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesD
     if (!localStorage.getItem(FLAG)) {
       var out = {};
       Object.keys(notesData).forEach(function(k){ var n = +k; out[(!isNaN(n) && n >= 10) ? n + 1 : k] = notesData[k]; });
+      Object.keys(notesData).forEach(function(k){ delete notesData[k]; });
+      Object.assign(notesData, out);
+      persistNotes();
+      localStorage.setItem(FLAG, '1');
+    }
+  } catch (e) {}
+})();
+/* one-time notes migration: slides "All" and "Choose the Correct Word" swapped places (indexes 7 and 8), so their notes swap too */
+(function(){
+  try {
+    var FLAG = NOTES_KEY + ':swap78';
+    if (!localStorage.getItem(FLAG)) {
+      var a = notesData[7], b = notesData[8];
+      if (b === undefined) delete notesData[7]; else notesData[7] = b;
+      if (a === undefined) delete notesData[8]; else notesData[8] = a;
+      persistNotes();
+      localStorage.setItem(FLAG, '1');
+    }
+  } catch (e) {}
+})();
+/* one-time notes migration: the Guided Speaking slide (index 11) was removed, so notes for later slides shift -1 */
+(function(){
+  try {
+    var FLAG = NOTES_KEY + ':del11';
+    if (!localStorage.getItem(FLAG)) {
+      var out = {};
+      Object.keys(notesData).forEach(function(k){ var n = +k; if (n === 11) return; out[(!isNaN(n) && n > 11) ? n - 1 : k] = notesData[k]; });
       Object.keys(notesData).forEach(function(k){ delete notesData[k]; });
       Object.assign(notesData, out);
       persistNotes();
@@ -834,6 +889,11 @@ function wbCheck(exId){
     el.style.color = ok?'#1A7A4A':'#C4614A';
     el.style.borderBottomColor = ok?'#1A7A4A':'#C4614A';
     if(ok) score++;
+    if(item.exp){
+      var row=el.parentElement, ex=row.querySelector('.wb-exp');
+      if(!ex){ ex=document.createElement('div'); ex.className='wb-exp'; row.appendChild(ex); }
+      ex.innerHTML=(ok?'✅ ':'❌ ')+item.exp;
+    }
   });
   var res=document.getElementById(st.resultId);
   res.textContent=score+' / '+st.items.length+' correct'+(score===st.items.length?' — Great job! 🎉':'');
@@ -1019,7 +1079,8 @@ function qcPick(btn, correct, groupId){
   opts.forEach(function(o){ o.disabled = true; });
   var exp = document.getElementById(groupId + '-exp');
   if(exp){
-    exp.textContent = correct ? '✅ Correct!' : '❌ Not quite — the other option fits better here.';
+    var why = exp.getAttribute('data-exp') || '';
+    exp.textContent = (correct ? '✅ Correct!' : '❌ Not quite — the other option fits better here.') + (why ? ' ' + why : '');
     exp.style.display = 'block';
   }
 }
@@ -1062,9 +1123,9 @@ function s3bToggle(i){
   var open=ex.classList.toggle('open');
   btn.textContent = open ? '▼ Hide sample' : '▶ Show sample';
 }
-function copyAiPrompt(){
-  var text = document.getElementById('ai-prompt-text').innerText;
-  var btn = document.getElementById('ai-copy-btn');
+function copyAiPrompt(pid, bid){
+  var pe = document.getElementById(pid || 'ai-prompt-text'); var text = pe.innerText || pe.textContent;
+  var btn = document.getElementById(bid || 'ai-copy-btn');
   function showCopied(){
     btn.textContent = '✓ Copied!'; btn.classList.add('copied');
     setTimeout(function(){ btn.textContent='📋 Copy Prompt'; btn.classList.remove('copied'); }, 1800);
@@ -1085,10 +1146,14 @@ function fallbackCopyAi(text, cb){
 
 /* ═══ S5 — Few/Little Gap-Fill ═══ */
 var s5Items = [
-  { pre:"We have", post:"time before the interview — let's run through the candidate's resume quickly.", ans:["a little"] },
-  { pre:"", post:"people attended the training — we may need to reschedule.", ans:["few"] },
-  { pre:"There is", post:"evidence to support that performance rating — we need more data before finalizing it.", ans:["little"] },
-  { pre:"I still have", post:"questions before we close out the exit interview.", ans:["a few"] }
+  { pre:"We have", post:"time before the interview — let's run through the candidate's resume quickly.", ans:["a little"],
+    exp:"<strong>a little</strong>: <em>time</em> is uncountable, so <em>few / a few</em> are out. <em>A little</em> means some, enough to run through the resume. <em>Little</em> would mean almost no time, which doesn't fit the positive plan." },
+  { pre:"", post:"people attended the training — we may need to reschedule.", ans:["few"],
+    exp:"<strong>few</strong>: <em>people</em> is countable, so <em>little / a little</em> are out. <em>Few</em> means not enough, which explains why we may need to reschedule. <em>A few</em> would sound positive, as if the number were fine." },
+  { pre:"There is", post:"evidence to support that performance rating — we need more data before finalizing it.", ans:["little"],
+    exp:"<strong>little</strong>: <em>evidence</em> is uncountable, so <em>few / a few</em> are out. <em>Little</em> means almost none, matching \"we need more data\". <em>A little</em> would suggest there is enough." },
+  { pre:"I still have", post:"questions before we close out the exit interview.", ans:["a few"],
+    exp:"<strong>a few</strong>: <em>questions</em> is countable, so <em>little / a little</em> are out. <em>A few</em> means some, a positive, normal amount. <em>Few</em> would mean almost no questions, which doesn't fit \"I still have\"." }
 ];
 var s5Bank = ["few","a few","little","a little"];
 function buildS5(){ wbBuild('s5','s5-rows','s5-bank',s5Items,s5Bank,'s5-result','There\'s <span style="color:#C45020;font-weight:700;">little</span> point in continuing the interview process without more candidates in the pipeline.','s5-example'); }
@@ -1164,34 +1229,6 @@ function s8bShow(id,btn,label){
   btn.textContent=on?'🙈 Hide':label;
 }
 
-/* ═══ S9 — Guided Speaking ═══ */
-var s9Data = [
-  { top:"📋 Situation 1 — Giving an estimate", situation:"Your manager asks: \"Do we have the final headcount number for the new team yet?\" You don't have the exact number but have a rough idea.", pills:["ballpark figure","give or take","roughly","approximate"], sample:"\"I don't have the final number yet — the last offer is still pending signature. But I can give you a <strong>ballpark figure</strong>: we're looking at <strong>roughly</strong> 8 new hires, <strong>give or take</strong> one or two. I'll confirm the exact number by end of week.\"" },
-  { top:"📉 Situation 2 — Reporting a shortfall", situation:"Training completion reached only 76% of this quarter's target. Your director asks you to report the result and explain it to the team.", pills:["shortfall","fell short of","flag","account for"], sample:"\"I need to <strong>flag</strong> something. We <strong>fell short of</strong> our training completion target — there's a <strong>shortfall</strong> of 24%. The director confirmed that this would be discussed at Friday's board meeting, so I'll prepare a full breakdown before then.\"" },
-  { top:"🔎 Situation 3 — Flagging a discrepancy", situation:"You're reviewing two documents before the HR steering committee meeting. The headcount figures are different in each one. You need to raise this now.", pills:["discrepancy","cross-reference","double-check","flag"], sample:"\"Before we move on, I'd like to <strong>flag</strong> a <strong>discrepancy</strong>. The two documents don't show the same headcount figures. Can we take a moment to <strong>cross-reference</strong> them with the original data? I want to <strong>double-check</strong> before we present anything to the committee.\"" },
-  { top:"📊 Situation 4 — Accounting for a result", situation:"The director asks: \"Can you account for the drop in employee engagement scores this quarter?\" You have a few possible reasons but limited hard data.", pills:["account for","a few","little","observations"], sample:"\"There's <strong>little</strong> hard data at this stage, but I can offer <strong>a few</strong> observations. The new benefits platform rolled out mid-quarter and there were technical issues in the first two weeks — that likely affected the survey response rate. She mentioned that HR tickets spiked during that period, which would <strong>account for</strong> part of the drop.\"" },
-  { top:"⏱️ Situation 5 — Warning the team", situation:"The open enrollment deadline is in two days. Time and staff availability are almost gone. You need to alert the team and keep everyone focused on what matters.", pills:["little","few","all we can do","running out"], sample:"\"I want to make sure everyone is aware: we have very <strong>little</strong> time and <strong>little</strong> staff availability left. There are <strong>few</strong> options at this stage — <strong>all we can do</strong> is focus on the critical enrollment cases. He warned us last week that this might happen, so let's not lose any more time.\"" }
-];
-function buildS9(){
-  var el=document.getElementById('s9-cards'); if(!el) return;
-  el.innerHTML='';
-  s9Data.forEach(function(item,i){
-    var pillsHtml = item.pills.map(function(p){ return '<span class="lang-pill">'+p+'</span>'; }).join('');
-    var card=document.createElement('div'); card.className='speak-card';
-    card.innerHTML='<div class="speak-num">'+item.top+'</div>'
-      +'<div class="speak-situation">'+item.situation+'</div>'
-      +'<div style="margin-bottom:8px;">'+pillsHtml+'</div>'
-      +'<div class="speak-ex" id="s9-ex-'+i+'">💬 '+item.sample+'</div>'
-      +'<button class="speak-toggle" onclick="s9Toggle('+i+')" id="s9-btn-'+i+'">▶ Show sample</button>';
-    el.appendChild(card);
-  });
-}
-function s9Toggle(i){
-  var ex=document.getElementById('s9-ex-'+i); var btn=document.getElementById('s9-btn-'+i);
-  var open=ex.classList.toggle('open');
-  btn.textContent = open ? '▼ Hide sample' : '▶ Show sample';
-}
-
 /* ═══ S10 — Fix the Minutes ═══ */
 var s10Data = [
   { draft:"The training vendor confirmed that the workshops <u>will begin</u> the following Monday.", a:"The training vendor confirmed that the workshops <strong>would begin</strong> the following Monday.", b:"The training vendor confirmed that the workshops <strong>begins</strong> the following Monday.", ans:"a", exp:"In reported speech, \"will\" shifts back to \"would\" to match the past reporting verb \"confirmed\"." },
@@ -1250,7 +1287,7 @@ window.addEventListener('DOMContentLoaded',function(){
     d.onclick=function(){ goTo(i); };
     dotsEl.appendChild(d);
   });
-  cardNavBuild('s1bnav','s1b-cards','Card'); buildS3(); buildS3b(); buildS5(); buildS6(); buildS8(); buildS8b(); buildS9(); buildS10();
+  cardNavBuild('s1bnav','s1b-cards','Card'); buildS3(); buildS3b(); buildS5(); buildS6(); buildS8(); buildS8b(); buildS10();
   goTo(0);
 });
 </script>

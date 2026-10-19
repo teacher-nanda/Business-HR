@@ -306,6 +306,19 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .btn-green{background:var(--green);color:white;}
 .btn-green:hover{background:#15803d;}
 .btn-center{display:flex;justify-content:center;gap:10px;margin-top:16px;}
+
+.c-hw2 .card-head{background:#ffe4e6;} .c-hw2 .card-icon{background:#e11d48;color:white;} .c-hw2 .card-title{color:#e11d48;} .c-hw2 .card-badge{background:#e11d48;}
+.c-hw3 .card-head{background:#dcfce7;} .c-hw3 .card-icon{background:#15803d;color:white;} .c-hw3 .card-title{color:#15803d;} .c-hw3 .card-badge{background:#15803d;}
+.slide.hw-s1{background:#fff7ed;} .slide.hw-s2{background:#fff1f2;} .slide.hw-s3{background:#f0fdf4;}
+.card-icon.hw-numicon{font-size:20px;font-weight:900;}
+.hw-ai-goal{font-size:16px;font-weight:700;color:#1C2B3A;line-height:1.6;margin:0 0 10px;}
+.hw-steps{margin:0 0 16px 22px;padding:0;font-size:15px;line-height:1.8;color:#1C2B3A;}
+.ai-box{background:#F0FDF4;border:2px solid #86EFAC;border-radius:14px;padding:18px 20px;margin-top:8px;}
+.ai-box-label{font-size:14px;font-weight:800;color:#15803d;margin-bottom:8px;}
+.ai-prompt{background:#fff;border:1px dashed #4ADE80;border-radius:10px;padding:14px 16px;font-size:15px;color:#1C2B3A;line-height:1.7;font-style:italic;}
+.ai-copy-btn{background:#15803d;color:#fff;border:none;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:15px;font-weight:700;margin-top:12px;font-family:inherit;}
+.ai-copy-btn:hover{background:#166534;} .ai-copy-btn.copied{background:#0f766e;}
+.hw-ai-tip{font-size:14px;color:#555;line-height:1.6;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -319,7 +332,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   <button class="slide-nav-btn" id="slide-prev" onclick="slideNav(-1)" disabled>← Prev</button>
   <div class="slide-info">
     <div class="slide-label" id="slide-label">Cover</div>
-    <div class="slide-counter-text" id="slide-counter">Slide 1 of 9</div>
+    <div class="slide-counter-text" id="slide-counter">Slide 1 of 11</div>
     <div class="slide-progress">
       <div class="sp-dot active" onclick="goToSlide(0)" title="Cover"></div>
       <div class="sp-dot" onclick="goToSlide(1)" title="Warm-up"></div>
@@ -329,7 +342,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
       <div class="sp-dot" onclick="goToSlide(5)" title="Speaking"></div>
       <div class="sp-dot" onclick="goToSlide(6)" title="Wrap-up"></div>
       <div class="sp-dot" onclick="goToSlide(7)" title="Extra"></div>
-      <div class="sp-dot" onclick="goToSlide(8)" title="Homework"></div>
+      <div class="sp-dot" onclick="goToSlide(8)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(9)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(10)" title="Homework"></div>
     </div>
   </div>
   <button class="slide-nav-btn" id="slide-next" onclick="slideNav(1)">Next →</button>
@@ -872,20 +885,19 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <!-- ══ SLIDE 8 · HOMEWORK ══ -->
-<div class="slide" id="slide-8">
+<div class="slide hw-s1" id="slide-8">
   <div class="main">
     <div class="card c-orange">
       <div class="card-head">
-        <div class="card-icon">📝</div>
+        <div class="card-icon hw-numicon">1</div>
         <div>
-          <div class="card-label">Homework</div>
-          <div class="card-title">For next time</div>
+          <div class="card-label">Homework 1 of 3</div>
+          <div class="card-title">Relative Clauses: Fill the Gaps</div>
         </div>
-        <span class="card-badge">2 Tasks</span>
+        <span class="card-badge">Practice</span>
       </div>
       <div class="card-body">
-
-        <div class="act-head"><span class="act-num">Task 1</span> Fill in the blank with <strong>who, that, which, when,</strong> or <strong>where</strong>.</div>
+<div class="act-head"><span class="act-num">Task 1</span> Fill in the blank with <strong>who, that, which, when,</strong> or <strong>where</strong>.</div>
 
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
 
@@ -925,10 +937,28 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <button class="btn btn-outline btn-sm" onclick="resetHW10()">↺ Reset</button>
         </div>
         <div id="hw-feedback-10" style="margin-top:10px;font-size:13px;min-height:20px;"></div>
+</div>
+    </div>
+    <div class="slide-bottom-nav">
+      <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
+      <button class="btn btn-primary" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">Next →</button>
+    </div>
+  </div>
+</div>
 
-        <div class="divider"></div>
-
-        <div class="act-head"><span class="act-num">Task 2</span> Write a full STAR answer (150–200 words) to this question: "Tell me about a time when you successfully managed a project under pressure."</div>
+<div class="slide hw-s2" id="slide-9">
+  <div class="main">
+    <div class="card c-hw2">
+      <div class="card-head">
+        <div class="card-icon hw-numicon">2</div>
+        <div>
+          <div class="card-label">Homework 2 of 3</div>
+          <div class="card-title">Write a STAR Answer</div>
+        </div>
+        <span class="card-badge">Writing</span>
+      </div>
+      <div class="card-body">
+<div class="act-head"><span class="act-num">Task 2</span> Write a full STAR answer (150–200 words) to this question: "Tell me about a time when you successfully managed a project under pressure."</div>
 
         <textarea rows="8" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px;font-size:13.5px;font-family:'Segoe UI',Arial,sans-serif;resize:vertical;color:var(--text);line-height:1.7;" placeholder="Write your STAR answer here... Remember: Situation → Task → Action → Result"></textarea>
 
@@ -940,7 +970,35 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <strong>R — Result:</strong> We delivered the report two days ahead of the new deadline. The client presented it at their board meeting and came back to us with a larger contract the following month. It was a stressful experience, but it really taught me how effective prioritisation and clear communication can transform a seemingly impossible situation.
         </div>
 
+      
+</div>
+    </div>
+    <div class="slide-bottom-nav">
+      <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
+      <button class="btn btn-primary" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">Next →</button>
+    </div>
+  </div>
+</div>
+
+<div class="slide hw-s3" id="slide-10">
+  <div class="main">
+    <div class="card c-hw3">
+      <div class="card-head">
+        <div class="card-icon hw-numicon">3</div>
+        <div>
+          <div class="card-label">Homework 3 of 3</div>
+          <div class="card-title">Practice with AI: Mock Interview</div>
+        </div>
+        <span class="card-badge">AI</span>
       </div>
+      <div class="card-body">
+<p class="hw-ai-goal">Practice a real job interview with a tough interviewer.</p>
+<ol class="hw-steps"><li>Paste the prompt. Use voice mode if you can.</li><li>Answer the AI's 4 interview questions.</li><li>Ask for feedback on your STAR structure.</li></ol>
+<div class="ai-box"><div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+<div class="ai-prompt" id="hwai-prompt">You are an interviewer for a manager position. Ask me 4 interview questions, one at a time, and wait for my answer. Include a question about strengths and weaknesses and one about a time I solved a problem. I will use these phrases: <strong>stand out, elaborate on, strengths and weaknesses, relevant experience, follow up, a track record</strong> and relative clauses (who, which, that, where). At the end, give me feedback on my answers, my use of the STAR method and my relative clauses.</div>
+<button class="ai-copy-btn" id="hwai-btn" onclick="copyAiPrompt('hwai-prompt','hwai-btn')">📋 Copy Prompt</button></div>
+<p class="hw-ai-tip">Goal: sound confident in an interview. Write down your best answer.</p>
+</div>
     </div>
     <div class="slide-bottom-nav">
       <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
@@ -971,8 +1029,16 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <script>
-const SLIDE_LABELS = ["Cover","Part 1 · Warm-up","Part 2 · Reading","Part 3 · Vocabulary","Part 4 · Grammar","Part 5 · Speaking","Wrap-up","Extra Activity","Homework"];
-const TOTAL_SLIDES = 9;
+const SLIDE_LABELS = ["Cover","Part 1 · Warm-up","Part 2 · Reading","Part 3 · Vocabulary","Part 4 · Grammar","Part 5 · Speaking","Wrap-up","Extra Activity","Homework 1 · Relative Clauses: Fill the Gaps", "Homework 2 · Write a STAR Answer", "Homework 3 · Practice with AI"];
+const TOTAL_SLIDES = 11;
+function copyAiPrompt(pid, bid){
+  var pe = document.getElementById(pid); var text = pe.innerText || pe.textContent;
+  var btn = document.getElementById(bid);
+  function done(){ btn.textContent='✓ Copied!'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent='📋 Copy Prompt'; btn.classList.remove('copied'); },1800); }
+  function fb(){ var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); done(); }
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(fb); } else { fb(); }
+}
+
 let currentSlide = 0;
 
 /* ── NAVIGATION ── */

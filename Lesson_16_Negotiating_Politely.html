@@ -307,6 +307,19 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .btn-green{background:var(--green);color:white;}
 .btn-green:hover{background:#15803d;}
 .btn-center{display:flex;justify-content:center;gap:10px;margin-top:16px;}
+
+.c-hw2 .card-head{background:#ffe4e6;} .c-hw2 .card-icon{background:#e11d48;color:white;} .c-hw2 .card-title{color:#e11d48;} .c-hw2 .card-badge{background:#e11d48;}
+.c-hw3 .card-head{background:#dcfce7;} .c-hw3 .card-icon{background:#15803d;color:white;} .c-hw3 .card-title{color:#15803d;} .c-hw3 .card-badge{background:#15803d;}
+.slide.hw-s1{background:#fff7ed;} .slide.hw-s2{background:#fff1f2;} .slide.hw-s3{background:#f0fdf4;}
+.card-icon.hw-numicon{font-size:20px;font-weight:900;}
+.hw-ai-goal{font-size:16px;font-weight:700;color:#1C2B3A;line-height:1.6;margin:0 0 10px;}
+.hw-steps{margin:0 0 16px 22px;padding:0;font-size:15px;line-height:1.8;color:#1C2B3A;}
+.ai-box{background:#F0FDF4;border:2px solid #86EFAC;border-radius:14px;padding:18px 20px;margin-top:8px;}
+.ai-box-label{font-size:14px;font-weight:800;color:#15803d;margin-bottom:8px;}
+.ai-prompt{background:#fff;border:1px dashed #4ADE80;border-radius:10px;padding:14px 16px;font-size:15px;color:#1C2B3A;line-height:1.7;font-style:italic;}
+.ai-copy-btn{background:#15803d;color:#fff;border:none;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:15px;font-weight:700;margin-top:12px;font-family:inherit;}
+.ai-copy-btn:hover{background:#166534;} .ai-copy-btn.copied{background:#0f766e;}
+.hw-ai-tip{font-size:14px;color:#555;line-height:1.6;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -320,7 +333,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   <button class="slide-nav-btn" id="slide-prev" onclick="slideNav(-1)" disabled>← Prev</button>
   <div class="slide-info">
     <div class="slide-label" id="slide-label">Cover</div>
-    <div class="slide-counter-text" id="slide-counter">Slide 1 of 9</div>
+    <div class="slide-counter-text" id="slide-counter">Slide 1 of 11</div>
     <div class="slide-progress">
       <div class="sp-dot active" onclick="goToSlide(0)" title="Cover"></div>
       <div class="sp-dot" onclick="goToSlide(1)" title="Warm-up"></div>
@@ -330,7 +343,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
       <div class="sp-dot" onclick="goToSlide(5)" title="Speaking"></div>
       <div class="sp-dot" onclick="goToSlide(6)" title="Wrap-up"></div>
       <div class="sp-dot" onclick="goToSlide(7)" title="Extra"></div>
-      <div class="sp-dot" onclick="goToSlide(8)" title="Homework"></div>
+      <div class="sp-dot" onclick="goToSlide(8)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(9)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(10)" title="Homework"></div>
     </div>
   </div>
   <button class="slide-nav-btn" id="slide-next" onclick="slideNav(1)">Next →</button>
@@ -878,20 +891,19 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <!-- ══ SLIDE 8 · HOMEWORK ══ -->
-<div class="slide" id="slide-8">
+<div class="slide hw-s1" id="slide-8">
   <div class="main">
     <div class="card c-orange">
       <div class="card-head">
-        <div class="card-icon">📝</div>
+        <div class="card-icon hw-numicon">1</div>
         <div>
-          <div class="card-label">Homework</div>
-          <div class="card-title">For next time</div>
+          <div class="card-label">Homework 1 of 3</div>
+          <div class="card-title">Negotiation Expressions</div>
         </div>
-        <span class="card-badge">2 Tasks</span>
+        <span class="card-badge">Practice</span>
       </div>
       <div class="card-body">
-
-        <div class="act-head"><span class="act-num">Task 1</span> Fill in each gap with the correct expression from the box below. Type your answers.</div>
+<div class="act-head"><span class="act-num">Task 1</span> Fill in each gap with the correct expression from the box below. Type your answers.</div>
 
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:12px;background:var(--lo);border-radius:10px;">
           <span style="font-size:12.5px;font-weight:700;color:var(--orange);padding:4px 12px;background:white;border-radius:16px;border:1.5px solid var(--orange);">Would it be possible</span>
@@ -925,10 +937,28 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           <button class="btn btn-outline btn-sm" onclick="resetHW16()">↺ Reset</button>
         </div>
         <div id="hw-feedback-16" style="margin-top:10px;font-size:13px;min-height:20px;"></div>
+</div>
+    </div>
+    <div class="slide-bottom-nav">
+      <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
+      <button class="btn btn-primary" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">Next →</button>
+    </div>
+  </div>
+</div>
 
-        <div class="divider"></div>
-
-        <div class="act-head"><span class="act-num">Task 2</span> Write a short negotiation email replying to a client who has requested a 20% discount on a €40,000 project.</div>
+<div class="slide hw-s2" id="slide-9">
+  <div class="main">
+    <div class="card c-hw2">
+      <div class="card-head">
+        <div class="card-icon hw-numicon">2</div>
+        <div>
+          <div class="card-label">Homework 2 of 3</div>
+          <div class="card-title">Write a Negotiation Email</div>
+        </div>
+        <span class="card-badge">Writing</span>
+      </div>
+      <div class="card-body">
+<div class="act-head"><span class="act-num">Task 2</span> Write a short negotiation email replying to a client who has requested a 20% discount on a €40,000 project.</div>
 
         <div style="background:var(--lo);border-radius:10px;padding:12px;margin-bottom:12px;font-size:13px;color:var(--orange);font-weight:600;">
           Include: a polite opening, one clear condition attached to any concession, and a proposed compromise. Use at least three phrases from this lesson.
@@ -945,7 +975,35 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           Best regards,<br>Teacher Nanda
         </div>
 
+      
+</div>
+    </div>
+    <div class="slide-bottom-nav">
+      <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
+      <button class="btn btn-primary" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">Next →</button>
+    </div>
+  </div>
+</div>
+
+<div class="slide hw-s3" id="slide-10">
+  <div class="main">
+    <div class="card c-hw3">
+      <div class="card-head">
+        <div class="card-icon hw-numicon">3</div>
+        <div>
+          <div class="card-label">Homework 3 of 3</div>
+          <div class="card-title">Practice with AI: Negotiation Sparring</div>
+        </div>
+        <span class="card-badge">AI</span>
       </div>
+      <div class="card-body">
+<p class="hw-ai-goal">Negotiate politely with a tough client.</p>
+<ol class="hw-steps"><li>Paste the prompt. The AI plays a tough client.</li><li>Negotiate for at least 6 turns.</li><li>Ask for feedback on your politeness and strategy.</li></ol>
+<div class="ai-box"><div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+<div class="ai-prompt" id="hwai-prompt">You are a tough client who wants a 20% discount on a €40,000 project. I will negotiate with you. Do not agree too quickly. I should use these terms: <strong>leverage, concession, trade-off, deadlock, common ground, walk-away point</strong> and softening language (I wonder if…, Would it be possible to…, I'm afraid that…). After the negotiation, tell me how polite and effective I was, and correct my language.</div>
+<button class="ai-copy-btn" id="hwai-btn" onclick="copyAiPrompt('hwai-prompt','hwai-btn')">📋 Copy Prompt</button></div>
+<p class="hw-ai-tip">Goal: negotiate firmly but politely.</p>
+</div>
     </div>
     <div class="slide-bottom-nav">
       <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
@@ -976,8 +1034,16 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <script>
-const SLIDE_LABELS = ["Cover","Part 1 · Warm-up","Part 2 · Reading","Part 3 · Vocabulary","Part 4 · Grammar","Part 5 · Speaking","Wrap-up","Extra Activity","Homework"];
-const TOTAL_SLIDES = 9;
+const SLIDE_LABELS = ["Cover","Part 1 · Warm-up","Part 2 · Reading","Part 3 · Vocabulary","Part 4 · Grammar","Part 5 · Speaking","Wrap-up","Extra Activity","Homework 1 · Negotiation Expressions", "Homework 2 · Write a Negotiation Email", "Homework 3 · Practice with AI"];
+const TOTAL_SLIDES = 11;
+function copyAiPrompt(pid, bid){
+  var pe = document.getElementById(pid); var text = pe.innerText || pe.textContent;
+  var btn = document.getElementById(bid);
+  function done(){ btn.textContent='✓ Copied!'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent='📋 Copy Prompt'; btn.classList.remove('copied'); },1800); }
+  function fb(){ var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); done(); }
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(fb); } else { fb(); }
+}
+
 let currentSlide = 0;
 
 /* ── NAVIGATION ── */
@@ -1018,7 +1084,7 @@ function updateSlideUI() {
     else if (i === currentSlide) d.classList.add('active');
   });
 }
-document.querySelector('#slide-8 .slide-bottom-nav button:last-child').onclick = () => { window.location.href='index.html'; };
+document.querySelector('#slide-10 .slide-bottom-nav button:last-child').onclick = () => { window.location.href='index.html'; };
 
 /* ── TFD ── */
 function tfdPick(btn, correct, expId) {

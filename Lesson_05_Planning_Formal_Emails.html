@@ -571,6 +571,19 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   }
 }
 
+
+.c-hw2 .card-head{background:#ffe4e6;} .c-hw2 .card-icon{background:#e11d48;color:white;} .c-hw2 .card-title{color:#e11d48;} .c-hw2 .card-badge{background:#e11d48;}
+.c-hw3 .card-head{background:#dcfce7;} .c-hw3 .card-icon{background:#15803d;color:white;} .c-hw3 .card-title{color:#15803d;} .c-hw3 .card-badge{background:#15803d;}
+.slide.hw-s1{background:#fff7ed;} .slide.hw-s2{background:#fff1f2;} .slide.hw-s3{background:#f0fdf4;}
+.card-icon.hw-numicon{font-size:20px;font-weight:900;}
+.hw-ai-goal{font-size:16px;font-weight:700;color:#1C2B3A;line-height:1.6;margin:0 0 10px;}
+.hw-steps{margin:0 0 16px 22px;padding:0;font-size:15px;line-height:1.8;color:#1C2B3A;}
+.ai-box{background:#F0FDF4;border:2px solid #86EFAC;border-radius:14px;padding:18px 20px;margin-top:8px;}
+.ai-box-label{font-size:14px;font-weight:800;color:#15803d;margin-bottom:8px;}
+.ai-prompt{background:#fff;border:1px dashed #4ADE80;border-radius:10px;padding:14px 16px;font-size:15px;color:#1C2B3A;line-height:1.7;font-style:italic;}
+.ai-copy-btn{background:#15803d;color:#fff;border:none;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:15px;font-weight:700;margin-top:12px;font-family:inherit;}
+.ai-copy-btn:hover{background:#166534;} .ai-copy-btn.copied{background:#0f766e;}
+.hw-ai-tip{font-size:14px;color:#555;line-height:1.6;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -582,8 +595,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   <button class="slide-nav-btn" id="slide-prev" onclick="slideNav(-1)" disabled>← Prev</button>
   <div class="slide-info">
     <div class="slide-label" id="slide-label">Cover</div>
-    <div class="slide-counter-text" id="slide-counter">Slide 1 of 8</div>
-    <div class="slide-progress"><div class="sp-dot  active" onclick="goToSlide(0)" title="Slide 1"></div><div class="sp-dot" onclick="goToSlide(1)" title="Slide 2"></div><div class="sp-dot" onclick="goToSlide(2)" title="Slide 3"></div><div class="sp-dot" onclick="goToSlide(3)" title="Slide 4"></div><div class="sp-dot" onclick="goToSlide(4)" title="Slide 5"></div><div class="sp-dot" onclick="goToSlide(5)" title="Slide 6"></div><div class="sp-dot" onclick="goToSlide(6)" title="Slide 7"></div><div class="sp-dot" onclick="goToSlide(7)" title="Slide 8"></div></div>
+    <div class="slide-counter-text" id="slide-counter">Slide 1 of 10</div>
+    <div class="slide-progress"><div class="sp-dot  active" onclick="goToSlide(0)" title="Slide 1"></div><div class="sp-dot" onclick="goToSlide(1)" title="Slide 2"></div><div class="sp-dot" onclick="goToSlide(2)" title="Slide 3"></div><div class="sp-dot" onclick="goToSlide(3)" title="Slide 4"></div><div class="sp-dot" onclick="goToSlide(4)" title="Slide 5"></div><div class="sp-dot" onclick="goToSlide(5)" title="Slide 6"></div><div class="sp-dot" onclick="goToSlide(6)" title="Slide 7"></div><div class="sp-dot" onclick="goToSlide(7)" title="Slide 8"></div><div class="sp-dot" onclick="goToSlide(8)" title="Slide 9"></div><div class="sp-dot" onclick="goToSlide(9)" title="Slide 10"></div></div>
   </div>
   <button class="slide-nav-btn" id="slide-next" onclick="slideNav(1)">Next →</button>
 </div>
@@ -1318,18 +1331,16 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   </div>
 
 <!-- ══ SLIDE 7 ══ -->
-<div class="slide" id="slide-7">
+<div class="slide hw-s1" id="slide-7">
   <div class="main">
     <div class="card c-orange">
     <div class="card-head">
-      <div class="card-icon">📝</div>
-      <div><div class="card-label">For next time</div><div class="card-title">Homework</div></div>
-      <span class="card-badge">2 tasks</span>
+      <div class="card-icon hw-numicon">1</div>
+      <div><div class="card-label">Homework 1 of 3</div><div class="card-title">Fix the Email — 5 Register Mistakes</div></div>
+      <span class="card-badge">Practice</span>
     </div>
     <div class="card-body">
-
-      <!-- Task 1: Fix the email -->
-      <div class="hw-card">
+<div class="hw-card">
         <div class="hw-head"><span class="hw-tag">Task 1</span> Fix the Email — 5 Register Mistakes</div>
         <div class="hw-body">
           <span class="hw-type hw-grammar">✏️ Grammar · formal register</span>
@@ -1420,9 +1431,28 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           </div>
         </div>
       </div>
+</div>
+  </div>
+  </div>
 
-      <!-- Task 2: Read the email and mark the correct summary -->
-      <div class="hw-card">
+    <!-- bottom nav -->
+    <div class="slide-bottom-nav">
+      <button class="slide-nav-btn" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
+      <a class="slide-nav-btn" href="index.html">🏠 Home</a>
+      <button class="slide-nav-btn" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">Next →</button>
+    </div>
+  </div>
+
+<div class="slide hw-s2" id="slide-8">
+  <div class="main">
+    <div class="card c-hw2">
+    <div class="card-head">
+      <div class="card-icon hw-numicon">2</div>
+      <div><div class="card-label">Homework 2 of 3</div><div class="card-title">Read the Email — Mark the Correct Summary</div></div>
+      <span class="card-badge">Writing</span>
+    </div>
+    <div class="card-body">
+<div class="hw-card">
         <div class="hw-head"><span class="hw-tag">Task 2</span> Read the Email — Mark the Correct Summary</div>
         <div class="hw-body">
           <span class="hw-type" style="background:var(--li);color:#1e3a5f;">📖 Reading · comprehension</span>
@@ -1474,8 +1504,34 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
           </div>
         </div>
       </div>
+</div>
+  </div>
+  </div>
 
+    <!-- bottom nav -->
+    <div class="slide-bottom-nav">
+      <button class="slide-nav-btn" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
+      <a class="slide-nav-btn" href="index.html">🏠 Home</a>
+      <button class="slide-nav-btn" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">Next →</button>
     </div>
+  </div>
+
+<div class="slide hw-s3" id="slide-9">
+  <div class="main">
+    <div class="card c-hw3">
+    <div class="card-head">
+      <div class="card-icon hw-numicon">3</div>
+      <div><div class="card-label">Homework 3 of 3</div><div class="card-title">Practice with AI: Formal Email Coach</div></div>
+      <span class="card-badge">AI</span>
+    </div>
+    <div class="card-body">
+<p class="hw-ai-goal">Write a formal email and let the AI fix every informal word.</p>
+<ol class="hw-steps"><li>Paste the prompt into your AI chat.</li><li>Write the email the AI asks for.</li><li>Read the AI's corrections and rewrite one sentence yourself.</li></ol>
+<div class="ai-box"><div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+<div class="ai-prompt" id="hwai-prompt">You are my business writing coach. Give me a short work situation, for example confirming a meeting with a new client. I will write a formal email. Check my register and tell me which words are too informal. Look for <strong>I am writing to…, Please find attached, I would be grateful if…, I look forward to hearing from you</strong> and <strong>Kind regards</strong>. Then rewrite my email in a more formal style and explain two changes.</div>
+<button class="ai-copy-btn" id="hwai-btn" onclick="copyAiPrompt('hwai-prompt','hwai-btn')">📋 Copy Prompt</button></div>
+<p class="hw-ai-tip">Goal: practice formal register from this lesson. Keep your best email for the next class.</p>
+</div>
   </div>
   </div>
 
@@ -1491,8 +1547,16 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 
 <script>
 
-const SLIDE_LABELS = ["Cover", "Part 1 · Warm-up", "Part 2 · Reading", "Part 3 · Vocabulary", "Part 4 · Grammar", "Part 5 · Speaking", "Extra · If you have time", "For next time"];
-const TOTAL_SLIDES = 8;
+const SLIDE_LABELS = ["Cover", "Part 1 · Warm-up", "Part 2 · Reading", "Part 3 · Vocabulary", "Part 4 · Grammar", "Part 5 · Speaking", "Extra · If you have time", "Homework 1 · Fix the Email — 5 Register Mistakes", "Homework 2 · Read the Email — Mark the Correct Summary", "Homework 3 · Practice with AI"];
+const TOTAL_SLIDES = 10;
+function copyAiPrompt(pid, bid){
+  var pe = document.getElementById(pid); var text = pe.innerText || pe.textContent;
+  var btn = document.getElementById(bid);
+  function done(){ btn.textContent='✓ Copied!'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent='📋 Copy Prompt'; btn.classList.remove('copied'); },1800); }
+  function fb(){ var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); done(); }
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(fb); } else { fb(); }
+}
+
 let currentSlide = 0;
 
 function slideNav(dir) {

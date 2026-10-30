@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Review – Passive Voice &amp; Reported Speech</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Segoe UI',system-ui,sans-serif;background:#1a2e4a;}
+#deck{position:relative;width:100vw;height:100vh;overflow:hidden;}
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .4s ease;background:#FAFAF8;display:flex;flex-direction:column;}
+.slide.active{opacity:1;pointer-events:all;}
+.slide-main{flex:1;overflow-y:auto;width:100%;display:flex;flex-direction:column;padding-bottom:60px;}
+#nav{position:fixed;bottom:0;left:0;right:0;z-index:500;height:52px;background:rgba(26,46,74,.96);display:flex;align-items:center;justify-content:center;gap:14px;backdrop-filter:blur(6px);}
+#nav button{background:rgba(255,255,255,.12);color:#fff;border:none;padding:7px 22px;border-radius:20px;cursor:pointer;font-size:.95rem;font-weight:600;transition:background .2s;}
+#nav button:hover:not(:disabled){background:rgba(255,255,255,.25);}
+#nav button:disabled{opacity:.3;cursor:default;}
+#counter{color:rgba(255,255,255,.7);font-size:.9rem;min-width:60px;text-align:center;}
+#dots{display:flex;align-items:center;gap:5px;overflow:hidden;flex:1;justify-content:center;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .2s;flex-shrink:0;}
+.dot.active{background:#F5893A;transform:scale(1.4);}
+#notesBtn{position:fixed;top:14px;right:22px;z-index:1000;background:rgba(26,46,74,.88);color:#fff;border:none;padding:9px 20px;border-radius:22px;cursor:pointer;font-size:.92rem;font-weight:600;letter-spacing:.02em;transition:background .2s;backdrop-filter:blur(4px);}
+#notesBtn:hover{background:rgba(26,46,74,1);}
+#notesBtn.panel-open{background:#0d5986;}
+#pdfBtn{position:fixed;top:14px;right:140px;z-index:1000;background:rgba(26,46,74,.88);color:#fff;border:none;padding:9px 20px;border-radius:22px;cursor:pointer;font-size:.92rem;font-weight:600;letter-spacing:.02em;transition:background .2s;backdrop-filter:blur(4px);}
+#pdfBtn:hover{background:rgba(26,46,74,1);}
+#notesPanel{position:fixed;top:54px;right:22px;z-index:999;width:360px;max-height:0;overflow:hidden;background:rgba(26,46,74,.92);border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:0;border:none;backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease;}
+#notesPanel.open{display:flex;max-height:420px;opacity:1;overflow:visible;}
+#notesPanel.cover{left:50%;right:auto;top:56px;transform:translateX(-50%);width:min(760px,94vw);max-height:calc(100vh - 110px)!important;}
+#notesPanel.cover #notesTA{min-height:calc(100vh - 260px)!important;max-height:calc(100vh - 260px)!important;}
+.notes-drag-handle{cursor:move;display:flex;align-items:center;gap:6px;margin:0;padding:8px 12px;border-radius:14px 14px 0 0;background:rgba(26,46,74,.85);border-bottom:1px solid rgba(255,255,255,.15);font-size:11px;font-weight:800;color:rgba(255,255,255,.55);letter-spacing:.6px;user-select:none;touch-action:none;}
+.notes-drag-handle .grip{font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.35);}
+.notes-toolbar{display:flex;gap:6px;align-items:center;padding:6px 10px;background:rgba(26,46,74,.7);}
+.notes-toolbar-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.5px;margin-right:2px;}
+.notes-tbtn{background:rgba(255,255,255,.12);border:none;border-radius:5px;padding:3px 9px;cursor:pointer;font-size:.85rem;font-weight:700;transition:background .15s;color:#fff;font-family:inherit;}
+.notes-tbtn:hover{background:rgba(255,255,255,.25);}
+#notesTA{min-height:220px;max-height:260px;overflow-y:auto;border:none;border-radius:0;padding:14px;font-size:1rem;line-height:1.5;outline:none;font-family:'Segoe UI',Arial,sans-serif;color:#fff;background:rgba(26,46,74,.92);}
+#notesTA:empty:before{content:attr(data-placeholder);color:rgba(255,255,255,.4);pointer-events:none;}
+#notesTA [style*="background-color"]{color:#1a1a1a!important;}
+.notes-actions{display:flex;gap:8px;justify-content:space-between;align-items:center;padding:8px 10px;border-top:1px solid rgba(255,255,255,.12);}
+.notes-clear-btn{background:rgba(255,90,90,.18);border:none;border-radius:8px;padding:5px 11px;font-size:11px;color:#fff;cursor:pointer;transition:background .2s;font-family:inherit;}
+.notes-clear-btn:hover{background:rgba(255,90,90,.35);}
+#homeBtn{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:1000;display:none;background:rgba(26,46,74,.88);color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.1rem;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(4px);}
+#homeBtn:hover{background:rgba(13,89,134,.95);}
+.banner{width:100%;padding:13px 28px;font-size:1.1rem;font-weight:700;letter-spacing:.03em;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.banner-pill{margin-left:auto;font-size:.82rem;font-weight:600;background:rgba(255,255,255,.2);padding:3px 12px;border-radius:20px;}
+.content{padding:24px 48px 20px;flex:1;}
+h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
+.instruction{font-size:1.08rem;color:#1C2B3A;margin-bottom:10px;font-weight:700;}
+.inst-light{font-size:1.05rem;color:#1C2B3A;margin-bottom:10px;font-weight:400;}
+#s1{background:linear-gradient(145deg,#0d1f38 0%,#1a3a5f 45%,#2563eb 100%);}
+.title-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;gap:10px;position:relative;}
+.title-label{font-size:1.1rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:500;}
+.title-sub{font-size:1.15rem;color:rgba(255,255,255,.75);margin-top:4px;}
+.title-main{font-size:3.2rem;font-weight:900;color:#fff;line-height:1.1;margin:14px 0 8px;}
+.title-accent{display:inline-block;color:#F5D93A;}
+.grammar-theory{background:#EEF4FA;border-left:5px solid #1A5080;border-radius:0 14px 14px 0;padding:18px 22px;margin:12px 0;font-size:1.06rem;line-height:1.7;color:#0A1E30;}
+.grammar-theory h3{font-size:1.05rem;font-weight:800;color:#1A5080;margin-bottom:10px;}
+.example-box{background:#F0FAF3;border:2px solid #2E8B57;border-radius:12px;padding:14px 20px;margin:12px 0;font-size:1.06rem;line-height:1.7;}
+.example-box strong{color:#1A5C2A;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px;}
+.col-section{display:flex;flex-direction:column;gap:16px;}
+.ex-row{background:#F4F8FA;border-radius:10px;padding:12px 16px;font-size:1.06rem;line-height:1.7;color:#1C2B3A;border-left:3px solid #c8e0cc;margin-bottom:16px;}
+.ex-num{font-weight:800;color:#1A5080;margin-right:6px;}
+.ans-input{display:inline-block;border:none;border-bottom:2px solid #1A7A4A;background:transparent;font-size:1.05rem;font-family:inherit;font-weight:700;color:#1C2B3A;width:200px;padding:2px 4px;outline:none;text-align:center;}
+.mc-question{margin-bottom:20px;}
+.mc-q-text{font-size:1.05rem;font-weight:700;color:#0A2010;margin-bottom:9px;line-height:1.5;}
+.mc-q-num{color:#1A5080;}
+.mc-opts{display:flex;flex-direction:row;gap:10px;flex-wrap:wrap;}
+.mc-opt{background:#F4F8FA;border:2px solid #dde;border-radius:8px;padding:7px 14px;font-size:1.05rem;color:#1C2B3A;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s;flex:0 0 auto;line-height:1.4;}
+.mc-opt:hover{border-color:#1A5080;background:#EEF5FA;}
+.mc-opt.mc-sel{background:#1A4A8C;border-color:#1A4A8C;color:#fff;}
+.mc-opt.mc-ok{background:#1A7A4A;border-color:#1A7A4A;color:#fff;}
+.mc-opt.mc-bad{background:#C4614A;border-color:#C4614A;color:#fff;}
+.mc-opt.mc-block{display:block;width:100%;text-align:left;}
+.word-bank{display:flex;flex-wrap:wrap;gap:8px;padding:14px 18px;background:#EAF1FB;border-radius:10px;margin:10px 0;border:1px solid #A9C4E8;}
+.wb-chip{background:#EEF5FA;color:#1C2B3A;font-weight:700;padding:6px 16px;border-radius:20px;font-size:1rem;cursor:pointer;transition:all .15s;border:1.5px solid #A9C4E8;user-select:none;display:inline-block;}
+.wb-chip:hover{opacity:.85;}
+.wb-used{text-decoration:line-through;opacity:.55;}
+#s-hw{background:linear-gradient(145deg,#0d1f38 0%,#1a3a5f 60%,#2563eb 100%);}
+#s-hw2{background:linear-gradient(145deg,#2a0f45 0%,#4c1d95 60%,#9333ea 100%);}
+#s-hw3{background:linear-gradient(145deg,#06302b 0%,#0f5f55 60%,#0d9488 100%);}
+.hw-num{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#fff;font-weight:900;font-size:1.6rem;margin-right:12px;vertical-align:middle;}
+.hw-btns{display:flex;gap:10px;margin-top:16px;}
+.btn-check{background:#1A5C2A;color:#fff;border:none;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:1.05rem;font-weight:700;transition:background .2s;}
+.btn-check:hover{background:#154A22;}
+.btn-reset{background:transparent;color:#C4614A;border:2px solid #C4614A;padding:7px 20px;border-radius:20px;cursor:pointer;font-size:1.05rem;font-weight:700;transition:all .2s;}
+.btn-reset:hover{background:#C4614A;color:#fff;}
+.speak-card{background:#F0EEF8;border-radius:14px;padding:16px 18px;border-left:4px solid #5A2A8C;margin-bottom:16px;}
+.speak-card .speak-num{font-weight:800;color:#4A1A7A;margin-bottom:6px;font-size:1.05rem;}
+.speak-card .speak-q{font-size:1.05rem;color:#1C2B3A;line-height:1.5;}
+.speak-card .speak-situation{font-size:1.05rem;color:#3A2A5A;line-height:1.55;font-style:italic;margin-bottom:8px;}
+.speak-card .speak-ex{font-size:1.06rem;color:#333;font-style:normal;margin-top:0;max-height:0;overflow:hidden;transition:max-height .4s ease,margin-top .2s ease;}
+.speak-card .speak-ex.open{max-height:220px;margin-top:8px;}
+.speak-toggle{background:none;border:1px solid #C8A0D8;border-radius:14px;color:#7A2A5A;font-size:.98rem;font-weight:700;cursor:pointer;padding:3px 12px;margin-top:8px;transition:background .15s;}
+.speak-toggle:hover{background:#F0D8EB;}
+.lang-pill{display:inline-flex;align-items:center;gap:5px;background:#F0EEF8;border:1px solid #C8A0D8;border-radius:12px;padding:3px 11px;font-size:1.05rem;color:#5A2A8C;font-weight:600;margin:3px 6px 3px 0;}
+.br-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px;}
+.br-tab{background:#fff;border:2px solid #FDBA74;color:#9A3412;border-radius:20px;padding:7px 16px;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.br-tab.on{background:#9A3412;border-color:#9A3412;color:#fff;}
+.br-card{background:#FFF7ED;border:2px solid #FDBA74;border-radius:14px;padding:18px 20px;}
+.br-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px;}
+.br-tile{background:#fff;border:1px solid #FED7AA;border-radius:10px;padding:10px 12px;text-align:center;}
+.br-tile .l{font-size:1.05rem;color:#7C2D12;font-weight:700;}
+.br-tile .v{font-size:1.6rem;font-weight:900;color:#9A3412;line-height:1.3;}
+.br-tile .n{font-size:1.05rem;color:#555;}
+.br-task{font-size:1.1rem;font-weight:700;color:#1C2B3A;line-height:1.65;margin-bottom:10px;}
+.br-chips{margin-bottom:12px;}
+.br-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+.br-btn{background:none;border:2px solid #9A3412;color:#9A3412;border-radius:10px;padding:7px 16px;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.br-btn:hover{background:#9A3412;color:#fff;}
+.br-box{display:none;margin-top:12px;background:#fff;border:2px solid #9A3412;border-radius:10px;padding:12px 15px;font-size:1.06rem;line-height:1.65;color:#1C2B3A;}
+.br-box.show{display:block;}
+.br-box.tw{border-color:#5A2A8C;background:#F0EEF8;font-weight:700;}
+.ai-box{background:#FBEFF4;border:2px solid #D88CAE;border-radius:14px;padding:18px 20px;margin-top:12px;}
+.ai-box-label{font-size:1.05rem;font-weight:800;color:#8C2E5A;margin-bottom:2px;}
+.ai-prompt{background:#fff;border:1px dashed #D88CAE;border-radius:10px;padding:14px 16px;font-size:1.05rem;color:#3A2A4A;line-height:1.65;font-style:italic;}
+.ai-copy-btn{background:#8C2E5A;color:#fff;border:none;padding:8px 20px;border-radius:20px;cursor:pointer;font-size:1.05rem;font-weight:700;margin-top:12px;transition:background .2s;}
+.ai-copy-btn:hover{background:#6E2347;}
+.ai-copy-btn.copied{background:#1A7A4A;}
+.hw-check{list-style:none;padding:0;margin:10px 0 14px;}
+.hw-check li{padding:8px 12px;border-left:3px solid #1A5080;background:#F4F8FA;border-radius:0 8px 8px 0;font-size:1.06rem;color:#1C2B3A;margin-bottom:16px;line-height:1.5;}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}60%{transform:translateX(6px);}}
+/* ═══ flip-through scenario cards (opening bridge slide) ═══ */
+.gs-scenario{display:none;background:#EEF4FB;border-radius:14px;padding:18px 20px;border-top:4px solid #1A4A8C;margin-bottom:4px;}
+.gs-scenario.gs-active{display:block;}
+.gs-card-label{font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#1A4A8C;margin-bottom:4px;}
+.gs-card-situation{font-size:1.06rem;color:#3A4A5A;margin-bottom:12px;line-height:1.5;}
+.gs-teacher{background:#F4F4F4;border-radius:8px;padding:10px 14px;font-size:1.06rem;color:#333;margin-bottom:8px;line-height:1.5;}
+.gs-teacher span{font-size:.85rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:3px;}
+.gs-student{background:#EEF4FB;border-radius:8px;padding:10px 14px;font-size:1.06rem;color:#1C2B3A;border-left:4px solid #1A4A8C;line-height:1.5;}
+.gs-student span{font-size:.85rem;font-weight:800;color:#1A4A8C;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:3px;}
+.hint-btn{background:none;border:1.5px solid #aaa;border-radius:6px;font-size:.9rem;color:#666;padding:3px 11px;cursor:pointer;margin-top:6px;transition:all .15s;font-family:inherit;}
+.hint-btn:hover{border-color:#1A4A8C;color:#1A4A8C;}
+.hint-text{display:none;background:#FFFBE6;border-left:3px solid #E8C830;border-radius:6px;padding:8px 12px;font-size:1.05rem;font-style:italic;color:#5A4000;margin-top:6px;line-height:1.5;}
+.gs-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px;}
+.gs-nav button{background:#1A4A8C;color:#fff;border:none;border-radius:8px;padding:8px 22px;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .15s;font-family:inherit;}
+.gs-nav button:disabled{opacity:.35;cursor:default;}
+.gs-counter{font-size:1rem;font-weight:700;color:#1A4A8C;min-width:100px;text-align:center;}
+/* ═══ term-card vocabulary grid ═══ */
+.term-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px;}
+.term-card{border:1.5px solid #DDE5F0;border-radius:12px;padding:14px 16px;background:#fff;transition:box-shadow .15s,border-color .15s;}
+.term-card:hover{border-color:#1A5080;box-shadow:0 3px 10px rgba(26,80,128,.12);}
+.term-icon{font-size:1.3rem;margin-bottom:4px;}
+.term-headline{font-weight:800;font-size:1.15rem;color:#1A5080;margin-bottom:4px;}
+.term-def{font-size:1.05rem;color:#5A6B7A;font-style:italic;margin-bottom:8px;line-height:1.4;}
+.term-example{font-size:1.06rem;color:#1C2B3A;background:#F4F8FA;border-left:3px solid #1A5080;border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5;}
+.term-example strong{color:#1A5080;}
+/* ═══ quick-check click-to-reveal micro-prompt ═══ */
+.qc-box{margin-top:16px;background:#FFF9EE;border:2px dashed #E8A030;border-radius:12px;padding:14px 18px;}
+.qc-label{font-weight:800;color:#B8860B;margin-bottom:8px;font-size:1.05rem;}
+.qc-opts{display:flex;gap:10px;flex-wrap:wrap;}
+.qc-opt{background:#F4F8FA;border:2px solid #dde;border-radius:8px;padding:7px 14px;font-size:1.05rem;color:#1C2B3A;cursor:pointer;transition:all .15s;font-family:inherit;}
+.qc-opt:hover:not(:disabled){border-color:#1A5080;background:#EEF5FA;}
+.qc-opt:disabled{cursor:default;}
+.qc-opt.qc-ok{background:#1A7A4A;border-color:#1A7A4A;color:#fff;}
+.qc-opt.qc-bad{background:#C4614A;border-color:#C4614A;color:#fff;}
+.wb-exp{flex-basis:100%;margin-top:4px;padding:8px 12px;background:#EEF7F0;border-left:3px solid #1A7A4A;border-radius:0 8px 8px 0;font-size:1.05rem;line-height:1.65;color:#1C2B3A;}
+.qc-exp{display:none;margin-top:8px;font-size:1.05rem;color:#1A5C2A;font-style:italic;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{background:#fff!important;overflow:visible!important;height:auto!important;}
+  .slide{position:relative!important;opacity:1!important;display:block!important;page-break-after:always;width:100%!important;height:auto!important;overflow:visible!important;background:#fff!important;}
+  .banner{color:#fff!important;}
+  #nav,#notesBtn,#pdfBtn,#notesPanel,#homeBtn{display:none!important;}
+}
+.be{color:#1A5080;font-weight:800;} .pp{color:#C45020;font-weight:800;} .ax{color:#7B3FB0;font-weight:800;}
+.vleg{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;background:#fff;border:1.5px solid #DDE5F0;border-radius:12px;padding:8px 14px;margin:0 0 12px;font-size:1.05rem;}
+.vleg b{color:#1C2B3A;}
+.pv-line{font-size:1.06rem;line-height:1.7;margin-bottom:4px;}
+.pv-table{width:100%;border-collapse:separate;border-spacing:0;margin:12px 0;font-size:1.06rem;line-height:1.55;border:1px solid #BDD4F0;border-radius:12px;overflow:hidden;}
+.pv-table th{background:#1A5C2A;color:#fff;text-align:left;padding:10px 14px;font-size:1.05rem;}
+.pv-table.rs th{background:#1A5080;}
+.pv-table td{padding:10px 14px;border-top:1px solid #DDE5F0;vertical-align:top;background:#fff;}
+.pv-table tr:nth-child(even) td{background:#F6FAF7;}
+.pv-table td.t{font-weight:800;color:#1A5C2A;}
+.pv-table.rs td.t{color:#1A5080;}
+.pt-row{background:#F4F8FA;border-radius:10px;padding:12px 16px;border-left:3px solid #0E5C7A;margin-bottom:14px;}
+.pt-src{font-size:1.06rem;font-weight:700;color:#1C2B3A;line-height:1.6;margin-bottom:8px;}
+.pt-tag{display:inline-block;font-size:.95rem;font-weight:800;color:#fff;background:#1A5080;border-radius:10px;padding:1px 10px;margin-right:8px;}
+.pt-ans{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.pt-label{font-weight:800;color:#1A7A4A;font-size:1.05rem;}
+.pt-in{flex:1;min-width:180px;border:none;border-bottom:2.5px solid #8BB0D0;background:transparent;font-size:1.05rem;font-family:inherit;font-weight:700;color:#1C2B3A;padding:4px 6px;outline:none;}
+.pt-in:focus{border-bottom-color:#1A5080;}
+</style>
+</head>
+<body>
+<button id="homeBtn" onclick="goTo(0)">🏠</button>
+<button id="pdfBtn" onclick="downloadNotes()" title="Save all your notes as a PDF">📄 PDF Notes</button>
+<button id="notesBtn" onclick="toggleNotes()">📝 Notes</button>
+<div id="notesPanel">
+  <div class="notes-drag-handle" id="notesDragHandle"><span class="grip">⠿⠿</span> DRAG TO MOVE</div>
+  <div class="notes-toolbar">
+    <span class="notes-toolbar-label">FORMAT</span>
+    <button class="notes-tbtn" onclick="notesFormat('bold')"><b>B</b></button>
+    <button class="notes-tbtn" onclick="notesFormat('underline')"><u>U</u></button>
+    <span style="width:1px;background:rgba(255,255,255,.2);margin:2px 3px;display:inline-block;height:18px;vertical-align:middle;"></span>
+    <button onclick="notesHilite('#FFE600')" title="Yellow" style="background:#FFE600;color:#333;border-radius:50%;width:24px;height:24px;padding:0;font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;">●</button>
+    <button onclick="notesHilite('#AAFFC3')" title="Green" style="background:#AAFFC3;color:#333;border-radius:50%;width:24px;height:24px;padding:0;font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;">●</button>
+    <button onclick="notesHilite('#FFB3C1')" title="Pink" style="background:#FFB3C1;color:#333;border-radius:50%;width:24px;height:24px;padding:0;font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;">●</button>
+    <button onclick="notesHilite('#BFE0FF')" title="Blue" style="background:#BFE0FF;color:#333;border-radius:50%;width:24px;height:24px;padding:0;font-size:1.15rem;line-height:1;display:inline-flex;align-items:center;justify-content:center;">●</button>
+  </div>
+  <div id="notesTA" contenteditable="true" spellcheck="true" data-placeholder="Type your notes here…"></div>
+  <div class="notes-actions">
+    <button class="notes-clear-btn" onclick="clearNotes()">🗑 Clear slide</button>
+    <button class="notes-clear-btn" onclick="clearAllNotes()">🗑 Clear all</button>
+    <span style="font-size:11px;color:rgba(255,255,255,.6);font-style:italic;">Notes save automatically ✓</span>
+  </div>
+</div>
+
+<div id="deck">
+
+<div class="slide active" id="s1">
+  <div class="title-inner">
+    <div class="title-label">Business English</div>
+    <div class="title-sub">with teacher Nanda</div>
+    <div class="title-main"><span class="title-accent">Passive Voice</span><br>&amp; Reported Speech</div>
+    <div class="title-sub" style="margin-top:6px;">Review · between Lesson 3 and Lesson 4</div>
+  </div>
+    <button onclick="location.href='index.html'" style="position:absolute;bottom:70px;left:32px;background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.4);padding:10px 22px;border-radius:22px;cursor:pointer;font-size:1.05rem;font-weight:700;backdrop-filter:blur(4px);">🏠 Course Home</button>
+  <button onclick="goToId('e1')" style="position:absolute;bottom:70px;right:32px;background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.4);padding:10px 22px;border-radius:22px;cursor:pointer;font-size:1.05rem;font-weight:700;backdrop-filter:blur(4px);">Start →</button>
+</div>
+
+<div class="slide" id="e1">
+  <div class="banner" style="background:#1A5C2A;color:#fff;">📘 Passive Voice · Explanation</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Active vs. Passive Voice</h2>
+      <p class="inst-light">Same meaning, different focus.<br>In the passive, the thing that receives the action comes first.</p>
+      <div class="vleg"><b>Colour code:</b> <span class="pp">main verb / past participle</span> <span class="be">verb to be</span> <span class="ax">other helping verb (has, will, should, had, would)</span></div>
+      <div class="two-col">
+        <div class="grammar-theory" style="border-left-color:#1A5080;background:#EEF4FA;">
+          <h3>🔷 Active: the doer comes first</h3>
+          <div class="pv-line">I <span class="ax">should</span> <span class="pp">correct</span> this data.</div>
+          <div class="pv-line">The manager <span class="pp">showed</span> the presentation to us.</div>
+          <div class="pv-line">Mom <span class="pp">bought</span> a gift.</div>
+        </div>
+        <div class="grammar-theory" style="border-left-color:#1A7A4A;background:#EEF7F0;">
+          <h3 style="color:#1A7A4A;">🔶 Passive: the receiver comes first</h3>
+          <div class="pv-line">This data <span class="ax">should</span> <span class="be">be</span> <span class="pp">corrected</span>.</div>
+          <div class="pv-line">The presentation <span class="be">was</span> <span class="pp">shown</span> to us (by the manager).</div>
+          <div class="pv-line">A gift <span class="be">was</span> <span class="pp">bought</span>.</div>
+        </div>
+      </div>
+      <div class="example-box">
+        <strong>Passive voice = verb to be + past participle</strong><br>
+        The verb <em>to be</em> shows the tense. The main verb is always the <span class="pp">past participle</span>.
+      </div>
+      <div class="example-box" style="background:#FFF9EE;border-color:#E8A030;">
+        <strong style="color:#B8860B;">Why use the passive?</strong><br>
+        Yesterday I went to the mall. My phone <span class="be">was</span> <span class="pp">stolen</span>.<br>
+        <span style="color:#555;">= Someone stole my phone. I don't know who, and it doesn't matter. What matters is my phone.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="x1">
+  <div class="banner" style="background:#0E7A8A;color:#fff;">✍️ Passive Voice · Practice</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Active or Passive?</h2>
+      <p class="instruction">Read each sentence, then click the correct voice.</p>
+      <div id="x1-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="x1-left"></div>
+        <div class="col-section" id="x1-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkX1()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetX1()">↺ Reset</button>
+      </div>
+      <div id="x1-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="e2">
+  <div class="banner" style="background:#1A5C2A;color:#fff;">📘 Passive Voice · Explanation</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>How to Form the Passive</h2>
+      <p class="inst-light">Keep the same tense as the active sentence.<br>Put the verb <em>to be</em> in that tense, then add the past participle.</p>
+      <div class="vleg"><b>Colour code:</b> <span class="pp">main verb / past participle</span> <span class="be">verb to be</span> <span class="ax">other helping verb (has, will, should, had, would)</span></div>
+      <table class="pv-table">
+        <thead><tr><th>Tense</th><th>Active</th><th>Passive</th></tr></thead>
+        <tbody><tr><td class="t">Present simple</td><td>I <span class="pp">do</span> the dishes every day.</td><td>The dishes <span class="be">are</span> <span class="pp">done</span> every day.</td></tr><tr><td class="t">Past simple</td><td>The manager <span class="pp">showed</span> the presentation to us.</td><td>The presentation <span class="be">was</span> <span class="pp">shown</span> to us.</td></tr><tr><td class="t">Present perfect</td><td>The painter <span class="ax">has</span> <span class="pp">finished</span> my house.</td><td>My house <span class="ax">has</span> <span class="be">been</span> <span class="pp">finished</span>.</td></tr><tr><td class="t">Future simple</td><td>I <span class="ax">will</span> <span class="pp">organize</span> this mess.</td><td>This mess <span class="ax">will</span> <span class="be">be</span> <span class="pp">organized</span>.</td></tr><tr><td class="t">Modal (should)</td><td>I <span class="ax">should</span> <span class="pp">correct</span> this data.</td><td>This data <span class="ax">should</span> <span class="be">be</span> <span class="pp">corrected</span>.</td></tr></tbody>
+      </table>
+      <div class="example-box">
+        <strong>Formula:</strong> object of the active sentence → subject of the passive + <span class="be">be</span> (in the same tense) + <span class="pp">past participle</span><br>
+        <span style="color:#555;">Watch the irregular participles: show → <em>shown</em>, steal → <em>stolen</em>, do → <em>done</em>, buy → <em>bought</em>.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="x2">
+  <div class="banner" style="background:#0E7A8A;color:#fff;">✍️ Passive Voice · Practice</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Complete with the Passive</h2>
+      <p class="instruction">Click a verb form from the box, then click the blank to place it.</p>
+      <div class="word-bank" id="x2-bank" style="position:sticky;top:0;z-index:5;background:#fff;"></div>
+      <div id="x2-example"></div>
+      <div id="x2-rows" style="display:none"></div>
+      <div class="two-col">
+        <div class="col-section" id="x2-left"></div>
+        <div class="col-section" id="x2-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkX2()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetX2()">↺ Reset</button>
+      </div>
+      <div id="x2-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="e3">
+  <div class="banner" style="background:#1A5C2A;color:#fff;">📘 Passive Voice · Explanation</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>When Can We Use the Passive?</h2>
+      <p class="inst-light">We need a doer and a receiver. In the passive, the receiver becomes the subject.</p>
+      <div class="vleg"><b>Colour code:</b> <span class="pp">main verb / past participle</span> <span class="be">verb to be</span> <span class="ax">other helping verb (has, will, should, had, would)</span></div>
+      <div class="two-col">
+        <div class="grammar-theory" style="border-left-color:#1A7A4A;background:#EEF7F0;">
+          <h3 style="color:#1A7A4A;">✅ One doer + one receiver</h3>
+          <div class="pv-line">Nanda <span class="pp">killed</span> her plants.</div>
+          <div class="pv-line">The plants <span class="be">were</span> <span class="pp">killed</span>.</div>
+          <div style="color:#555;margin-top:6px;">"By who?" I don't know! Or I don't want to say. The passive lets us leave the doer out.</div>
+        </div>
+        <div class="grammar-theory" style="border-left-color:#C4614A;background:#FCEEED;">
+          <h3 style="color:#C4614A;">❌ No receiver = no passive</h3>
+          <div class="pv-line">My plants <span class="pp">died</span>.</div>
+          <div class="pv-line">My friends <span class="pp">went</span> to the park.</div>
+          <div style="color:#555;margin-top:6px;"><em>Die</em> and <em>go</em> have no receiver, so we can't say "My plants were died". But <em>to kill</em> = kill <strong>something</strong>, so it can be passive.</div>
+        </div>
+      </div>
+      <div class="example-box" style="background:#FFF9EE;border-color:#E8A030;">
+        <strong style="color:#B8860B;">Present perfect: who did it?</strong><br>
+        My manager <span class="ax">has</span> <span class="pp">postponed</span> our meeting. = There's no more meeting, and I know who did it.<br>
+        Our meeting <span class="ax">has</span> <span class="be">been</span> <span class="pp">postponed</span> (by my manager). = There's no more meeting. The result matters more than the doer.
+      </div>
+      <div class="example-box">
+        <strong>"by + doer" is optional.</strong> Leave it out when the doer is unknown, obvious, not important, or you don't want to say.<br>
+        Mom <span class="pp">bought</span> a gift. → A gift <span class="be">was</span> <span class="pp">bought</span>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="x4">
+  <div class="banner" style="background:#0E7A8A;color:#fff;">✍️ Passive Voice · Practice</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Can It Be Passive?</h2>
+      <p class="instruction">Think: is there a doer and a receiver? Click Yes or No.</p>
+      <div id="x4-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="x4-left"></div>
+        <div class="col-section" id="x4-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkX4()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetX4()">↺ Reset</button>
+      </div>
+      <div id="x4-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="x3">
+  <div class="banner" style="background:#0E7A8A;color:#fff;">✍️ Passive Voice · Practice</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Rewrite in the Passive</h2>
+      <p class="instruction">Rewrite each active sentence in the passive. Keep the same tense.</p>
+      <div id="x3-rows" style="display:none"></div>
+      <div id="x3-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="x3-left"></div>
+        <div class="col-section" id="x3-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkX3()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetX3()">↺ Reset</button>
+      </div>
+      <div id="x3-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="r1">
+  <div class="banner" style="background:#1A5080;color:#fff;">🔁 Reported Speech · Review</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Reported Speech: Quick Recap</h2>
+      <p class="inst-light">Reported speech tells us what someone said.<br>The tense usually steps one step back in time.</p>
+      <table class="pv-table rs">
+        <thead><tr><th>Tense</th><th>What they said</th><th>Reported</th></tr></thead>
+        <tbody><tr><td class="t">present simple</td><td>"I work from home."</td><td>She said she <strong>worked</strong> from home.</td></tr><tr><td class="t">present continuous</td><td>"I am working on it."</td><td>He said he <strong>was working</strong> on it.</td></tr><tr><td class="t">present perfect</td><td>"I have finished."</td><td>She said she <strong>had finished</strong>.</td></tr><tr><td class="t">will</td><td>"We will call you."</td><td>They said they <strong>would call</strong> me.</td></tr><tr><td class="t">can</td><td>"I can't come."</td><td>He said he <strong>couldn't</strong> come.</td></tr></tbody>
+      </table>
+      <div class="two-col">
+        <div class="grammar-theory"><h3>🕐 Time words change too</h3>
+          today → that day<br>tomorrow → the next day / the following day<br>yesterday → the day before<br>next week → the following week
+        </div>
+        <div class="grammar-theory"><h3>🗣 said / told / asked</h3>
+          She <strong>said</strong> (that) she was busy.<br>She <strong>told me</strong> (that) she was busy.<br>She <strong>asked</strong> where the office <strong>was</strong>. (no inversion)
+        </div>
+      </div>
+      <div class="example-box" style="background:#FFF9EE;border-color:#E8A030;">
+        <strong style="color:#B8860B;">Don't mix them up!</strong><br>
+        <strong>Passive:</strong> the focus is the receiver. "The report <span class="be">was</span> <span class="pp">sent</span>."<br>
+        <strong>Reported speech:</strong> someone said something. "She <strong>said</strong> she <strong>sent</strong> the report."<br>
+        Ask yourself: is there a speaker (said, told, asked)? If yes, it's reported speech.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="r2">
+  <div class="banner" style="background:#1A5080;color:#fff;">🔁 Reported Speech · Review</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Choose the Correct Reported Form</h2>
+      <p class="instruction">Click the correct option.</p>
+      <div id="r2-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="r2-left"></div>
+        <div class="col-section" id="r2-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkR2()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetR2()">↺ Reset</button>
+      </div>
+      <div id="r2-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="r3">
+  <div class="banner" style="background:#1A5080;color:#fff;">🔁 Reported Speech · Review</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Report What Was Said</h2>
+      <p class="instruction">Write each sentence in reported speech. Start with the words shown.</p>
+      <div id="r3-rows" style="display:none"></div>
+      <div id="r3-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="r3-left"></div>
+        <div class="col-section" id="r3-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkR3()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetR3()">↺ Reset</button>
+      </div>
+      <div id="r3-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="c1">
+  <div class="banner" style="background:#1A5080;color:#fff;">🔁 Reported Speech · Review</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Passive Voice or Reported Speech?</h2>
+      <p class="inst-light">Both can use past forms like <em>was</em> and <em>had been</em>, so they look similar. Ask two questions.</p>
+      <div class="vleg"><b>Colour code:</b> <span class="pp">main verb / past participle</span> <span class="be">verb to be</span> <span class="ax">other helping verb (has, will, should, had, would)</span></div>
+      <div class="two-col">
+        <div class="grammar-theory" style="border-left-color:#1A7A4A;background:#EEF7F0;">
+          <h3 style="color:#1A7A4A;">🔶 Passive voice</h3>
+          <div class="pv-line">Is there a <strong>speaker</strong> (said, told, asked)? <strong>No.</strong></div>
+          <div class="pv-line">Is there <span class="be">be</span> + <span class="pp">past participle</span>? <strong>Yes.</strong></div>
+          <div class="pv-line" style="margin-top:8px;">The offer <span class="ax">has</span> <span class="be">been</span> <span class="pp">accepted</span>.</div>
+          <div class="pv-line">This data <span class="ax">should</span> <span class="be">be</span> <span class="pp">corrected</span>.</div>
+        </div>
+        <div class="grammar-theory" style="border-left-color:#1A5080;background:#EEF4FA;">
+          <h3>🔷 Reported speech</h3>
+          <div class="pv-line">Is there a <strong>speaker</strong> (said, told, asked)? <strong>Yes.</strong></div>
+          <div class="pv-line">Did the tense step back (is → was, will → would)? <strong>Yes.</strong></div>
+          <div class="pv-line" style="margin-top:8px;">She <span class="pp">said</span> she <span class="pp">sent</span> the report yesterday.</div>
+          <div class="pv-line">He <span class="pp">told</span> me they <span class="ax">would</span> <span class="pp">call</span> back.</div>
+        </div>
+      </div>
+      <div class="example-box">
+        <strong>Careful:</strong> <em>was</em> alone does not make a passive. "She asked me where the office <em>was</em>" is reported speech, because <em>was</em> is just the verb to be and there is no past participle.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="r4">
+  <div class="banner" style="background:#1A5080;color:#fff;">🔁 Reported Speech · Review</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Passive Voice or Reported Speech?</h2>
+      <p class="instruction">Is there a speaker (said, told, asked)? Click the correct label.</p>
+      <div id="r4-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="r4-left"></div>
+        <div class="col-section" id="r4-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkR4()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetR4()">↺ Reset</button>
+      </div>
+      <div id="r4-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="b1">
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🔀 Both Together</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Passive Voice Inside Reported Speech</h2>
+      <p class="inst-light">Yes, you can have both in one sentence!<br>Step the verb <em>to be</em> back one tense. Keep the past participle.</p>
+      <div class="vleg"><b>Colour code:</b> <span class="pp">main verb / past participle</span> <span class="be">verb to be</span> <span class="ax">other helping verb (has, will, should, had, would)</span></div>
+      <table class="pv-table rs">
+        <thead><tr><th>What they said (passive)</th><th>Reported</th><th>The change</th></tr></thead>
+        <tbody><tr><td>"The meeting <span class="ax">has</span> <span class="be">been</span> <span class="pp">postponed</span>."</td><td>He said the meeting <span class="ax">had</span> <span class="be">been</span> <span class="pp">postponed</span>.</td><td class="t">has been → had been</td></tr><tr><td>"The report <span class="ax">will</span> <span class="be">be</span> <span class="pp">finished</span> tomorrow."</td><td>She said the report <span class="ax">would</span> <span class="be">be</span> <span class="pp">finished</span> the next day.</td><td class="t">will be → would be</td></tr><tr><td>"My phone <span class="be">was</span> <span class="pp">stolen</span>."</td><td>He told me his phone <span class="ax">had</span> <span class="be">been</span> <span class="pp">stolen</span>.</td><td class="t">was → had been</td></tr><tr><td>"The data <span class="be">is being</span> <span class="pp">checked</span>."</td><td>She said the data <span class="be">was being</span> <span class="pp">checked</span>.</td><td class="t">is being → was being</td></tr></tbody>
+      </table>
+      <div class="example-box" style="background:#F0EEF8;border-color:#7B4BC4;">
+        <strong style="color:#5A2A8C;">Bonus: "It is said that…" / "It was announced that…"</strong><br>
+        We use these when the speaker is unknown or not important.<br>
+        <em>It was announced that</em> the office would close early.<br>
+        <em>It is said that</em> the CEO will resign.
+      </div>
+      <div class="example-box">
+        <strong>Check it:</strong> reported speech (<em>said / told</em>) + passive (<em>be + past participle</em>) in the same sentence.<br>
+        The passive part is only the verb group: <em><span class="ax">had</span> <span class="be">been</span> <span class="pp">postponed</span></em>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="b2">
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🔀 Both Together</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Report These Passive Sentences</h2>
+      <p class="instruction">Write each sentence in reported speech. Keep the passive and step the tense back.</p>
+      <div id="b2-rows" style="display:none"></div>
+      <div id="b2-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="b2-left"></div>
+        <div class="col-section" id="b2-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkB2()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetB2()">↺ Reset</button>
+      </div>
+      <div id="b2-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+      <div style="margin-top:22px;">
+        <a href="Lesson_04_Checking_Information_Full_Meeting.html" style="color:#fff;background:#1A5080;padding:10px 22px;border-radius:22px;text-decoration:none;font-weight:700;font-size:1.05rem;">Lesson 4 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ══ BOTTOM NAV BAR ══ -->
+<div id="nav">
+  <button id="prevBtn" onclick="goTo(current-1)" disabled>← Prev</button>
+  <div id="dots"></div>
+  <span id="counter">1 / 15</span>
+  <button id="nextBtn" onclick="goTo(current+1)">Next →</button>
+</div>
+
+<script>
+/* ═══ SLIDE IDS & LABELS ═══ */
+var slideIds = ["s1", "e1", "x1", "e2", "x2", "e3", "x4", "x3", "r1", "r2", "r3", "c1", "r4", "b1", "b2"];
+var slideLabels = ["Cover", "Active vs. Passive Voice", "Active or Passive?", "How to Form the Passive", "Complete with the Passive", "When Can We Use the Passive?", "Can It Be Passive?", "Rewrite in the Passive", "Reported Speech: Quick Recap", "Choose the Correct Reported Form", "Report What Was Said", "How to Tell Them Apart", "Passive Voice or Reported Speech?", "Passive Voice Inside Reported Speech", "Report These Passive Sentences"];
+
+/* ═══ NAVIGATION ═══ */
+var slides, dotsEl, current = 0;
+function norm(s){ return s.trim().toLowerCase().replace(/[.!?,;:]+$/,'').replace(/\s+/g,' '); }
+function goTo(n){
+  saveCurrentNotes();
+  document.getElementById('homeBtn').style.display = n===0?'none':'flex';
+  slides[current].classList.remove('active');
+  dotsEl.children[current].classList.remove('active');
+  current = Math.max(0,Math.min(n,slides.length-1));
+  slides[current].classList.add('active');
+  dotsEl.children[current].classList.add('active');
+  scrollDot(current);
+  document.getElementById('counter').textContent = (current+1)+' / '+slides.length;
+  document.getElementById('prevBtn').disabled = current===0;
+  document.getElementById('nextBtn').disabled = current===slides.length-1;
+  var _panel = document.getElementById('notesPanel');
+  if(current===0){ if(notesOpen) _panel.classList.add('cover'); }
+  else { _panel.classList.remove('cover'); }
+  loadNotes(current);
+  if(notesOpen && typeof window.__notesPosRestore==='function') window.__notesPosRestore();
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function goToId(id){ goTo(slideIds.indexOf(id)); }
+function scrollDot(i){ var d=dotsEl.children[i]; if(d) d.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'}); }
+
+document.addEventListener('keydown', function(e){
+  var tag = document.activeElement ? document.activeElement.tagName : '';
+  if(tag==='INPUT'||tag==='TEXTAREA'||(document.activeElement && document.activeElement.contentEditable==='true')) return;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') goTo(current+1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') goTo(current-1);
+});
+
+/* ═══ NOTES (per-slide, single localStorage blob) ═══ */
+var NOTES_KEY='efe2notes:'+(location.pathname.split('/').pop()||'lesson');
+var notesData={};
+try{notesData=JSON.parse(localStorage.getItem(NOTES_KEY))||{};}catch(e){notesData={};}
+function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesData));}catch(e){}}
+
+function saveCurrentNotes(){var ta=document.getElementById('notesTA');if(ta){notesData[current]=ta.innerHTML;persistNotes();}}
+function loadNotes(n){var ta=document.getElementById('notesTA');if(ta)ta.innerHTML=notesData[n]||'';}
+(function(){var t=document.getElementById('notesTA');if(t){t.addEventListener('input',function(){saveCurrentNotes();});t.addEventListener('paste',function(e){e.preventDefault();var text=(e.clipboardData||window.clipboardData).getData('text/plain');document.execCommand('insertText',false,text);});}})();
+var notesOpen=false;
+function toggleNotes(){
+  notesOpen=!notesOpen;
+  var p=document.getElementById('notesPanel'); var b=document.getElementById('notesBtn');
+  p.classList.toggle('open',notesOpen);
+  b.classList.toggle('panel-open',notesOpen);
+  if(current===0) p.classList.toggle('cover',notesOpen);
+  if(notesOpen) loadNotes(current);
+  if(!notesOpen){
+    p.style.left=''; p.style.top=''; p.style.right=''; p.style.bottom='';
+    try{ localStorage.removeItem(NOTES_KEY+':pos'); }catch(e){}
+  }
+}
+function clearNotes(){if(confirm('Clear notes for this slide?')){var ta=document.getElementById('notesTA');if(ta)ta.innerHTML='';notesData[current]='';persistNotes();}}
+function clearAllNotes(){if(confirm('Clear ALL notes for this whole lesson? This cannot be undone.')){notesData={};persistNotes();var ta=document.getElementById('notesTA');if(ta)ta.innerHTML='';}}
+function notesFormat(cmd){document.execCommand(cmd);document.getElementById('notesTA').focus();}
+function notesHilite(c){document.execCommand('hiliteColor',false,c);document.getElementById('notesTA').focus();}
+
+/* ═══ draggable notes panel ═══ */
+window.addEventListener('DOMContentLoaded', function(){
+  var panel = document.getElementById('notesPanel');
+  var handle = document.getElementById('notesDragHandle');
+  if(!panel || !handle) return;
+  var POS_KEY = NOTES_KEY + ':pos';
+  var dragging = false, offsetX = 0, offsetY = 0;
+  function clampAndApply(x, y){
+    var maxX = window.innerWidth - panel.offsetWidth - 8;
+    var maxY = window.innerHeight - panel.offsetHeight - 8;
+    x = Math.max(8, Math.min(x, Math.max(8, maxX)));
+    y = Math.max(8, Math.min(y, Math.max(8, maxY)));
+    panel.style.left = x + 'px';
+    panel.style.top = y + 'px';
+    panel.style.right = 'auto';
+    panel.style.bottom = 'auto';
+  }
+  function onDown(e){
+    dragging = true;
+    var rect = panel.getBoundingClientRect();
+    var pt = e.touches ? e.touches[0] : e;
+    offsetX = pt.clientX - rect.left;
+    offsetY = pt.clientY - rect.top;
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchmove', onMove, {passive:false});
+    document.addEventListener('touchend', onUp);
+    e.preventDefault();
+  }
+  function onMove(e){
+    if(!dragging) return;
+    var pt = e.touches ? e.touches[0] : e;
+    clampAndApply(pt.clientX - offsetX, pt.clientY - offsetY);
+    if(e.touches) e.preventDefault();
+  }
+  function onUp(){
+    if(!dragging) return;
+    dragging = false;
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onUp);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('touchend', onUp);
+    try{
+      var rect = panel.getBoundingClientRect();
+      localStorage.setItem(POS_KEY, JSON.stringify({left:rect.left, top:rect.top}));
+    }catch(err){}
+  }
+  handle.addEventListener('mousedown', onDown);
+  handle.addEventListener('touchstart', onDown, {passive:false});
+  window.addEventListener('resize', function(){
+    if(panel.classList.contains('open') && panel.style.left){ var r=panel.getBoundingClientRect(); clampAndApply(r.left, r.top); }
+  });
+  window.__notesPosRestore = function(){
+    try{
+      var saved = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
+      if(saved) clampAndApply(saved.left, saved.top);
+    }catch(err){}
+  };
+});
+
+function downloadNotes(){
+  saveCurrentNotes();
+  var hasAny=false, cards='';
+  slideIds.forEach(function(sid, idx){
+    var note=notesData[idx]||'';
+    if(!note.replace(/<[^>]*>/g,'').trim()) return;
+    hasAny=true;
+    cards += '<div class="card"><div class="card-header">Slide '+(idx+1)+' &mdash; '+slideLabels[idx]+'</div><div class="card-body">'+note+'</div></div>';
+  });
+  if(!hasAny){ alert('No notes to save yet!'); return; }
+  var date=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  var html='<!DOCTYPE html><html><head><meta charset="utf-8"><title>Passive Voice Review Notes</title><style>'
+    +"body{font-family:'Segoe UI',system-ui,sans-serif;max-width:720px;margin:16px auto;color:#1C2B3A;padding:0 20px;background:#F4F7FB}"
+    +'h1{font-size:1.5rem;color:#1a2e4a;margin-bottom:4px}'
+    +'.date{font-size:.9rem;color:#6B7A8C;margin-bottom:20px;text-align:center;font-weight:600;letter-spacing:.02em}'
+    +'.card{border:1px solid #E2E8F0;border-radius:14px;margin-bottom:14px;overflow:hidden;box-shadow:0 2px 10px rgba(20,40,70,.07)}'
+    +'.card-header{background:#1a2e4a;color:#fff;padding:7px 14px;font-size:.88rem;font-weight:700}'
+    +'.card-body{padding:12px 14px;font-size:.97rem;line-height:1.7}'
+    +'.card-body,.card-body *{color:#1a1a1a!important}'
+    +'*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}'
+    +'@media print{body{margin:0;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}@page{margin:1cm}}'
+    +'.notes-banner{position:relative;overflow:hidden;padding:32px 28px 26px;margin-bottom:22px;background:linear-gradient(135deg,#0A1628 0%,#1A3A6B 50%,#0E5A8A 100%);border-radius:18px;text-align:center;box-shadow:0 10px 28px rgba(10,22,40,.22)}'
+    +'.notes-banner::before{content:"";position:absolute;top:-50px;right:-50px;width:170px;height:170px;background:radial-gradient(circle,rgba(255,255,255,.14) 0%,transparent 70%);border-radius:50%}'
+    +'.notes-banner::after{content:"";position:absolute;bottom:-60px;left:-40px;width:190px;height:190px;background:radial-gradient(circle,rgba(111,209,255,.12) 0%,transparent 70%);border-radius:50%}'
+    +'.notes-banner .nb-icon{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:50%;font-size:21px;margin-bottom:10px}'
+    +'.notes-banner .nb-title{position:relative;z-index:1;display:block;font-size:24px;font-weight:900;color:#fff;margin-bottom:14px;line-height:1.3}'
+    +'.notes-banner .nb-line{position:relative;z-index:1;display:block;font-size:14.5px;color:rgba(255,255,255,.88);font-weight:500;line-height:1.65;margin-top:6px}'
+    +'.notes-banner .nb-btn{position:relative;z-index:1;display:inline-block;margin-top:2px;padding:4px 16px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);border-radius:20px;color:#fff;font-weight:800;text-decoration:none;font-size:14px}'
+    +'</style></head><body>'
+    +'<div class="notes-banner"><span class="nb-icon">📝</span><span class="nb-title">Business English (HR) &ndash; Passive Voice Review Notes</span><span class="nb-line">You can find your notes from class here.</span><span class="nb-line">If you want to review the lesson content and try the homework activities, <a class="nb-btn" href="https://teacher-nanda.github.io/Business-HR/'+window.location.pathname.split('/').pop()+'" target="_blank">click here</a>.</span></div>'
+    +'<div class="date">'+date+'</div>'+cards+'</body></html>';
+  var win=window.open('','_blank');
+  if(!win){ alert('Please allow pop-ups for this page.'); return; }
+  win.document.write(html); win.document.close(); win.focus();
+  setTimeout(function(){win.print();},400);
+}
+
+/* ═══ shared helper: word-bank fill-in-the-gap ═══ */
+var wbState = {};
+function wbChipEl(exId,w){ return document.getElementById(exId+'-chip-'+w.replace(/[^a-zA-Z0-9]/g,'_')); }
+function wbChipState(exId,w,state){
+  var c=wbChipEl(exId,w); if(!c) return;
+  if(state==='selected'){ c.classList.remove('wb-used'); c.style.background='#1A5080'; c.style.color='#fff'; c.style.borderColor='#1A5080'; c.style.transform='scale(1.05)'; }
+  else if(state==='used'){ c.classList.add('wb-used'); c.style.background=''; c.style.color=''; c.style.borderColor=''; c.style.transform='scale(1)'; }
+  else { c.classList.remove('wb-used'); c.style.background=''; c.style.color=''; c.style.borderColor=''; c.style.transform='scale(1)'; }
+}
+function wbPlacedAt(st,w){ var found=null; Object.keys(st.placed).forEach(function(i){ if(st.placed[i]===w) found=parseInt(i,10); }); return found; }
+function wbBuild(exId, rowsId, bankId, items, bankWords, resultId, exampleHtml, exampleId, usedWords, splitIds){
+  wbState[exId] = { items:items, rowsId:rowsId, bankId:bankId, resultId:resultId, bankWords:bankWords, exampleHtml:exampleHtml, exampleId:exampleId, usedWords:usedWords||[], splitIds:splitIds||null, sel:null, placed:{} };
+  if(exampleId && exampleHtml){
+    var exEl = document.getElementById(exampleId);
+    exEl.className = 'ex-row';
+    exEl.style.cssText = 'border-left-color:#C45020;display:flex;align-items:center;gap:8px;flex-wrap:wrap;';
+    exEl.innerHTML = '<span class="ex-num" style="color:#C45020;">Ex.</span>'+exampleHtml;
+  }
+  var rows=document.getElementById(rowsId); rows.innerHTML='';
+  var spL=null, spR=null;
+  if(splitIds){ spL=document.getElementById(splitIds.leftId); spR=document.getElementById(splitIds.rightId); spL.innerHTML=''; spR.innerHTML=''; }
+  items.forEach(function(item,i){
+    var row=document.createElement('div'); row.className='ex-row'; row.style.borderLeftColor='#0E5C7A';
+    row.style.cssText+='display:flex;align-items:center;gap:8px;flex-wrap:wrap;';
+    row.innerHTML='<span class="ex-num">'+(i+1)+'.</span>'
+      +(item.pre?'<span style="font-size:1.05rem;color:#1C2B3A;">'+item.pre+'</span>':'')
+      +'<span id="'+exId+'-blank-'+i+'" onclick="wbClickBlank(\''+exId+'\','+i+')" style="min-width:80px;min-height:1.3em;display:inline-block;border-bottom:2.5px solid #8BB0D0;text-align:center;font-weight:700;color:#1A5080;cursor:pointer;padding-bottom:2px;"></span>'
+      +(item.post?'<span style="font-size:1.05rem;color:#1C2B3A;">'+item.post+'</span>':'');
+    (splitIds ? (i<Math.ceil(items.length/2)?spL:spR) : rows).appendChild(row);
+  });
+  var bank=document.getElementById(bankId); bank.innerHTML='';
+  (usedWords||[]).forEach(function(w){
+    var c=document.createElement('span'); c.className='wb-chip wb-used'; c.style.cursor='default'; c.textContent=w;
+    bank.appendChild(c);
+  });
+  bankWords.forEach(function(w){
+    var c=document.createElement('span'); c.className='wb-chip'; c.id=exId+'-chip-'+w.replace(/[^a-zA-Z0-9]/g,'_'); c.textContent=w;
+    c.addEventListener('click', function(){ wbSelectWord(exId,w); });
+    bank.appendChild(c);
+  });
+  document.getElementById(resultId).textContent='';
+}
+function wbSelectWord(exId,w){
+  var st=wbState[exId];
+  if(st.sel===w){ st.sel=null; wbChipState(exId,w, wbPlacedAt(st,w)!==null?'used':'free'); return; }
+  if(st.sel) wbChipState(exId,st.sel, wbPlacedAt(st,st.sel)!==null?'used':'free');
+  var oldI = wbPlacedAt(st,w);
+  if(oldI!==null){ document.getElementById(exId+'-blank-'+oldI).textContent=''; delete st.placed[oldI]; }
+  st.sel=w; wbChipState(exId,w,'selected');
+}
+function wbClickBlank(exId,i){
+  var st=wbState[exId];
+  if(!st.sel) return;
+  if(st.placed[i]!==undefined){ wbChipState(exId, st.placed[i], 'free'); }
+  document.getElementById(exId+'-blank-'+i).textContent=st.sel;
+  st.placed[i]=st.sel;
+  wbChipState(exId,st.sel,'used');
+  st.sel=null;
+}
+function wbCheck(exId){
+  var st=wbState[exId]; var score=0;
+  st.items.forEach(function(item,i){
+    var el=document.getElementById(exId+'-blank-'+i);
+    var word = st.placed[i]!==undefined ? st.placed[i] : '';
+    var ok = item.ans.some(function(a){ return norm(word)===norm(a); });
+    el.style.color = ok?'#1A7A4A':'#C4614A';
+    el.style.borderBottomColor = ok?'#1A7A4A':'#C4614A';
+    if(ok) score++;
+    if(item.exp){
+      var row=el.parentElement, ex=row.querySelector('.wb-exp');
+      if(!ex){ ex=document.createElement('div'); ex.className='wb-exp'; row.appendChild(ex); }
+      ex.innerHTML=(ok?'✅ ':'❌ ')+item.exp;
+    }
+  });
+  var res=document.getElementById(st.resultId);
+  res.textContent=score+' / '+st.items.length+' correct'+(score===st.items.length?' — Great job! 🎉':'');
+  res.style.color=score===st.items.length?'#1A7A4A':'#C4614A';
+}
+function wbReset(exId){
+  var st=wbState[exId];
+  wbBuild(exId, st.rowsId, st.bankId, st.items, st.bankWords, st.resultId, st.exampleHtml, st.exampleId, st.usedWords, st.splitIds);
+}
+
+/* ═══ shared helper: cross-out / choose-the-word module ═══ */
+var xoState = {};
+var xoBtn='border:2px solid #BDD4F0;border-radius:8px;padding:4px 14px;font-size:1.05rem;font-weight:700;cursor:pointer;background:#fff;color:#1C2B3A;font-family:inherit;transition:all .15s;';
+function xoBuild(exId, leftId, rightId, items, resultId, leftCount){
+  xoState[exId] = { items:items, leftId:leftId, rightId:rightId, resultId:resultId, sel:{}, leftCount:leftCount };
+  var left=document.getElementById(leftId); var right=document.getElementById(rightId);
+  left.innerHTML=''; right.innerHTML='';
+  var lc = (typeof leftCount==='number') ? leftCount : Math.ceil(items.length/2);
+  items.forEach(function(item,i){
+    var row=document.createElement('div');
+    row.style.cssText='background:#F8F8FF;border-radius:12px;border:1.5px solid #DDE5F0;padding:10px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;';
+    row.innerHTML='<span style="font-size:1.05rem;font-weight:800;color:#1A5080;min-width:20px;flex-shrink:0;">'+(i+1)+'.</span>'
+      +(item.pre?'<span style="font-size:1.05rem;color:#1C2B3A;">'+item.pre+'</span>':'')
+      +'<button id="'+exId+'-a-'+i+'" onclick="xoPick(\''+exId+'\','+i+',\'a\')" style="'+xoBtn+'">'+item.a+'</button>'
+      +'<span style="color:#888;font-size:1.05rem;">/</span>'
+      +'<button id="'+exId+'-b-'+i+'" onclick="xoPick(\''+exId+'\','+i+',\'b\')" style="'+xoBtn+'">'+item.b+'</button>'
+      +(item.post?'<span style="font-size:1.05rem;color:#1C2B3A;">'+item.post+'</span>':'');
+    (i<lc?left:right).appendChild(row);
+  });
+  document.getElementById(resultId).textContent='';
+}
+function xoReset1(exId,i){ ['a','b'].forEach(function(x){ var b=document.getElementById(exId+'-'+x+'-'+i); if(b) b.style.cssText=xoBtn; }); }
+function xoPick(exId,i,v){
+  var st=xoState[exId];
+  var other=v==='a'?'b':'a';
+  xoReset1(exId,i); st.sel[i]=v;
+  var cb=document.getElementById(exId+'-'+v+'-'+i); var wb=document.getElementById(exId+'-'+other+'-'+i);
+  if(cb){cb.style.background='#EAF1FB';cb.style.color='#1A4A8C';cb.style.borderColor='#1A4A8C';}
+  if(wb){wb.style.background='#f5f5f5';wb.style.color='#bbb';wb.style.borderColor='#e0e0e0';wb.style.textDecoration='line-through';wb.style.opacity='.6';}
+}
+function xoCheck(exId){
+  var st=xoState[exId];
+  var score=0;
+  st.items.forEach(function(item,i){
+    if(st.sel[i]===undefined) return;
+    var ok=st.sel[i]!==item.wrong;
+    var sel=document.getElementById(exId+'-'+st.sel[i]+'-'+i);
+    var other=st.sel[i]==='a'?'b':'a';
+    var oth=document.getElementById(exId+'-'+other+'-'+i);
+    if(ok){
+      score++;
+      if(sel){sel.style.background='#EEF7F0';sel.style.color='#1A5C2A';sel.style.borderColor='#1A7A4A';sel.style.textDecoration='none';sel.style.opacity='1';}
+      if(oth){oth.style.cssText=xoBtn;}
+    } else {
+      if(sel){sel.style.background='#FCEEED';sel.style.color='#C4614A';sel.style.borderColor='#C4614A';sel.style.textDecoration='none';sel.style.opacity='1';}
+      if(oth){oth.style.cssText=xoBtn;}
+    }
+  });
+  var res=document.getElementById(st.resultId);
+  res.innerHTML = score===st.items.length
+    ? '<span style="color:#1A7A4A;">✅ Perfect! '+score+'/'+st.items.length+'</span>'
+    : '<span style="color:#C0392B;">'+score+'/'+st.items.length+' — Try again!</span>';
+}
+function xoResetAll(exId){
+  var st=xoState[exId];
+  xoBuild(exId, st.leftId, st.rightId, st.items, st.resultId, st.leftCount);
+}
+
+/* ═══ helpers specific to this review ═══ */
+function xoAddEx(exId, pre, good, bad, post){
+  var st=xoState[exId];
+  var ex=document.createElement('div');
+  ex.style.cssText='background:#F8F8FF;border-radius:12px;border:1.5px solid #DDE5F0;padding:10px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;';
+  ex.innerHTML='<span style="font-size:1.05rem;font-weight:800;color:#C45020;min-width:26px;flex-shrink:0;">Ex.</span>'
+    +(pre?'<span style="font-size:1.05rem;color:#1C2B3A;">'+pre+'</span>':'')
+    +'<button style="border:2px solid #1A7A4A;border-radius:8px;padding:4px 14px;font-size:1.05rem;font-weight:700;background:#EEF7F0;color:#1A5C2A;font-family:inherit;pointer-events:none;">'+good+'</button>'
+    +'<span style="color:#888;font-size:1.05rem;">/</span>'
+    +'<button style="border:2px solid #e0e0e0;border-radius:8px;padding:4px 14px;font-size:1.05rem;font-weight:700;background:#f5f5f5;color:#bbb;font-family:inherit;text-decoration:line-through;opacity:.6;pointer-events:none;">'+bad+'</button>'
+    +(post?'<span style="font-size:1.05rem;color:#1C2B3A;">'+post+'</span>':'');
+  var box=document.getElementById(exId+'-example'); box.innerHTML=''; box.appendChild(ex);
+}
+function xoShowExp(exId){
+  var st=xoState[exId];
+  st.items.forEach(function(item,i){
+    if(!item.exp) return;
+    var a=document.getElementById(exId+'-a-'+i); if(!a) return;
+    var row=a.parentElement; var ex=row.querySelector('.wb-exp');
+    if(!ex){ ex=document.createElement('div'); ex.className='wb-exp'; ex.style.flexBasis='100%'; row.appendChild(ex); }
+    var picked=st.sel[i];
+    var mark = picked===undefined ? '💡 ' : (picked!==item.wrong ? '✅ ' : '❌ ');
+    ex.innerHTML=mark+item.exp;
+  });
+}
+var ptState={};
+function ptNorm(s){
+  s=(s||'').toLowerCase().replace(/[’]/g,"'").replace(/[.!?,;:"“”()]/g,' ').replace(/\s+/g,' ').trim();
+  s=s.replace(/\b(said|told (?:me|us|them|him|her)) that\b/g,'$1').replace(/\bcould not\b/g,"couldn't").replace(/\bwould not\b/g,"wouldn't").replace(/organised/g,'organized');
+  return s;
+}
+function ptBuild(exId,rowsId,items,resultId,exampleHtml){
+  ptState[exId]={items:items,rowsId:rowsId,resultId:resultId,exampleHtml:exampleHtml};
+  var L=document.getElementById(exId+'-left'), R=document.getElementById(exId+'-right'), EX=document.getElementById(exId+'-example');
+  L.innerHTML=''; R.innerHTML=''; EX.innerHTML='';
+  var N=items.length, even=(N%2===0), lc=even?N/2:Math.floor(N/2);
+  if(exampleHtml){
+    var ex=document.createElement('div'); ex.className='pt-row'; ex.style.borderLeftColor='#C45020';
+    ex.innerHTML='<span class="ex-num" style="color:#C45020;">Ex.</span>'+exampleHtml;
+    if(even){ ex.style.marginBottom='14px'; EX.appendChild(ex); } else { L.appendChild(ex); }
+  }
+  items.forEach(function(it,i){
+    var row=document.createElement('div'); row.className='pt-row';
+    row.innerHTML='<div class="pt-src"><span class="ex-num">'+(i+1)+'.</span><span class="pt-tag">'+it.tag+'</span>'+it.src+'</div>'
+      +'<div class="pt-ans"><span class="pt-label">'+it.label+'</span><input type="text" class="pt-in" id="'+exId+'-in-'+i+'" autocomplete="off" autocapitalize="off" spellcheck="false"></div>';
+    (i<lc?L:R).appendChild(row);
+  });
+  document.getElementById(resultId).textContent='';
+}
+function ptCheck(exId){
+  var st=ptState[exId]; var score=0;
+  st.items.forEach(function(it,i){
+    var inp=document.getElementById(exId+'-in-'+i); var val=ptNorm(inp.value);
+    var ok=it.ans.some(function(a){ return ptNorm(a)===val; });
+    inp.style.borderBottomColor=ok?'#1A7A4A':'#C4614A'; inp.style.color=ok?'#1A7A4A':'#C4614A';
+    if(ok) score++;
+    var row=inp.closest('.pt-row'); var ex=row.querySelector('.wb-exp');
+    if(!ex){ ex=document.createElement('div'); ex.className='wb-exp'; ex.style.marginTop='8px'; row.appendChild(ex); }
+    ex.innerHTML=(ok?'✅ ':'❌ Model answer: <strong>'+it.model+'</strong><br>')+it.exp;
+  });
+  var res=document.getElementById(st.resultId);
+  res.textContent=score+' / '+st.items.length+' correct'+(score===st.items.length?' — Great job! 🎉':'');
+  res.style.color=score===st.items.length?'#1A7A4A':'#C4614A';
+}
+function ptReset(exId){ var st=ptState[exId]; ptBuild(exId,st.rowsId,st.items,st.resultId,st.exampleHtml); }
+
+/* ═══ X1 — Active or passive ═══ */
+var x1Items=[
+ {pre:'"The candidate was interviewed by two managers."',a:'active',b:'passive',wrong:'a',exp:'<em>was interviewed</em> = was + past participle. The candidate receives the action. Passive.'},
+ {pre:'"Our team organizes the onboarding session."',a:'active',b:'passive',wrong:'b',exp:'<em>Our team</em> is the doer and the verb has no <em>be</em>. Active.'},
+ {pre:'"The job ad will be published on Monday."',a:'active',b:'passive',wrong:'a',exp:'<em>will be published</em> = will be + past participle. Passive.'},
+ {pre:'"HR has updated the vacation policy."',a:'active',b:'passive',wrong:'b',exp:'<em>HR</em> is the doer. Active. (Passive: <em>The vacation policy has been updated.</em>)'},
+ {pre:'"Salaries are paid on the 25th."',a:'active',b:'passive',wrong:'a',exp:'<em>are paid</em> = are + past participle. Salaries receive the action. Passive.'},
+ {pre:'"Someone has cancelled the training room booking."',a:'active',b:'passive',wrong:'b',exp:'<em>Someone</em> is the doer. Active. (Passive: <em>The booking has been cancelled.</em>)'}
+];
+function buildX1(){ xoBuild('x1','x1-left','x1-right',x1Items,'x1-result',3); xoAddEx('x1','"The interns wrote the summary."','active','passive',''); }
+function checkX1(){ xoCheck('x1'); xoShowExp('x1'); }
+function resetX1(){ buildX1(); }
+/* ═══ X2 — Complete with the passive ═══ */
+var x2Items=[
+ {pre:'Our new colleague',post:'last week.',ans:['was hired'],exp:'Past simple passive: <strong>was hired</strong>. The colleague receives the action.'},
+ {pre:'The interview',post:'to Thursday, so please check your calendar.',ans:['has been moved'],exp:'Present perfect passive: <strong>has been + moved</strong>. The result matters now.'},
+ {pre:'The winners',post:'at the end-of-year party.',ans:['will be announced'],exp:'Future simple passive: <strong>will be + announced</strong>.'},
+ {pre:'These forms',post:'before the first day of work.',ans:['should be signed'],exp:'Modal passive: <strong>should be + signed</strong>.'},
+ {pre:'Team meetings',post:'every Monday morning.',ans:['are held'],exp:'Present simple, plural subject: <strong>are held</strong>.'},
+ {pre:'Each employee',post:'a laptop on the first day.',ans:['was given'],exp:'Past simple passive: <strong>was given</strong>. The participle of <em>give</em> is <em>given</em>.'}
+];
+var x2Bank=['will be announced','was given','should be signed','was hired','are held','has been moved'];
+function buildX2(){ wbBuild('x2','x2-rows','x2-bank',x2Items,x2Bank,'x2-result','The email <span style="color:#C45020;font-weight:700;">was sent</span> to everyone.','x2-example',[],{leftId:'x2-left',rightId:'x2-right'}); }
+function checkX2(){ wbCheck('x2'); }
+function resetX2(){ wbReset('x2'); }
+/* ═══ X3 — Rewrite in the passive ═══ */
+var x3Items=[
+ {tag:'Active',src:'The HR team hired three interns.',label:'Passive:',ans:['three interns were hired','three interns were hired by the hr team'],model:'Three interns were hired (by the HR team).',exp:'Past simple: <em>were + hired</em>. The receiver (three interns) becomes the subject.'},
+ {tag:'Active',src:'Someone has deleted the file.',label:'Passive:',ans:['the file has been deleted','the file has been deleted by someone'],model:'The file has been deleted.',exp:'Present perfect: <em>has been + deleted</em>. "By someone" adds nothing.'},
+ {tag:'Active',src:'They will announce the results on Friday.',label:'Passive:',ans:['the results will be announced on friday','the results will be announced on friday by them'],model:'The results will be announced on Friday.',exp:'Future simple: <em>will be + announced</em>.'},
+ {tag:'Active',src:'We should send the contract today.',label:'Passive:',ans:['the contract should be sent today','the contract should be sent today by us'],model:'The contract should be sent today.',exp:'Modal: <em>should be + sent</em>. Watch the irregular participle: send → sent.'},
+ {tag:'Active',src:'The security guard locked the doors at eight.',label:'Passive:',ans:['the doors were locked at eight','the doors were locked at eight by the security guard','the doors were locked at 8','the doors were locked at 8 by the security guard'],model:'The doors were locked at eight (by the security guard).',exp:'Past simple: <em>were + locked</em>. The doors are plural, so <em>were</em>.'},
+ {tag:'Active',src:'Our director opens the office at seven.',label:'Passive:',ans:['the office is opened at seven','the office is opened at seven by our director','the office is opened at 7','the office is opened at 7 by our director'],model:'The office is opened at seven (by our director).',exp:'Present simple: <em>is + opened</em>.'}
+];
+function buildX3(){ ptBuild('x3','x3-rows',x3Items,'x3-result','<div class="pt-src"><span class="pt-tag">Active</span>Someone cleaned the room.</div><div class="pt-ans"><span class="pt-label">Passive:</span><strong>The room was cleaned.</strong></div>'); }
+function checkX3(){ ptCheck('x3'); }
+function resetX3(){ buildX3(); }
+/* ═══ X4 — Can it be passive? ═══ */
+var x4Items=[
+ {pre:'"The interns arrived late."',a:'Yes, it can',b:'No, it can\'t',wrong:'a',exp:'<em>Arrive</em> has no receiver, so there is no passive.'},
+ {pre:'"The CEO signed the agreement."',a:'Yes, it can',b:'No, it can\'t',wrong:'b',exp:'Doer + receiver. Passive: <em>The agreement was signed.</em>'},
+ {pre:'"Prices increased last year."',a:'Yes, it can',b:'No, it can\'t',wrong:'a',exp:'Here <em>increased</em> has no receiver (nobody increased something). No passive.'},
+ {pre:'"Our team wrote the report."',a:'Yes, it can',b:'No, it can\'t',wrong:'b',exp:'Doer + receiver. Passive: <em>The report was written.</em>'},
+ {pre:'"The conference starts at nine."',a:'Yes, it can',b:'No, it can\'t',wrong:'a',exp:'<em>Start</em> has no receiver here. No passive.'},
+ {pre:'"HR trained the new employees."',a:'Yes, it can',b:'No, it can\'t',wrong:'b',exp:'Doer + receiver. Passive: <em>The new employees were trained.</em>'}
+];
+function buildX4(){ xoBuild('x4','x4-left','x4-right',x4Items,'x4-result',3); xoAddEx('x4','"The company opened a new office."','Yes, it can','No, it can\'t',''); }
+function checkX4(){ xoCheck('x4'); xoShowExp('x4'); }
+function resetX4(){ buildX4(); }
+/* ═══ R2 — Choose the correct reported form ═══ */
+var r2Items=[
+ {pre:'He said he',a:'lives',b:'lived',post:'near the office.',wrong:'a',exp:'The reporting verb is in the past, so the tense steps back: lives → <strong>lived</strong>.'},
+ {pre:'She told us they',a:'will launch',b:'would launch',post:'the product in May.',wrong:'a',exp:'will → <strong>would</strong>.'},
+ {pre:'The director said the team',a:'has met',b:'had met',post:'the target.',wrong:'a',exp:'Present perfect → past perfect: has met → <strong>had met</strong>.'},
+ {pre:'He said he was leaving',a:'tomorrow',b:'the next day',post:'.',wrong:'a',exp:'Time words change: tomorrow → <strong>the next day</strong>.'},
+ {pre:'She',a:'said',b:'told',post:'the board that sales were up.',wrong:'a',exp:'<em>Told</em> needs a person (told the board). <em>Said the board</em> is wrong.'},
+ {pre:'He asked me',a:'if I was ready',b:'if was I ready',post:'.',wrong:'b',exp:'Reported questions use normal word order, no inversion: <strong>if I was ready</strong>.'}
+];
+function buildR2(){ xoBuild('r2','r2-left','r2-right',r2Items,'r2-result',3); xoAddEx('r2','She said she','was tired','is tired','.'); }
+function checkR2(){ xoCheck('r2'); xoShowExp('r2'); }
+function resetR2(){ buildR2(); }
+/* ═══ R3 — Report what was said ═══ */
+var r3Items=[
+ {tag:'She said…',src:'"I am preparing the agenda."',label:'Reported:',ans:['she said she was preparing the agenda'],model:'She said she was preparing the agenda.',exp:'present continuous → past continuous.'},
+ {tag:'He said…',src:'"I live near the station."',label:'Reported:',ans:['he said he lived near the station'],model:'He said he lived near the station.',exp:'present simple → past simple.'},
+ {tag:'He told me…',src:'"We will hire two people."',label:'Reported:',ans:['he told me they would hire two people'],model:'He told me they would hire two people.',exp:'will → would, and we → they.'},
+ {tag:'She said…',src:'"I have booked the room."',label:'Reported:',ans:['she said she had booked the room'],model:'She said she had booked the room.',exp:'present perfect → past perfect.'},
+ {tag:'He asked…',src:'"What time does the meeting start?"',label:'Reported:',ans:['he asked what time the meeting started'],model:'He asked what time the meeting started.',exp:'Normal word order, no <em>does</em>, and the verb steps back: start → started.'}
+];
+function buildR3(){ ptBuild('r3','r3-rows',r3Items,'r3-result','<div class="pt-src"><span class="pt-tag">She said…</span>"I speak French."</div><div class="pt-ans"><span class="pt-label">Reported:</span><strong>She said she spoke French.</strong></div>'); }
+function checkR3(){ ptCheck('r3'); }
+function resetR3(){ buildR3(); }
+/* ═══ R4 — Passive or reported speech ═══ */
+var r4Items=[
+ {pre:'"The package was delivered this morning."',a:'passive voice',b:'reported speech',wrong:'b',exp:'No speaker. <em>was delivered</em> = was + past participle. Passive voice.'},
+ {pre:'"He said he delivered the package this morning."',a:'passive voice',b:'reported speech',wrong:'a',exp:'<em>He said…</em> = a speaker. Reported speech. (<em>delivered</em> is just the past simple.)'},
+ {pre:'"These emails must be answered today."',a:'passive voice',b:'reported speech',wrong:'b',exp:'No speaker. <em>must be answered</em>. Passive voice.'},
+ {pre:'"She told us the meeting would start late."',a:'passive voice',b:'reported speech',wrong:'a',exp:'<em>She told us…</em> = a speaker, and will → would. Reported speech.'},
+ {pre:'"The documents have been signed."',a:'passive voice',b:'reported speech',wrong:'b',exp:'No speaker. <em>have been signed</em>. Passive voice.'},
+ {pre:'"He asked me if I had the keys."',a:'passive voice',b:'reported speech',wrong:'a',exp:'<em>He asked…</em> = a reported question. (<em>had</em> is just the verb have here.)'}
+];
+function buildR4(){ xoBuild('r4','r4-left','r4-right',r4Items,'r4-result',3); xoAddEx('r4','"The tickets were booked."','passive voice','reported speech',''); }
+function checkR4(){ xoCheck('r4'); xoShowExp('r4'); }
+function resetR4(){ buildR4(); }
+/* ═══ B2 — Report passive sentences ═══ */
+var b2Items=[
+ {tag:'He said…',src:'"The package has been delivered."',label:'Reported:',ans:['he said the package had been delivered'],model:'He said the package had been delivered.',exp:'has been → had been. The participle stays.'},
+ {tag:'She said…',src:'"The room will be cleaned tomorrow."',label:'Reported:',ans:['she said the room would be cleaned the next day','she said the room would be cleaned the following day'],model:'She said the room would be cleaned the next day.',exp:'will be → would be, and tomorrow → the next day.'},
+ {tag:'He told me…',src:'"My laptop was repaired."',label:'Reported:',ans:['he told me his laptop had been repaired'],model:'He told me his laptop had been repaired.',exp:'was repaired → had been repaired, and my → his.'},
+ {tag:'She said…',src:'"The contracts are being printed."',label:'Reported:',ans:['she said the contracts were being printed'],model:'She said the contracts were being printed.',exp:'are being → were being.'}
+];
+function buildB2(){ ptBuild('b2','b2-rows',b2Items,'b2-result','<div class="pt-src"><span class="pt-tag">She said…</span>"The invoice was paid."</div><div class="pt-ans"><span class="pt-label">Reported:</span><strong>She said the invoice had been paid.</strong></div>'); }
+function checkB2(){ ptCheck('b2'); }
+function resetB2(){ buildB2(); }
+
+/* correct answers must NOT follow a predictable a/b pattern: fixed irregular positions per exercise */
+function pvOrder(items,pos){
+  items.forEach(function(it,i){
+    var corr=it.wrong==='a'?'b':'a';
+    if(corr!==pos[i]){ var t=it.a; it.a=it.b; it.b=t; it.wrong=corr; }
+  });
+}
+function pvPerm(arr,idx){ return idx.map(function(i){ return arr[i]; }); }
+/* classification exercises keep fixed button sides (left = first label); the ORDER of the items is irregular so the correct label never alternates */
+x1Items=pvPerm(x1Items,[0,2,1,4,3,5]);
+x4Items=pvPerm(x4Items,[1,0,2,3,5,4]);
+r4Items=pvPerm(r4Items,[0,1,2,4,3,5]);
+pvOrder(r2Items,['b','a','b','b','a','a']);
+/* ═══ INIT ═══ */
+window.addEventListener('DOMContentLoaded',function(){
+  slides=slideIds.map(function(id){ return document.getElementById(id); });
+  dotsEl=document.getElementById('dots');
+  slides.forEach(function(s,i){
+    var d=document.createElement('div'); d.className='dot';
+    d.title=slideLabels[i]||'';
+    d.onclick=function(){ goTo(i); };
+    dotsEl.appendChild(d);
+  });
+  buildX1(); buildX2(); buildX3(); buildX4(); buildR2(); buildR3(); buildR4(); buildB2();
+  goTo(0);
+});
+</script>
+</body>
+</html>

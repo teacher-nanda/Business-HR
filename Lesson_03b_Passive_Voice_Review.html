@@ -185,6 +185,25 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .pt-label{font-weight:800;color:#1A7A4A;font-size:1.05rem;}
 .pt-in{flex:1;min-width:180px;border:none;border-bottom:2.5px solid #8BB0D0;background:transparent;font-size:1.05rem;font-family:inherit;font-weight:700;color:#1C2B3A;padding:4px 6px;outline:none;}
 .pt-in:focus{border-bottom-color:#1A5080;}
+.sp-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px;}
+.sp-tab{background:#fff;border:2px solid #C8A0D8;color:#5A2A8C;border-radius:20px;padding:7px 16px;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.sp-tab.on{background:#5A2A8C;border-color:#5A2A8C;color:#fff;}
+.sp-card{background:#F0EEF8;border:2px solid #C8A0D8;border-radius:14px;padding:18px 20px;}
+.sp-sit{font-size:1.1rem;color:#3A2A5A;line-height:1.65;font-style:italic;margin-bottom:10px;}
+.sp-task{font-size:1.1rem;font-weight:700;color:#1C2B3A;line-height:1.65;margin-bottom:10px;}
+.sp-chips{margin-bottom:12px;}
+.sp-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+.sp-btn{background:none;border:2px solid #5A2A8C;color:#5A2A8C;border-radius:10px;padding:7px 16px;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.sp-btn:hover{background:#5A2A8C;color:#fff;}
+.sp-box{display:none;margin-top:12px;background:#fff;border:2px solid #5A2A8C;border-radius:10px;padding:12px 15px;font-size:1.06rem;line-height:1.65;color:#1C2B3A;}
+.sp-box.show{display:block;}
+.sp-box.tw{border-color:#C45020;background:#FFF7ED;font-weight:700;}
+#hwp{background:linear-gradient(145deg,#3a1706 0%,#7c2d12 60%,#ea580c 100%);}
+.hwp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+@media(max-width:760px){.hwp-grid{grid-template-columns:1fr;}}
+.hwp-card{background:rgba(255,255,255,.95);border-radius:14px;padding:14px 18px;color:#1C2B3A;font-size:1.06rem;line-height:1.65;border-left:5px solid #ea580c;}
+.hwp-card h3{margin:0 0 6px;font-size:1.1rem;color:#9A3412;}
+.hwp-tip{background:rgba(255,255,255,.95);border-radius:14px;padding:12px 18px;color:#1C2B3A;font-size:1.06rem;line-height:1.7;border-left:5px solid #1A7A4A;margin-bottom:6px;}
 </style>
 </head>
 <body>
@@ -278,6 +297,18 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   </div>
 </div>
 
+<div class="slide" id="sp1">
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🎤 Speaking · Breaking News at the Office</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>Breaking News at the Office</h2>
+      <p class="inst-light">Pick a situation and say it out loud in your own words.<br>Use the passive, and decide: do you name the doer or not? Click Twist for a follow-up question.</p>
+      <div class="sp-tabs" id="sp1-tabs"></div>
+      <div class="sp-card" id="sp1-card"></div>
+    </div>
+  </div>
+</div>
+
 <div class="slide" id="e2">
   <div class="banner" style="background:#1A5C2A;color:#fff;">📘 Passive Voice · Explanation</div>
   <div class="slide-main">
@@ -315,6 +346,40 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
         <button class="btn-reset" onclick="resetX2()">↺ Reset</button>
       </div>
       <div id="x2-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="hwp">
+  <div class="banner" style="background:rgba(0,0,0,.35);color:#fff;">🏠 Home Practice · with AI</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
+      <h2 style="color:#fff;">Time Travel: Present Perfect vs. Past Perfect in the Passive</h2>
+      <p class="inst-light" style="color:rgba(255,255,255,.88);">Do this at home after class. First read the reminder, then practice with an AI tutor until the tenses feel easy.</p>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#FDBA74;margin:14px 0 6px;">Remember</div>
+      <div class="hwp-grid">
+        <div class="hwp-card">
+          <h3>Present perfect: <span class="ax">has</span> / <span class="ax">have</span> + <span class="pp">past participle</span></h3>
+          For things that just happened, or have a result now, with no specific time.<br>
+          Someone <span class="ax">has</span> <span class="pp">moved</span> the interview.<br>
+          Passive: The interview <span class="ax">has</span> <span class="be">been</span> <span class="pp">moved</span>.
+        </div>
+        <div class="hwp-card" style="border-left-color:#7B3FB0;">
+          <h3>Past perfect: <span class="ax">had</span> + <span class="pp">past participle</span></h3>
+          For something that happened BEFORE another past event.<br>
+          The tickets <span class="ax">had</span> <span class="be">been</span> <span class="pp">sold</span> before we arrived.<br>
+          Active: They <span class="ax">had</span> <span class="pp">sold</span> the tickets before we arrived.
+        </div>
+      </div>
+      <div class="hwp-tip"><strong>Tense detective tip:</strong> in the passive, the verb to be shows the tense. <em>is / are</em> = present simple. <em>was / were</em> = past simple. <em>has / have been</em> = present perfect. <em>had been</em> = past perfect. Find it first, then the rest is easy.</div>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#FDBA74;margin:16px 0 6px;">What to do</div>
+      <ul class="hw-check" style="background:transparent;"><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">① Paste the prompt into your AI chat (ChatGPT or similar).</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">② Answer each exercise out loud first, then type your answer. The AI waits for you.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">③ When you get one wrong, ask the AI: "Why?" and write the rule in your own words.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F5893A;color:#fff;">④ At the end, write 3 sentences about YOUR life or work: one present perfect passive, one past perfect passive, one past simple passive.</li></ul>
+      <div class="ai-box">
+        <div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+        <div class="ai-prompt" id="hwp-prompt">You are my friendly English tutor. I am an intermediate student and I have difficulty with the <strong>present perfect</strong>, the <strong>past perfect</strong> and the <strong>passive voice</strong>. Give me 8 exercises, ONE at a time, and wait for my answer before the next one. Mix these types: (1) a passive sentence, and I tell you the tense by looking at the verb to be; (2) an active sentence, and I rewrite it in the passive in the same tense; (3) two past events, and I choose present perfect or past perfect (<strong>has been / had been</strong>); (4) a sentence with a gap for <strong>was / were / has been / have been / had been / will be</strong>. Use business and travel situations. Start easy and get harder. Do NOT give me the answer before I try. After each answer, tell me if I am right, explain in simple English, and give me one short tip. At the end, give me my score, my 3 most common mistakes, and 3 sentences to review tomorrow.</div>
+        <button class="ai-copy-btn" id="hwp-btn" onclick="copyAiPrompt('hwp-prompt','hwp-btn')">📋 Copy Prompt</button>
+      </div>
+      <p style="color:rgba(255,255,255,.85);font-size:1.05rem;line-height:1.65;margin-top:14px;">🎯 Goal: recognize the tense from the verb to be, and choose between has been and had been without stopping to think.</p>
     </div>
   </div>
 </div>
@@ -394,6 +459,18 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   </div>
 </div>
 
+<div class="slide" id="sp2">
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🎤 Speaking · How Does It Work Here?</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>How Does It Work Here?</h2>
+      <p class="inst-light">Pick a process and explain it step by step, out loud.<br>Use the passive: the process matters more than the people.</p>
+      <div class="sp-tabs" id="sp2-tabs"></div>
+      <div class="sp-card" id="sp2-card"></div>
+    </div>
+  </div>
+</div>
+
 <div class="slide" id="r1">
   <div class="banner" style="background:#1A5080;color:#fff;">🔁 Reported Speech · Review</div>
   <div class="slide-main">
@@ -459,6 +536,18 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
         <button class="btn-reset" onclick="resetR3()">↺ Reset</button>
       </div>
       <div id="r3-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="sp3">
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🎤 Speaking · The Message Relay</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>The Message Relay</h2>
+      <p class="inst-light">Pick a message and report it out loud to your manager or colleague.<br>Remember: the tense steps back, and the time words change.</p>
+      <div class="sp-tabs" id="sp3-tabs"></div>
+      <div class="sp-card" id="sp3-card"></div>
     </div>
   </div>
 </div>
@@ -562,20 +651,32 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   </div>
 </div>
 
+<div class="slide" id="sp4">
+  <div class="banner" style="background:#5A2A8C;color:#fff;">🎤 Speaking · You Missed the Meeting!</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>You Missed the Meeting!</h2>
+      <p class="inst-light">Pick a meeting and report what was announced.<br>Passive voice inside reported speech: step the verb to be back one tense.</p>
+      <div class="sp-tabs" id="sp4-tabs"></div>
+      <div class="sp-card" id="sp4-card"></div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <!-- ══ BOTTOM NAV BAR ══ -->
 <div id="nav">
   <button id="prevBtn" onclick="goTo(current-1)" disabled>← Prev</button>
   <div id="dots"></div>
-  <span id="counter">1 / 15</span>
+  <span id="counter">1 / 20</span>
   <button id="nextBtn" onclick="goTo(current+1)">Next →</button>
 </div>
 
 <script>
 /* ═══ SLIDE IDS & LABELS ═══ */
-var slideIds = ["s1", "e1", "x1", "e2", "x2", "e3", "x4", "x3", "r1", "r2", "r3", "c1", "r4", "b1", "b2"];
-var slideLabels = ["Cover", "Active vs. Passive Voice", "Active or Passive?", "How to Form the Passive", "Complete with the Passive", "When Can We Use the Passive?", "Can It Be Passive?", "Rewrite in the Passive", "Reported Speech: Quick Recap", "Choose the Correct Reported Form", "Report What Was Said", "How to Tell Them Apart", "Passive Voice or Reported Speech?", "Passive Voice Inside Reported Speech", "Report These Passive Sentences"];
+var slideIds = ["s1", "e1", "x1", "sp1", "e2", "x2", "hwp", "e3", "x4", "x3", "sp2", "r1", "r2", "r3", "sp3", "c1", "r4", "b1", "b2", "sp4"];
+var slideLabels = ["Cover", "Active vs. Passive Voice", "Active or Passive?", "Speaking: Breaking News at the Office", "How to Form the Passive", "Complete with the Passive", "Home Practice: Present Perfect vs. Past Perfect (with AI)", "When Can We Use the Passive?", "Can It Be Passive?", "Rewrite in the Passive", "Speaking: How Does It Work Here?", "Reported Speech: Quick Recap", "Choose the Correct Reported Form", "Report What Was Said", "Speaking: The Message Relay", "How to Tell Them Apart", "Passive Voice or Reported Speech?", "Passive Voice Inside Reported Speech", "Report These Passive Sentences", "Speaking: You Missed the Meeting!"];
 
 /* ═══ NAVIGATION ═══ */
 var slides, dotsEl, current = 0;
@@ -1048,6 +1149,79 @@ x1Items=pvPerm(x1Items,[0,2,1,4,3,5]);
 x4Items=pvPerm(x4Items,[1,0,2,3,5,4]);
 r4Items=pvPerm(r4Items,[0,1,2,4,3,5]);
 pvOrder(r2Items,['b','a','b','b','a','a']);
+function copyAiPrompt(pid, bid){
+  var pe = document.getElementById(pid || 'ai-prompt-text'); var text = pe.innerText || pe.textContent;
+  var btn = document.getElementById(bid || 'ai-copy-btn');
+  function showCopied(){
+    btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent='📋 Copy Prompt'; btn.classList.remove('copied'); }, 1800);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(showCopied).catch(function(){ fallbackCopyAi(text, showCopied); });
+  } else {
+    fallbackCopyAi(text, showCopied);
+  }
+}
+function fallbackCopyAi(text, cb){
+  var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+  if (cb) cb();
+}
+
+
+/* ═══ SPEAKING SLIDES (tabs → situation → task → language → twist / sample answer) ═══ */
+var spData={
+ sp1:[
+  {tab:'The Missing Laptop',sit:'A colleague\'s laptop disappeared from the meeting room this morning. Nobody knows who took it.',task:'Tell your manager what happened. Do not name the doer.',chips:['was taken','has been reported','will be checked'],twist:'Your manager asks: "Who has been informed so far?" Answer using the passive.',sample:'My colleague\'s laptop was taken from the meeting room this morning. It has been reported to security, and the cameras will be checked. Nobody has been told yet except you and the IT team.'},
+  {tab:'The Moved Interview',sit:'Tomorrow\'s interview with a candidate has changed. The room was changed too, and the candidate does not know yet.',task:'Call the candidate and explain what has changed.',chips:['has been moved','was booked','will be sent'],twist:'The candidate asks: "Why was it moved?" Give a polite reason without naming a person.',sample:'The interview has been moved to Thursday at ten. A different room was booked on the second floor, and a new invitation will be sent to you today. I\'m sorry for the change.'},
+  {tab:'The New Rule',sit:'Starting Monday, there is a new security rule at your office.',task:'Explain the rule to a new colleague. Use at least three passive sentences.',chips:['must be registered','are given','is checked'],twist:'Your colleague asks: "What happens if I forget my badge?"',sample:'From Monday, all visitors must be registered at reception. A badge is given to every visitor, and the bags are checked at the door. If you forget your badge, a temporary one can be printed for you.'},
+  {tab:'The Wrong Numbers',sit:'You just found a mistake in the monthly sales report. Wrong numbers were entered in the last table.',task:'Explain the problem to your team and what will happen next.',chips:['were entered','should be corrected','will be sent again'],twist:'Your director asks: "Has the client seen the report?" Answer in the passive.',sample:'Some wrong numbers were entered in the last table of the sales report. They should be corrected today, and the new version will be sent again tomorrow. The report has not been shared with the client yet.'}
+ ],
+ sp2:[
+  {tab:'Hiring Someone',sit:'You are explaining to a new colleague how a person is hired in your company.',task:'Describe the process step by step. Use the passive and sequence words.',chips:['first… then… finally','is advertised','are reviewed','is sent'],twist:'Your colleague asks: "How long does it take?" Answer in one sentence.',sample:'First, the job is advertised online. Then the resumes are reviewed by HR, and the best candidates are invited for an interview. Finally, the new employee is chosen and a contract is sent.'},
+  {tab:'Expense Claims',sit:'A new colleague wants to know how to get money back after a business trip.',task:'Explain how an expense claim is handled in your company.',chips:['must be filled in','are attached','is approved','is paid'],twist:'Your colleague asks: "What if a receipt is lost?"',sample:'First, a form must be filled in online. Then all the receipts are attached, and the claim is approved by your manager. Finally, the money is paid into your account at the end of the month.'},
+  {tab:'A Customer Complaint',sit:'A client is unhappy with a delayed order. A trainee asks how complaints are normally solved.',task:'Explain the steps your company follows.',chips:['is recorded','is passed to','is solved','is informed'],twist:'The trainee asks: "Who decides about a refund?"',sample:'First, the complaint is recorded in the system. Then it is passed to the right team, and the problem is solved as quickly as possible. Finally, the client is informed and a refund is offered if necessary.'},
+  {tab:'Your Own Process',sit:'Choose any process at your own job: a delivery, a report, a meeting, an approval, a product.',task:'Explain it in 4 sentences. Your partner guesses which process it is.',chips:['is made','are checked','is sent','is delivered'],twist:'Your partner asks: "Which step takes the longest?"',sample:'First, the order is received and entered in the system. Then the products are packed and checked. Finally, the package is sent, and the customer is informed by email.'}
+ ],
+ sp3:[
+  {tab:'The Client Voicemail',sit:'A client left this voicemail: "I can\'t join the call today. I will send the figures tomorrow."',task:'Your manager asks what the client said. Report it out loud.',chips:['She said (that)…','couldn\'t','would','the next day'],twist:'Your manager asks: "Did she say why?" Answer: she did not say why, or invent a reason.',sample:'She said she couldn\'t join the call that day, and that she would send the figures the next day.'},
+  {tab:'The Boss\'s Voice Note',sit:'Your boss sent this voice note: "I have reviewed the budget. I am worried about the travel costs."',task:'A colleague asks what the boss said. Report it.',chips:['He told me (that)…','had reviewed','was worried'],twist:'Your colleague asks: "What did he want us to do?" Invent an answer in reported speech.',sample:'He told me he had reviewed the budget and that he was worried about the travel costs.'},
+  {tab:'The Candidate\'s Email',sit:'A candidate wrote: "Where is your office? Can I bring my portfolio?"',task:'Tell your team what the candidate asked.',chips:['She asked where…','She asked if…','no inversion'],twist:'Your team asks: "What did you answer?" Report your own answer.',sample:'She asked where our office was, and she asked if she could bring her portfolio.'},
+  {tab:'Your Own Message',sit:'Think of a real message you got this week, from a client, a boss, a friend, or a colleague.',task:'Report what this person said to your partner. Use at least two different tenses.',chips:['said','told me','asked','the day before'],twist:'Your partner asks: "Why did you tell me this?"',sample:'My manager told me she would be late for the meeting. She said she had sent the agenda the day before, and she asked me to start without her.'}
+ ],
+ sp4:[
+  {tab:'Meeting A',sit:'You missed this morning\'s team meeting. Your colleague\'s notes say: "The deadline has been moved to Friday." "New laptops will be delivered next week." "The office is being repainted."',task:'Your boss asks what was announced. Report all three points out loud.',chips:['She said (that)…','had been moved','would be delivered','was being repainted'],twist:'Your boss asks: "Who is going to deliver the laptops?" You don\'t know. Say so.',sample:'She said the deadline had been moved to Friday, that new laptops would be delivered the following week, and that the office was being repainted.'},
+  {tab:'Meeting B',sit:'You missed the HR update. The notes say: "The vacation policy has been updated." "Two new managers will be hired." "All forms must be signed by Monday."',task:'A colleague asks what you missed. Tell them.',chips:['He told us (that)…','had been updated','would be hired','had to be signed'],twist:'Your colleague asks: "Do I have to sign too?" Answer.',sample:'He told us the vacation policy had been updated, that two new managers would be hired, and that all the forms had to be signed by Monday.'},
+  {tab:'Meeting C',sit:'You missed a call with a client. The notes say: "The order was shipped yesterday." "The invoice will be sent tomorrow." "The delay is being investigated."',task:'Update your director on what the client said.',chips:['The client said (that)…','had been shipped','would be sent','was being investigated'],twist:'Your director asks: "Did the client sound angry?" Answer.',sample:'The client said the order had been shipped the day before, that the invoice would be sent the next day, and that the delay was being investigated.'},
+  {tab:'Your Own News',sit:'Think of three real announcements from your company or school this month, with a passive verb in each one.',task:'Report them to your partner as if they missed the news.',chips:['They announced (that)…','had been…','would be…'],twist:'Your partner asks: "Which one is the most important for me?"',sample:'They announced that the new software had been installed, that all staff would be trained next week, and that the old system was being shut down.'}
+ ]
+};
+var spCur={sp1:0,sp2:0,sp3:0,sp4:0};
+function spBuild(id){
+  var tabs=document.getElementById(id+'-tabs'); if(!tabs) return;
+  tabs.innerHTML='';
+  spData[id].forEach(function(d,i){
+    var b=document.createElement('button'); b.className='sp-tab'+(i===spCur[id]?' on':''); b.textContent=d.tab;
+    b.onclick=function(){ spCur[id]=i; spBuild(id); }; tabs.appendChild(b);
+  });
+  var d=spData[id][spCur[id]];
+  var chips=d.chips.map(function(x){ return '<span class="lang-pill">💬 '+x+'</span>'; }).join('');
+  document.getElementById(id+'-card').innerHTML=
+    '<div class="sp-sit">📍 '+d.sit+'</div>'
+    +'<div class="sp-task">🎤 '+d.task+'</div>'
+    +'<div class="sp-chips">'+chips+'</div>'
+    +'<div class="sp-btns"><button class="sp-btn" onclick="spShow(\''+id+'\',\'tw\',this,\'🌀 Twist\')">🌀 Twist</button>'
+    +'<button class="sp-btn" onclick="spShow(\''+id+'\',\'sa\',this,\'👁 Sample answer\')">👁 Sample answer</button></div>'
+    +'<div class="sp-box tw" id="'+id+'-tw">'+d.twist+'</div>'
+    +'<div class="sp-box" id="'+id+'-sa">'+d.sample+'</div>';
+}
+function spShow(id,k,btn,label){
+  var on=document.getElementById(id+'-'+k).classList.toggle('show');
+  btn.textContent=on?'🙈 Hide':label;
+}
+
 /* ═══ INIT ═══ */
 window.addEventListener('DOMContentLoaded',function(){
   slides=slideIds.map(function(id){ return document.getElementById(id); });
@@ -1058,7 +1232,7 @@ window.addEventListener('DOMContentLoaded',function(){
     d.onclick=function(){ goTo(i); };
     dotsEl.appendChild(d);
   });
-  buildX1(); buildX2(); buildX3(); buildX4(); buildR2(); buildR3(); buildR4(); buildB2();
+  spBuild("sp1"); spBuild("sp2"); spBuild("sp3"); spBuild("sp4"); buildX1(); buildX2(); buildX3(); buildX4(); buildR2(); buildR3(); buildR4(); buildB2();
   goTo(0);
 });
 </script>

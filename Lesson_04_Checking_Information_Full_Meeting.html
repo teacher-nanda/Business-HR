@@ -352,6 +352,24 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   </div>
 </div>
 
+<div class="slide" id="s-tutor">
+  <div class="banner" style="background:#4338ca;color:#fff;">🤖 Part 4b · AI Tutor Drill</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);">
+      <h2>AI Tutor Drill: Question Tags &amp; Checking Phrases</h2>
+      <p class="inst-light">Check and clarify without stopping to think. Do this at home, or in class with your teacher.</p>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#4338ca;margin:14px 0 6px;">What to do</div>
+      <ul class="hw-check"><li>1. Paste the prompt into your AI chat (ChatGPT or similar).</li><li>2. Answer each exercise out loud first, then type your answer. The AI waits for you.</li><li>3. When you get one wrong, ask the AI: "Why?" and write the rule in your own words.</li></ul>
+      <div class="ai-box">
+        <div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+        <div class="ai-prompt" id="tutor-prompt">You are my friendly English tutor. I am an intermediate student learning English for work, and today I am practicing <strong>checking and clarifying information</strong>. Give me 8 short exercises, ONE at a time, and wait for my answer before the next one. Mix these types: (1) a statement, and I add the correct <strong>question tag</strong> (<strong>That is on track, isn't it?</strong>); (2) an unclear sentence from a meeting, and I check it politely (<strong>Just to clarify…, Could you be more specific?, I didn't quite catch that</strong>); (3) a sentence, and I make an <strong>echo question</strong>; (4) two phrases, and I choose the more polite one. Use business situations. Start easy and get harder. Do NOT give me the answer before I try. After each answer, tell me if I am right, explain in simple English, and give me one short tip. At the end, give me my score out of 8, my 3 most common mistakes, and 3 sentences to review tomorrow.</div>
+        <button class="ai-copy-btn" id="tutor-btn" onclick="copyAiPrompt('tutor-prompt','tutor-btn')">📋 Copy Prompt</button>
+      </div>
+      <p style="font-size:1.05rem;line-height:1.65;margin-top:14px;">🎯 Goal: answer without stopping to think. Write down the 3 mistakes the AI finds, and bring them to your next class.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════════ s7 · ERROR CORRECTION PRACTICE ══════════════════════════ -->
 <div class="slide" id="s7">
   <div class="banner" style="background:#1A5080;color:#fff;">✍️ Practice</div>
@@ -481,29 +499,14 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 <div id="nav">
   <button id="prevBtn" onclick="goTo(current-1)" disabled>← Prev</button>
   <div id="dots"></div>
-  <span id="counter">1 / 11</span>
+  <span id="counter">1 / 15</span>
   <button id="nextBtn" onclick="goTo(current+1)">Next →</button>
 </div>
 
 <script>
 /* ═══ SLIDE IDS & LABELS ═══ */
-var slideIds = ["s1","s1b","s1c","s2","s3","s4","s5","s6","s7","s8","s9","s-hw","s-hw2","s-hw3"];
-var slideLabels = [
-  "Cover",
-  "Warm-Up: Rate It",
-  "Quick Review — Before We Continue",
-  "Checking & Clarifying Language",
-  "Vocabulary Practice",
-  "Question Tags",
-  "Question Tags Practice",
-  "Polite Checking Phrases",
-  "Error Correction",
-  "Guided Speaking: Full Meeting Simulation",
-  "Wrap-Up: Quick-Fire",
-  "Homework 1: Write the Question Tag",
-  "Homework 2: Write the Response",
-  "Homework 3: Practice with AI"
-];
+var slideIds = ["s1", "s1b", "s1c", "s2", "s3", "s4", "s5", "s6", "s-tutor", "s7", "s8", "s9", "s-hw", "s-hw2", "s-hw3"];
+var slideLabels = ["Cover", "Warm-Up: Rate It", "Quick Review — Before We Continue", "Checking & Clarifying Language", "Vocabulary Practice", "Question Tags", "Question Tags Practice", "Polite Checking Phrases", "Part 4b · AI Tutor Drill", "Error Correction", "Guided Speaking: Full Meeting Simulation", "Wrap-Up: Quick-Fire", "Homework 1: Write the Question Tag", "Homework 2: Write the Response", "Homework 3: Practice with AI"];
 
 /* ═══ NAVIGATION ═══ */
 var slides, dotsEl, current = 0;
@@ -550,6 +553,21 @@ var NOTES_KEY='hrnotes:'+(location.pathname.split('/').pop()||'lesson');
 var notesData={};
 try{notesData=JSON.parse(localStorage.getItem(NOTES_KEY))||{};}catch(e){notesData={};}
 function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesData));}catch(e){}}
+
+/* one-time notes migration: AI Tutor slide inserted at index 8, so notes for later slides shift +1 */
+(function(){
+  try {
+    var FLAG = NOTES_KEY + ':aitutor';
+    if (!localStorage.getItem(FLAG)) {
+      var out = {}, R = 8;
+      Object.keys(notesData).forEach(function(k){ var n = +k; out[(!isNaN(n) && n >= R) ? n + 1 : k] = notesData[k]; });
+      Object.keys(notesData).forEach(function(k){ delete notesData[k]; });
+      Object.assign(notesData, out);
+      persistNotes();
+      localStorage.setItem(FLAG, '1');
+    }
+  } catch (e) {}
+})();
 function saveCurrentNotes(){var ta=document.getElementById('notesTA');if(ta){notesData[current]=ta.innerHTML;persistNotes();}}
 function loadNotes(n){var ta=document.getElementById('notesTA');if(ta)ta.innerHTML=notesData[n]||'';}
 (function(){var t=document.getElementById('notesTA');if(t){t.addEventListener('input',function(){saveCurrentNotes();});t.addEventListener('paste',function(e){e.preventDefault();var text=(e.clipboardData||window.clipboardData).getData('text/plain');document.execCommand('insertText',false,text);});}})();

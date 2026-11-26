@@ -319,6 +319,15 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 .ai-copy-btn{background:#15803d;color:#fff;border:none;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:15px;font-weight:700;margin-top:12px;font-family:inherit;}
 .ai-copy-btn:hover{background:#166534;} .ai-copy-btn.copied{background:#0f766e;}
 .hw-ai-tip{font-size:14px;color:#555;line-height:1.6;margin-top:14px;}
+.c-ai .card-head{background:#e0e7ff;} .c-ai .card-icon{background:#4338ca;color:white;} .c-ai .card-title{color:#4338ca;} .c-ai .card-badge{background:#4338ca;}
+.hw-ai-goal{font-size:16px;font-weight:700;color:#1C2B3A;line-height:1.6;margin:0 0 10px;}
+.hw-steps{margin:0 0 16px 22px;padding:0;font-size:15px;line-height:1.8;color:#1C2B3A;}
+.ai-box{background:#F0FDF4;border:2px solid #86EFAC;border-radius:14px;padding:18px 20px;margin-top:8px;}
+.ai-box-label{font-size:14px;font-weight:800;color:#15803d;margin-bottom:8px;}
+.ai-prompt{background:#fff;border:1px dashed #4ADE80;border-radius:10px;padding:14px 16px;font-size:15px;color:#1C2B3A;line-height:1.7;font-style:italic;}
+.ai-copy-btn{background:#15803d;color:#fff;border:none;padding:9px 22px;border-radius:20px;cursor:pointer;font-size:15px;font-weight:700;margin-top:12px;font-family:inherit;}
+.ai-copy-btn:hover{background:#166534;} .ai-copy-btn.copied{background:#0f766e;}
+.hw-ai-tip{font-size:14px;color:#555;line-height:1.6;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -338,11 +347,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
       <div class="sp-dot" onclick="goToSlide(1)" title="Warm-up"></div>
       <div class="sp-dot" onclick="goToSlide(2)" title="Reading"></div>
       <div class="sp-dot" onclick="goToSlide(3)" title="Vocabulary"></div>
-      <div class="sp-dot" onclick="goToSlide(4)" title="Grammar"></div>
-      <div class="sp-dot" onclick="goToSlide(5)" title="Speaking"></div>
-      <div class="sp-dot" onclick="goToSlide(6)" title="Wrap-up"></div>
-      <div class="sp-dot" onclick="goToSlide(7)" title="Extra"></div>
-      <div class="sp-dot" onclick="goToSlide(8)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(9)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(10)" title="Homework"></div>
+      <div class="sp-dot" onclick="goToSlide(4)" title="Grammar"></div><div class="sp-dot" onclick="goToSlide(5)" title="AI Tutor"></div>
+      <div class="sp-dot" onclick="goToSlide(6)" title="Speaking"></div>
+      <div class="sp-dot" onclick="goToSlide(7)" title="Wrap-up"></div>
+      <div class="sp-dot" onclick="goToSlide(8)" title="Extra"></div>
+      <div class="sp-dot" onclick="goToSlide(9)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(10)" title="Homework"></div><div class="sp-dot" onclick="goToSlide(11)" title="Homework"></div>
     </div>
   </div>
   <button class="slide-nav-btn" id="slide-next" onclick="slideNav(1)">Next →</button>
@@ -679,8 +688,35 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   </div>
 </div>
 
-<!-- ══ SLIDE 5 · SPEAKING ══ -->
 <div class="slide" id="slide-5">
+  <div class="main">
+    <div class="card c-ai">
+      <div class="card-head">
+        <div class="card-icon">🤖</div>
+        <div>
+          <div class="card-label">Part 4b · AI Tutor Drill</div>
+          <div class="card-title">AI Tutor Drill: Relative Clauses</div>
+        </div>
+        <span class="card-badge">AI</span>
+      </div>
+      <div class="card-body">
+<p class="hw-ai-goal">Join ideas with who, which, that and where. Do this at home, or in class with your teacher.</p>
+<ol class="hw-steps"><li>Paste the prompt into your AI chat (ChatGPT or similar).</li><li>Answer each exercise out loud first, then type your answer. The AI waits for you.</li><li>When you get one wrong, ask the AI: "Why?" and write the rule in your own words.</li></ol>
+<div class="ai-box"><div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+<div class="ai-prompt" id="tutor-prompt">You are my friendly English tutor. I am an intermediate student learning English for work, and today I am practicing <strong>relative clauses</strong> for job interviews. Give me 8 short exercises, ONE at a time, and wait for my answer before the next one. Mix these types: (1) a gap to complete with <strong>who / which / that / where</strong>; (2) two short sentences, and I join them with a relative clause; (3) a sentence, and I decide if it needs commas (defining or non-defining); (4) a sentence with a mistake, and I correct it. Use interview words: <strong>stand out, elaborate on, relevant experience, a track record</strong>. Use business situations. Start easy and get harder. Do NOT give me the answer before I try. After each answer, tell me if I am right, explain in simple English, and give me one short tip. At the end, give me my score out of 8, my 3 most common mistakes, and 3 sentences to review tomorrow.</div>
+<button class="ai-copy-btn" id="tutor-btn" onclick="copyAiPrompt('tutor-prompt','tutor-btn')">📋 Copy Prompt</button></div>
+<p class="hw-ai-tip">Goal: answer without stopping to think. Write down the 3 mistakes the AI finds, and bring them to your next class.</p>
+</div>
+    </div>
+    <div class="slide-bottom-nav">
+      <button class="btn btn-outline" onclick="slideNav(-1);window.scrollTo({top:0,behavior:'instant'})">← Prev</button>
+      <button class="btn btn-primary" onclick="slideNav(1);window.scrollTo({top:0,behavior:'instant'})">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 5 · SPEAKING ══ -->
+<div class="slide" id="slide-6">
   <div class="main">
     <div class="card c-amber">
       <div class="card-head">
@@ -767,7 +803,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <!-- ══ SLIDE 6 · WRAP-UP ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-7">
   <div class="main">
     <div class="card c-navy">
       <div class="card-head">
@@ -840,7 +876,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <!-- ══ SLIDE 7 · EXTRA ══ -->
-<div class="slide" id="slide-7">
+<div class="slide" id="slide-8">
   <div class="main">
     <div class="card c-green">
       <div class="card-head">
@@ -885,7 +921,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <!-- ══ SLIDE 8 · HOMEWORK ══ -->
-<div class="slide hw-s1" id="slide-8">
+<div class="slide hw-s1" id="slide-9">
   <div class="main">
     <div class="card c-orange">
       <div class="card-head">
@@ -946,7 +982,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   </div>
 </div>
 
-<div class="slide hw-s2" id="slide-9">
+<div class="slide hw-s2" id="slide-10">
   <div class="main">
     <div class="card c-hw2">
       <div class="card-head">
@@ -980,7 +1016,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
   </div>
 </div>
 
-<div class="slide hw-s3" id="slide-10">
+<div class="slide hw-s3" id="slide-11">
   <div class="main">
     <div class="card c-hw3">
       <div class="card-head">
@@ -1029,8 +1065,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f1f5f9;color:var(--text
 </div>
 
 <script>
-const SLIDE_LABELS = ["Cover","Part 1 · Warm-up","Part 2 · Reading","Part 3 · Vocabulary","Part 4 · Grammar","Part 5 · Speaking","Wrap-up","Extra Activity","Homework 1 · Relative Clauses: Fill the Gaps", "Homework 2 · Write a STAR Answer", "Homework 3 · Practice with AI"];
-const TOTAL_SLIDES = 11;
+const SLIDE_LABELS = ["Cover", "Part 1 · Warm-up", "Part 2 · Reading", "Part 3 · Vocabulary", "Part 4 · Grammar", "Part 4b · AI Tutor Drill", "Part 5 · Speaking", "Wrap-up", "Extra Activity", "Homework 1 · Relative Clauses: Fill the Gaps", "Homework 2 · Write a STAR Answer", "Homework 3 · Practice with AI"];
+const TOTAL_SLIDES = 12;
 function copyAiPrompt(pid, bid){
   var pe = document.getElementById(pid); var text = pe.innerText || pe.textContent;
   var btn = document.getElementById(bid);
@@ -1288,6 +1324,21 @@ const NOTES_KEY='efe2notes:'+(location.pathname.split('/').pop()||'lesson');
 let notesData={};
 try{notesData=JSON.parse(localStorage.getItem(NOTES_KEY))||{};}catch(e){notesData={};}
 function persistNotes(){try{localStorage.setItem(NOTES_KEY,JSON.stringify(notesData));}catch(e){}}
+
+/* one-time notes migration: AI Tutor slide inserted at index 5, so notes for later slides shift +1 */
+(function(){
+  try {
+    var FLAG = NOTES_KEY + ':aitutor';
+    if (!localStorage.getItem(FLAG)) {
+      var out = {}, R = 5;
+      Object.keys(notesData).forEach(function(k){ var n = +k; out[(!isNaN(n) && n >= R) ? n + 1 : k] = notesData[k]; });
+      Object.keys(notesData).forEach(function(k){ delete notesData[k]; });
+      Object.assign(notesData, out);
+      persistNotes();
+      localStorage.setItem(FLAG, '1');
+    }
+  } catch (e) {}
+})();
 
 /* ═══ draggable notes panel ═══ */
 window.addEventListener('DOMContentLoaded', function(){

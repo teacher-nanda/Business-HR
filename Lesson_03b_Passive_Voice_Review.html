@@ -204,6 +204,10 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .hwp-card{background:rgba(255,255,255,.95);border-radius:14px;padding:14px 18px;color:#1C2B3A;font-size:1.06rem;line-height:1.65;border-left:5px solid #ea580c;}
 .hwp-card h3{margin:0 0 6px;font-size:1.1rem;color:#9A3412;}
 .hwp-tip{background:rgba(255,255,255,.95);border-radius:14px;padding:12px 18px;color:#1C2B3A;font-size:1.06rem;line-height:1.7;border-left:5px solid #1A7A4A;margin-bottom:6px;}
+#hw1{background:linear-gradient(145deg,#0d1f38 0%,#1a3a5f 60%,#2563eb 100%);}
+#hw2{background:linear-gradient(145deg,#2a0f45 0%,#4c1d95 60%,#9333ea 100%);}
+#hw3{background:linear-gradient(145deg,#06302b 0%,#0f5f55 60%,#0d9488 100%);}
+.hw-result{display:inline-block;background:#fff;border-radius:10px;padding:6px 14px;margin-top:10px;}
 </style>
 </head>
 <body>
@@ -632,9 +636,6 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
         <button class="btn-reset" onclick="resetB2()">↺ Reset</button>
       </div>
       <div id="b2-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
-      <div style="margin-top:22px;">
-        <a href="Lesson_04_Checking_Information_Full_Meeting.html" style="color:#fff;background:#1A5080;padding:10px 22px;border-radius:22px;text-decoration:none;font-weight:700;font-size:1.05rem;">Lesson 4 →</a>
-      </div>
     </div>
   </div>
 </div>
@@ -651,20 +652,77 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   </div>
 </div>
 
+<div class="slide" id="hw1">
+  <div class="banner" style="background:rgba(37,99,235,.55);color:#fff;">📝 Homework 1 of 3 · Practice</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
+      <h2 style="color:#fff;"><span class="hw-num" style="color:#1A5080;">1</span>Perfect Tenses in the Passive</h2>
+      <p class="inst-light" style="color:rgba(255,255,255,.88);">Rewrite each active sentence in the passive. Keep the same tense: <em>has / have been</em> for the present perfect, <em>had been</em> for the past perfect.</p>
+      <div id="hw1-example"></div>
+      <div class="two-col">
+        <div class="col-section" id="hw1-left"></div>
+        <div class="col-section" id="hw1-right"></div>
+      </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="checkHW1()">✓ Check Answers</button>
+        <button class="btn-reset" onclick="resetHW1()">↺ Reset</button>
+      </div>
+      <div><span class="hw-result" id="hw1-result" style="font-weight:700;font-size:1.05rem;"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="hw2">
+  <div class="banner" style="background:rgba(147,51,234,.55);color:#fff;">📝 Homework 2 of 3 · Writing</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
+      <h2 style="color:#fff;"><span class="hw-num" style="color:#6B21A8;">2</span>Write a Short Incident Report</h2>
+      <p class="inst-light" style="color:rgba(255,255,255,.88);">Something went wrong at work, at school, or on a trip. Write 6 to 8 sentences about it. Focus on what happened, not on who did it.</p>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#F0ABFC;margin:14px 0 6px;">What to do</div>
+      <ul class="hw-check" style="background:transparent;"><li style="background:rgba(255,255,255,.08);border-left-color:#F0ABFC;color:#fff;">① Choose a problem: a lost package, a cancelled flight, a broken printer, a delayed project…</li><li style="background:rgba(255,255,255,.08);border-left-color:#F0ABFC;color:#fff;">② Include at least <strong>2 present perfect passives</strong> (<em>has been sent, have been lost</em>).</li><li style="background:rgba(255,255,255,.08);border-left-color:#F0ABFC;color:#fff;">③ Include at least <strong>2 past perfect passives</strong> (<em>had been cancelled</em>) to say what happened BEFORE another past event.</li><li style="background:rgba(255,255,255,.08);border-left-color:#F0ABFC;color:#fff;">④ Include at least <strong>2 past simple passives</strong> (<em>was told, were moved</em>).</li><li style="background:rgba(255,255,255,.08);border-left-color:#F0ABFC;color:#fff;">⑤ Underline the verb to be in each passive and check the tense. Bring your report to the next class.</li></ul>
+      <div style="background:rgba(255,255,255,.95);border-radius:14px;padding:14px 18px;color:#1C2B3A;font-size:1.06rem;line-height:1.7;border-left:5px solid #9333ea;margin-top:6px;">
+        <strong>Starter:</strong> Our team's equipment <span class="be">was</span> <span class="pp">ordered</span> two weeks ago, but when we arrived on Monday, we found that the delivery <span class="ax">had</span> <span class="be">been</span> <span class="pp">cancelled</span>. Since then, a new date <span class="ax">has</span> <span class="be">been</span> <span class="pp">requested</span>…
+      </div>
+      <p style="color:rgba(255,255,255,.85);font-size:1.05rem;line-height:1.65;margin-top:14px;">🎯 Goal: use the passive naturally in a real situation, with the right tense.</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="hw3">
+  <div class="banner" style="background:rgba(13,148,136,.55);color:#fff;">📝 Homework 3 of 3 · Practice with AI</div>
+  <div class="slide-main">
+    <div class="content" style="padding:16px 36px 20px;overflow-y:auto;max-height:calc(100vh - 118px);color:#fff;">
+      <h2 style="color:#fff;"><span class="hw-num" style="color:#0F766E;">3</span>The Meeting You Missed</h2>
+      <p class="inst-light" style="color:rgba(255,255,255,.88);">Report passive news in reported speech, with an AI that plays your manager.</p>
+      <div style="font-size:1.05rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#5EEAD4;margin:14px 0 6px;">What to do</div>
+      <ul class="hw-check" style="background:transparent;"><li style="background:rgba(255,255,255,.08);border-left-color:#5EEAD4;color:#fff;">① Paste the prompt into your AI chat.</li><li style="background:rgba(255,255,255,.08);border-left-color:#5EEAD4;color:#fff;">② The AI gives you 5 pieces of news, one at a time. Each one uses a passive.</li><li style="background:rgba(255,255,255,.08);border-left-color:#5EEAD4;color:#fff;">③ Report each one to your colleague. Start with <em>She said (that)…</em> and step the tense back.</li><li style="background:rgba(255,255,255,.08);border-left-color:#5EEAD4;color:#fff;">④ Let the AI correct you, then do the last round again without looking at the corrections.</li></ul>
+      <div class="ai-box">
+        <div class="ai-box-label">💻 Prompt for ChatGPT (or any AI chat)</div>
+        <div class="ai-prompt" id="hw3-prompt">You are my manager. I missed an important meeting, and you will give me 5 pieces of news from it, ONE at a time. Each piece of news must use the passive voice and a different tense: present perfect (<strong>has been sent</strong>), past perfect (<strong>had been cancelled</strong>), future (<strong>will be announced</strong>), present simple and past simple. After each piece of news, I will report it to a colleague using reported speech, for example "She said the report <strong>had been sent</strong>." Wait for my answer. Correct my tenses (has been → had been, will be → would be) and my time words (tomorrow → the next day). At the end, give me my score out of 5 and my 2 most common mistakes.</div>
+        <button class="ai-copy-btn" id="hw3-btn" onclick="copyAiPrompt('hw3-prompt','hw3-btn')">📋 Copy Prompt</button>
+      </div>
+      <p style="color:rgba(255,255,255,.85);font-size:1.05rem;line-height:1.65;margin-top:14px;">🎯 Goal: keep the passive and reported speech apart, and use them together without stopping to think.</p>
+      <div style="margin-top:18px;">
+        <a href="Lesson_04_Checking_Information_Full_Meeting.html" style="color:#fff;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.4);padding:10px 22px;border-radius:22px;text-decoration:none;font-weight:700;font-size:1.05rem;">Next lesson →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <!-- ══ BOTTOM NAV BAR ══ -->
 <div id="nav">
   <button id="prevBtn" onclick="goTo(current-1)" disabled>← Prev</button>
   <div id="dots"></div>
-  <span id="counter">1 / 19</span>
+  <span id="counter">1 / 22</span>
   <button id="nextBtn" onclick="goTo(current+1)">Next →</button>
 </div>
 
 <script>
 /* ═══ SLIDE IDS & LABELS ═══ */
-var slideIds = ["s1", "e1", "x1", "e2", "x2", "hwp", "e3", "x4", "x3", "sp2", "r1", "r2", "r3", "sp3", "c1", "r4", "b1", "b2", "sp4"];
-var slideLabels = ["Cover", "Active vs. Passive Voice", "Active or Passive?", "How to Form the Passive", "Complete with the Passive", "Home Practice: Present Perfect vs. Past Perfect (with AI)", "When Can We Use the Passive?", "Can It Be Passive?", "Rewrite in the Passive", "Speaking: How Does It Work Here?", "Reported Speech: Quick Recap", "Choose the Correct Reported Form", "Report What Was Said", "Speaking: The Message Relay", "How to Tell Them Apart", "Passive Voice or Reported Speech?", "Passive Voice Inside Reported Speech", "Report These Passive Sentences", "Speaking: You Missed the Meeting!"];
+var slideIds = ["s1", "e1", "x1", "e2", "x2", "hwp", "e3", "x4", "x3", "sp2", "r1", "r2", "r3", "sp3", "c1", "r4", "b1", "b2", "sp4", "hw1", "hw2", "hw3"];
+var slideLabels = ["Cover", "Active vs. Passive Voice", "Active or Passive?", "How to Form the Passive", "Complete with the Passive", "Home Practice: Present Perfect vs. Past Perfect (with AI)", "When Can We Use the Passive?", "Can It Be Passive?", "Rewrite in the Passive", "Speaking: How Does It Work Here?", "Reported Speech: Quick Recap", "Choose the Correct Reported Form", "Report What Was Said", "Speaking: The Message Relay", "How to Tell Them Apart", "Passive Voice or Reported Speech?", "Passive Voice Inside Reported Speech", "Report These Passive Sentences", "Speaking: You Missed the Meeting!", "Homework 1: Perfect Tenses in the Passive", "Homework 2: Write a Short Incident Report", "Homework 3: The Meeting You Missed (AI)"];
 
 /* ═══ NAVIGATION ═══ */
 var slides, dotsEl, current = 0;
@@ -1223,6 +1281,19 @@ function spShow(id,k,btn,label){
   btn.textContent=on?'🙈 Hide':label;
 }
 
+/* ═══ HW1 — Perfect tenses in the passive (typed) ═══ */
+var hw1Items=[
+ {tag:'Active',src:'The finance team has approved the budget.',label:'Passive:',ans:['the budget has been approved','the budget has been approved by the finance team'],model:'The budget has been approved (by the finance team).',exp:'Present perfect: <em>has been + approved</em>.'},
+ {tag:'Active',src:'The client had cancelled the order before we shipped it.',label:'Passive:',ans:['the order had been cancelled before we shipped it','the order had been canceled before we shipped it','the order had been cancelled by the client before we shipped it','the order had been canceled by the client before we shipped it'],model:'The order had been cancelled (by the client) before we shipped it.',exp:'Past perfect: <em>had been + cancelled</em>. It happened before we shipped it.'},
+ {tag:'Active',src:'They had already closed the office when I arrived.',label:'Passive:',ans:['the office had already been closed when i arrived','the office had already been closed by them when i arrived'],model:'The office had already been closed when I arrived.',exp:'Past perfect: <em>had (already) been + closed</em>.'},
+ {tag:'Active',src:'Someone has left the window open.',label:'Passive:',ans:['the window has been left open','the window has been left open by someone'],model:'The window has been left open.',exp:'Present perfect: <em>has been + left</em>. Irregular participle: leave → left.'},
+ {tag:'Active',src:'HR has sent the invitations.',label:'Passive:',ans:['the invitations have been sent','the invitations have been sent by hr'],model:'The invitations have been sent (by HR).',exp:'Present perfect, plural subject: <em>have been + sent</em>.'},
+ {tag:'Active',src:'Our team had finished the report before the deadline.',label:'Passive:',ans:['the report had been finished before the deadline','the report had been finished by our team before the deadline'],model:'The report had been finished (by our team) before the deadline.',exp:'Past perfect: <em>had been + finished</em>.'}
+];
+function buildHW1(){ ptBuild('hw1','hw1-rows',hw1Items,'hw1-result','<div class="pt-src"><span class="pt-tag">Active</span>Someone has cleaned the kitchen.</div><div class="pt-ans"><span class="pt-label">Passive:</span><strong>The kitchen has been cleaned.</strong></div>'); }
+function checkHW1(){ ptCheck('hw1'); }
+function resetHW1(){ buildHW1(); }
+
 /* ═══ INIT ═══ */
 window.addEventListener('DOMContentLoaded',function(){
   slides=slideIds.map(function(id){ return document.getElementById(id); });
@@ -1233,7 +1304,7 @@ window.addEventListener('DOMContentLoaded',function(){
     d.onclick=function(){ goTo(i); };
     dotsEl.appendChild(d);
   });
-  spBuild("sp2"); spBuild("sp3"); spBuild("sp4"); buildX1(); buildX2(); buildX3(); buildX4(); buildR2(); buildR3(); buildR4(); buildB2();
+  spBuild("sp2"); spBuild("sp3"); spBuild("sp4"); buildX1(); buildX2(); buildX3(); buildX4(); buildR2(); buildR3(); buildR4(); buildB2(); buildHW1();
   goTo(0);
 });
 </script>
